@@ -1,2 +1,2 @@
-# metodos_numericos_com_python
+# Métodos Numercos em Python
 Caderno didático para aulas práticas de métodos numéricos computacionais
