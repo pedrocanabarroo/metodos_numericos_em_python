@@ -1,0 +1,806 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2.1 Localização de raízes &#8212; Caderno didático de Métodos Numéricos em Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '2_ZEROS_DE_FUNCOES/2.1_localizacao_de_raizes';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.2. Método da bisseção" href="2.2_metodo_da_bissecao.html" />
+    <link rel="prev" title="1.4 Exemplos aplicados" href="../1_INTRODUCAO_ERROS/1.4_exemplos_aplicados.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/capa.png" class="logo__image only-light" alt="Caderno didático de Métodos Numéricos em Python - Home"/>
+    <script>document.write(`<img src="../_static/capa.png" class="logo__image only-dark" alt="Caderno didático de Métodos Numéricos em Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Métodos Numéricos em Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">1. Introdução e erros</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.1_o_basico_sobre_erros.html">1.1 O básicos sobre erros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.2_aritmetica_de_ponto_flutuante.html">1.2. Aritmética de ponto flutuante</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.3_erros_nas_aproximacoes_numericas.html">1.3 Erros nas aproximações numéricas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.4_exemplos_aplicados.html">1.4 Exemplos aplicados</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">2. Zeros de funções</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2.1 Localização de raízes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.2_metodo_da_bissecao.html">2.2. Método da bisseção</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.3_metodo_do_ponto_fixo.html">2.3 Método do ponto fixo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.4_metodo_de_newton_raphson.html">2.4 Método de Newton-Raphson</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.5_metodo_das_secantes.html">3.5 Método das Secantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.6_raizes_de_polinomios.html">2.6. Raízes de polinômios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.7_estudos_de_caso.html">2.7 Estudo de casos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.1_forma_matricial.html">3.1. Forma matricial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos diretos: decomposição LU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.3_gauss-jordan_e_matriz_inversa.html">3.3 Eliminação de Gauss-Jordan e matriz inversa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.4_metodos_iterativos.html">3.4 Métodos iterativos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">4.Interpolação polinomial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html">4.1. Intepolação polinomial e fórmula de Lagrange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.2_interpolacao_de_newton.html">4.2 Fórmula de Newton</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.3_erro_na_interpolacao_polinomial.html">4.3. Erros na interpolação</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">5. Ajuste por minimos quadrados</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.1_minimos_quadrados_discreto.html">5.1 Minimos quadrados: caso discreto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.2_ajuste_linear_nos_parametros.html">5.2 Ajuste linear nos parâmetros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.3_ajuste_nao_linear_e_linearizacao.html">5.3 Ajuste não linear e linearização</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">6.Integração Numérica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.1_integracao_numerica.html">6.1 Integração Numérica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.2_metodo_de_newton_cotes.html">6.2 Regras de Newton-Cotes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.3_regra_dos_trapezios.html">6.3 Regra dos trapézios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.4_regras_de_simpson.html">6.4 Regras de Simpson</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/tiagoburiol/NUMETHODS" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/tiagoburiol/NUMETHODS/issues/new?title=Issue%20on%20page%20%2F2_ZEROS_DE_FUNCOES/2.1_localizacao_de_raizes.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/2_ZEROS_DE_FUNCOES/2.1_localizacao_de_raizes.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>2.1 Localização de raízes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Localização de Raízes</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="localizacao-de-raizes">
+<h1>2.1 Localização de raízes<a class="headerlink" href="#localizacao-de-raizes" title="Link to this heading">#</a></h1>
+<p>Em ciências e engenharias frequentemente a solução de um problema real é obtida resolvendo uma equação em uma variável real, a qual sempre pode ser escrita na forma
+$<span class="math notranslate nohighlight">\(f(x)=0\)</span>$</p>
+<p>Dada uma função <span class="math notranslate nohighlight">\(f:R \rightarrow R\)</span> dizemos que <span class="math notranslate nohighlight">\(\overline{x} \in R\)</span>, tal que <span class="math notranslate nohighlight">\(f(\overline{x})=0\)</span> é um <em>zero</em> (ou <em>raiz</em>) da função <span class="math notranslate nohighlight">\(f\)</span>. Graficamente, uma raíz é o ponto onde a função <span class="math notranslate nohighlight">\(f(x)\)</span> cruza ou toca o eixo <span class="math notranslate nohighlight">\(x\)</span>. Uma equação <span class="math notranslate nohighlight">\(f(x)=0\)</span> pode não ter solução (raiz real), ter uma única raiz ou várias.</p>
+<p><img alt="raizes.jpg" src="https://github.com/tiagoburiol/NUMETHODS/raw/master/3_ZEROS_DE_FUNCOES/images/raizes.jpg" /></p>
+<p>Quando a equação é simples, o valor de <span class="math notranslate nohighlight">\(x\)</span> pode ser determinado analiticamente. Esse é o caso quando se escreve <span class="math notranslate nohighlight">\(x\)</span> explicitamente após a aplicação de operações matemáticas, ou quando uma fórmula conhecida (como a fórmula de Bháskara para resolução de equações quadráticas) pode ser usada para determinar o valor exato de <span class="math notranslate nohighlight">\(x\)</span>. Em muitas situações, no entanto, é impossível determinar analiticamente a raiz de uma equação.</p>
+<p>Por exemplo, é relativamente fácil obter analiticamente as raízes das equações</p>
+<p>a) <span class="math notranslate nohighlight">\(2.1x-47.3 = 0\)</span></p>
+<p>b) <span class="math notranslate nohighlight">\(x^2+2x-3 = 0\)</span></p>
+<p>c) <span class="math notranslate nohighlight">\(senx-x = 0\)</span></p>
+<p>Já para as equações a seguir é preferível utilizar-se de métodos numéricos</p>
+<p>a) <span class="math notranslate nohighlight">\(xe^x-2 = 0\)</span></p>
+<p>b) <span class="math notranslate nohighlight">\(cos3\theta-sen\theta =0\)</span></p>
+<p>c) <span class="math notranslate nohighlight">\(2.1^x+5.7x=0\)</span></p>
+<p><strong>Exemplo 2.1.1:</strong>
+Em termodinâmica, sob determinadas condições, a relação entre o calor <span class="math notranslate nohighlight">\(Q\)</span> fornecido a um gás e sua variação de temperatura <span class="math notranslate nohighlight">\(T_f - T_i\)</span> é dada por</p>
+<div class="math notranslate nohighlight">
+\[ Q = nR \left[ A (T_f-T_i)+ \frac{B}{2}(T_f^2-T_i^2) + \frac{C}{3}(T_f^3-T_i^3) \right].\]</div>
+<p>Para o gás metano tem-se <span class="math notranslate nohighlight">\(R=8,314 J/mol.K\)</span>, <span class="math notranslate nohighlight">\(A=1,702\)</span>, <span class="math notranslate nohighlight">\(B=9,081 \times 10^{-3}K^{-1}\)</span>, <span class="math notranslate nohighlight">\(C=-2,164 \times 10^{-6} K^{-2}\)</span>.</p>
+<p>Considere o problema de calcular a temperatura final <span class="math notranslate nohighlight">\(T_f\)</span> se <span class="math notranslate nohighlight">\(20 kJ\)</span> de energia que é absorvido pelo gás, supondo estar contido em uma uma câmara com <span class="math notranslate nohighlight">\(n=2 mol\)</span> de metano a temperatura <span class="math notranslate nohighlight">\(T_i = 300 K\)</span>.</p>
+<p><strong>Exemplo 2.1.2:</strong>
+A área do segmento <span class="math notranslate nohighlight">\(A_S\)</span> de um círculo de raio <span class="math notranslate nohighlight">\(r\)</span> (ver figura abaixo) é dada por <span class="math notranslate nohighlight">\(A_S=\frac{1}{2}r^2(\theta-sen\theta).\)</span></p>
+<img src="imagens/circulo_de_raio_r.png" width="100">
+<p>Para se determinar o ângulo <span class="math notranslate nohighlight">\(\theta\)</span> se <span class="math notranslate nohighlight">\(A_S\)</span> e <span class="math notranslate nohighlight">\(r\)</span> são conhecidos, a equação deve ser resolvida para <span class="math notranslate nohighlight">\(\theta\)</span>. Obviamente, não é possível escrever <span class="math notranslate nohighlight">\(\theta\)</span> explicitamente em termos de <span class="math notranslate nohighlight">\(A_S\)</span> e <span class="math notranslate nohighlight">\(r\)</span>, portanto, a equação não pode ser resolvida analiticamente.</p>
+<p><strong>Exemplo 2.1.3:</strong> Seja uma esfera de madeira de raio <span class="math notranslate nohighlight">\(r\)</span> colocada a flutuar sobre a água conforme figura. Qual é a altura <span class="math notranslate nohighlight">\(d\)</span> da esfera que ficará submersa?</p>
+<p><img alt="esfera.png" src="data:image/png;base64,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nb5//34XF5emtrikqEAIsdlsJSWl+loUFBSIlgrQAoKE16KjUeHk5ERMhRcVFZmZmR08eLCpG01zqeCz62lDVNTW1gYGBhobG/P5cSRIBdGpU6e4VEyePJnNZouWCtACgoTRorS0VKD7W7QnKrg7l4cPHxoZGd27d6/xjeHaDRU4jsfExGzatOn+/fs8738nJVQghFJSUrha3Lp1S+RUgBYQJIwWrq6u5N857Y8KbhUVFceOHVu3bl39q020Dyo+fvyYmpp68uRJGxub79+/89/1S5wK4mG5104/duyYyKkALSBIGC3I399CUCoqKiraChXccnJyVq9evXv37sTExPZBRXh4uIuLy/r165vd50oJFUTnz5/HMKx79+7kd+vkqQAtIEgYLUi+czoCFdySkpJMTU0PHz4cGBjYpqmws7MzNzcnc69yqaICIZSYmIhh2P79+8VBBWgBQeLSokNRgRBiMBjXrl2LjIy0srLaunXrkydP+B/XkSoqOBzOhw8fDh8+bGVllZaWRvKfSBUVOI7fvn27V69eJOegBKUCtIAgsWjRAamov3xOTo6NjY2pqemNGzeysrKkmYr8/PyAgID169cfPHjww4cP5Hf90kYFcVjb2dmZz9F4oanAcdzf3x+0gCARa9HBqeBWW1sbEhIyb968/fv3P378uLKyUnqoqK6u/vDhw6VLl4yMjB4/fnzlypWysjLxUeHh4dEKVCCEyLwqhBhVBAQEfP78GbSAIFFqAVQ07tu3b87OztOnT7exsfH09Dxz5oykqCguLn79+rWjo6Oent7169ezs7OZTKarq2uboKK4uDgjIyMpKSkuLo575ZX6H8oLCwsjtnj9j+nl5uYihDIzM+t/kf+F6HlSATNRECRKLYAK/vvB1NTU48ePz58/f8eOHdevX3/+/HlxcbG4qSgrK4uKirp3756NjY2BgYGPj09ubi4xXcNmswWlwtXVVWgqGAxG/V02MUeXnZ1d/4uOjo45OTmvXr3ifsXAwID459HR0cHBwW/fvo2IiCA4EfmntflQAVpAkMi0ACr4x2QynZ2diet7V1ZWxsXFOTs76+npbdiw4eLFi3fv3n379u23b99aSEVCQkJeXl5MTExQUJCrq+uuXbtmz57t7OwcFxfHnQojapaKrKys+vvx8vJyV1fX69evc78yceJEYkk7OzvuF+3t7Ykvjhs3jvtFPncoEskEVCtQAVpAUFNREEJY02VkZAwcOJD7x4qKCl9fXwsLCxqNhpGosrLy7t27lpaWMjIyZJavqanx8PBYuXKlrKwsmeVra2vd3d0tLS3l5OTILM9gMNzc3FasWKGgoEBmeSaTeevWLfLLs1gsNze3pUuXdu7cucFf1dXV5efnf/36NSUl5c2bN0VFRVpaWj169OBwOOrq6r179+7SpQuNRpOTk5OTkyN+fBzH6+rqOBwOi8ViMBiVlZXFxcVhYWGFhYW5ubmdOnXq37//+vXrNTU1vby89u3bR3yjEydOHDhwAMOw+fPnBwYGEl988uSJvr4+g8Go/4NkZ2f37du3/pMkzjiaP3++srIymZ8Xx3EvLy89PT0VFRUyyyOEvL29p02b1rt3b5LLP3jwYOLEiX369CG5/MOHD7W0tAYMGICRKzAwcOjQoYMGDWrqNQ9BEJEAWgAVQlPBc79WXFzs5eU1fvx4GRmZwsLCysrKmpoaQgViMqekpIT4JBrRgwcPMjMzBw0a1KVLl549eyopKSkoKKirqzf1LYhjD0ZGRt26dSO56wcqQAsI4vceIzMTBRNQ5CegyMRisZydnRvMGvGJzWa7uLjwvzhH4wko8su38FiFmCag6k/ZiXsCCmaiIEgExy2ACqCig1ABWkCQ8FoAFZKlglgeqGgdKkALCBJeC6ACqOg4VIAWECSMFuXl5XQ6HagAKjoOFaAFBAmjhYuLC/l3DlDRtqgglgcqQAsIEoEWbDab5DsHqAAq2gcVoAUECaMFyXcOUNEWqeB/MZIOSwVoAUHi0qJ1qCC/PFABVLSECtACgsSiRQekwsnJCahox1QEBQWBFhAkYi2ACpFT4eTkBFRIlork5GTQAoJEqQVQIQ4qysvLgQrJUoFgJgqCRKgFUAFUtFcqQAsIEpkWQAVQ0Y6pAC0gSDRaABVARfumArSAIBFoAVQAFe2eCtACglqqBVABVHQEKkALCGqRFkAFGSoEWh6okE4qQAsIEl4LoAKo6DhUgBYQJLwWQAVQ0XGoAC0gSBgtKioq6HQ6UAFUdBwqQAsIEkYLZ2dn8u8coAKokH4q0tPTm10MtIAggbVgsVgk3zlABVDRPqgALSBIGC1IvnPaOhUMBuPq1atABVABWkCQGLUAKoCK9kQFaAFBYtFC2qgQghagAqio37Nnz0ALCBKxFkAFUNHOqHjx4kVSUhJoAUGi1AKoACraJRUIZqIgqIkoCCGs6QoKCqqrqzEI6jApKysrKSnBeoCghgnKC4wqYFTRXkcVEAQJP7aAIAiCIAzDqLAKIAiCINACgiAIAi0gCIIg0AKCIAgCLSAIgiDQAoIgCAItIAiCINACgiAIgkALCIIgSMD+D6WdnXf7BMCkAAAAAElFTkSuQmCC" /></p>
+<p>Para responder essa pergunta, observemos que, pelo <em>Princípio de Arquimedes</em> o peso da esfera deve ser equilibrado com o peso do volume de água deslocada, ou seja, <span class="math notranslate nohighlight">\(\mu_e V_e g = \mu_a V_a g\)</span> onde <span class="math notranslate nohighlight">\(g\)</span> é a aceleração da gravidade, <span class="math notranslate nohighlight">\(\mu_e\)</span> é a densidade relativa da madeira e <span class="math notranslate nohighlight">\(\mu_a\)</span> é a densidade relativa da água, <span class="math notranslate nohighlight">\(V_e\)</span> e <span class="math notranslate nohighlight">\(V_a\)</span> são os volumes. Essa equação nos leva a</p>
+<div class="math notranslate nohighlight">
+\[ \mu_e \frac{4 \pi r^3}{3} = \mu_a \int_0^d \pi \left[r^2-(x-r)^2) \right]dx \]</div>
+<div class="math notranslate nohighlight">
+\[ \mu_e \frac{4 \pi r^3}{3} = \mu_a \frac{\pi d^2 (3r-d)}{3}\]</div>
+<div class="math notranslate nohighlight">
+\[ 4 \mu_e r^3 = \mu_a d^2 (3r-d)\]</div>
+<p>substituindo os valores: <span class="math notranslate nohighlight">\(r=10 cm\)</span>  <span class="math notranslate nohighlight">\(\mu_e =0,638 g/cm^3\)</span> e <span class="math notranslate nohighlight">\(\mu_a=1 g/cm^3\)</span> obtemos</p>
+<div class="math notranslate nohighlight">
+\[ 1.047d^3-31.415d^2+2672.369=0\]</div>
+<p>Basta resolver essa equação para obter a resposta procurada. Embora a solução analítica para esse problema possa ser encontrada, não é tão simples. No entanto, com uma rotina num simples podemos encontrar uma boa aproximação numericamente.</p>
+<p><strong>Exemplo 2.1.4:</strong> Podemos utilizar uma abordagem numérica para obter soluções aproximadas de equações, vejamos por exemplo a equação <span class="math notranslate nohighlight">\(f(d) = 1.047d^3-31.415d^2+2672.369\)</span> do exemplo descrito anteriormente. Dos dados do problema, podemos inferir que a solução é um número entre 0 e 20, então, calculamos valores da função nesse intervalo e tentar encontrar uma aproximação. Buscamos o valor de <span class="math notranslate nohighlight">\(d\)</span> que anula a função <span class="math notranslate nohighlight">\(f\)</span>, então, observando os resultados na tabera abaixo, podemos concluir que a solução é um número entre 11 e 12 cm pois é o intervalo onde a função muda de sinal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">21</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mf">1.047</span><span class="o">*</span><span class="n">d</span><span class="o">**</span><span class="mi">3</span><span class="o">-</span><span class="mf">31.415</span><span class="o">*</span><span class="n">d</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mf">2672.369</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;f(&#39;</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;)=&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f( 0 )= 2672.369
+f( 1 )= 2642.001
+f( 2 )= 2555.085
+f( 3 )= 2417.903
+f( 4 )= 2236.737
+f( 5 )= 2017.869
+f( 6 )= 1767.581
+f( 7 )= 1492.155
+f( 8 )= 1197.873
+f( 9 )= 891.017
+f( 10 )= 577.869
+f( 11 )= 264.711
+f( 12 )= -42.175
+f( 13 )= -336.507
+f( 14 )= -612.003
+f( 15 )= -862.381
+f( 16 )= -1081.359
+f( 17 )= -1262.655
+f( 18 )= -1399.987
+f( 19 )= -1487.073
+f( 20 )= -1517.631
+</pre></div>
+</div>
+</div>
+</div>
+<p>Seguindo o mesmo procedimento mas agora incrementando o valor de <span class="math notranslate nohighlight">\(d\)</span> em 0.1 e calculando <span class="math notranslate nohighlight">\(f\)</span> para valores de <span class="math notranslate nohighlight">\(d\)</span> entre 11 e 12 observamos que a solução está entre <span class="math notranslate nohighlight">\(11.8\)</span> e <span class="math notranslate nohighlight">\(11.9\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">inc</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="mi">11</span><span class="o">+</span><span class="n">inc</span><span class="o">/</span><span class="mi">10</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mf">1.047</span><span class="o">*</span><span class="n">d</span><span class="o">**</span><span class="mi">3</span><span class="o">-</span><span class="mf">31.415</span><span class="o">*</span><span class="n">d</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mf">2672.369</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;f(&#39;</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;)=&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f( 11.0 )= 264.711
+f( 11.1 )= 233.637
+f( 11.2 )= 202.631
+f( 11.3 )= 171.701
+f( 11.4 )= 140.852
+f( 11.5 )= 110.091
+f( 11.6 )= 79.425
+f( 11.7 )= 48.858
+f( 11.8 )= 18.399
+f( 11.9 )= -11.948
+f( 12.0 )= -42.175
+</pre></div>
+</div>
+</div>
+</div>
+<p>Por fim, podemos tomar como solução aproximada o ponto médio entre <span class="math notranslate nohighlight">\(11.8\)</span> e <span class="math notranslate nohighlight">\(11.9\)</span>, ou seja, <span class="math notranslate nohighlight">\(d=11.85\)</span>. A precisão é de <span class="math notranslate nohighlight">\(0.05\)</span>.</p>
+<p><strong>Exemplo 2.1.5:</strong> (Usando a biblioteca SciPy)</p>
+<p>Encontrando a raiz de <span class="math notranslate nohighlight">\(A_S=\frac{1}{2}r^2(\theta-sen\theta)\)</span> com <span class="math notranslate nohighlight">\(r=1\)</span> e <span class="math notranslate nohighlight">\(A_s = 3.5\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">As</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">-</span><span class="mf">3.5</span>
+
+<span class="n">sol</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">As</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">sol</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[7.99067236]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Esses foram pequenos exemplos de como os métodos numéricos podem nos auxiliar a obter soluções aproximadas quando não é fácil ou possível obter soluções analíticas. Os métodos numéricos são utilizados para muitas outras situações, como resolver integrais definidas, sistemas lineares de grande porte, equações diferenciais, obter visualização de grandes conjuntos de dados, etc.</p>
+<section id="id1">
+<h2>Localização de Raízes<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>Como foi possível perceber, muitos problemas em ciências e engenharia envolvem a resolução de uma equação que pode ser colocada na forma</p>
+<div class="math notranslate nohighlight">
+\[f(x)=0\]</div>
+<p>Em alguns casos a solução exata <span class="math notranslate nohighlight">\(\overline{x}\)</span> pode ser encontrada por processos analíticos, quando isso não for possível, uma solução aproximada pode ser obtida por métodos numéricos. Em geral, esses métodos fornecem uma sequência de aproximações, obtidas por um processo iterativo que termina quando a precisão desejada é atingida.</p>
+<p>Graficamente as raízes da equação <span class="math notranslate nohighlight">\(f(x)=0\)</span> (ou zeros da função <span class="math notranslate nohighlight">\(f\)</span> correspondem aos pontos onde o gráfico de <span class="math notranslate nohighlight">\(f\)</span> intercepta o eixo <span class="math notranslate nohighlight">\(x\)</span>. Na figura abaixo, a função <span class="math notranslate nohighlight">\(f\)</span> possui 5 zeros representados por <span class="math notranslate nohighlight">\(\overline{x}_1\)</span>, <span class="math notranslate nohighlight">\(\overline{x}_2\)</span>, <span class="math notranslate nohighlight">\(\overline{x}_3\)</span>, <span class="math notranslate nohighlight">\(\overline{x}_4\)</span> e <span class="math notranslate nohighlight">\(\overline{x}_5\)</span>.</p>
+<p><img alt="localizacao.png" src="../_images/localizacao.png" /></p>
+<!---
+<img src="https://github.com/tiagoburiol/NUMETHODS/raw/master/3_ZEROS_DE_FUNCOES/images/localizacao.png" width="500">-->
+<p>Encontrar numericamente a raiz de uma equação requer duas etapas:</p>
+<ol class="arabic simple">
+<li><p>Isolar a raiz, ou seja, encontrar um intervalo <span class="math notranslate nohighlight">\([a,b]\)</span> contendo uma única raíz da equação <span class="math notranslate nohighlight">\(f(x)=0\)</span> e;</p></li>
+<li><p>Refinar o intervalo que contém a raíz até atingir a precisão desejada.</p></li>
+</ol>
+<p>Para isolar os zeros de uma função, podemos utilizar métodos gráficos ou testar valores numericamente. Um dos métodos gráficos consiste em rescrever a equação <span class="math notranslate nohighlight">\(f(x)=0\)</span> numa forma equivamente <span class="math notranslate nohighlight">\(f_1(x)=f_2(x)\)</span> e traçar os gráficos de <span class="math notranslate nohighlight">\(f_1\)</span> e <span class="math notranslate nohighlight">\(f_2\)</span> para verificar onde eles se interceptam. Outra abordagem seria atribuir valores arbitrários para a variável <span class="math notranslate nohighlight">\(x\)</span> e encontrar um par <span class="math notranslate nohighlight">\(a\)</span> e <span class="math notranslate nohighlight">\(b\)</span> tal que <span class="math notranslate nohighlight">\(f(a)\cdot f(b)&lt;0\)</span>.</p>
+<p><strong>Exemplo 2.1.6:</strong></p>
+<p>A equação <span class="math notranslate nohighlight">\(f(x)=e^x-sen(x)-2=0\)</span> pode ser escrita como <span class="math notranslate nohighlight">\(e^x=senx+2\)</span> então, esboçando os gráficos de <span class="math notranslate nohighlight">\(f_1(x)=e^x\)</span> e <span class="math notranslate nohighlight">\(f_2(x)=senx+2\)</span>, observamos que
+a raiz procurada está entre  <span class="math notranslate nohighlight">\(0.5\)</span> e <span class="math notranslate nohighlight">\(1.5\)</span>, como pode ser visto na figura abaixo
+<img src="https://github.com/tiagoburiol/NUMETHODS/raw/master/3_ZEROS_DE_FUNCOES/images/exemplo1.png" width="300"></p>
+<p>Também podemos fazer gráficos usando Python. Para isso precisamos da seguinte biblioteca:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A partir daí criamos uma lista de pontos para plotar, fica fácil fazer isso usando a função <em>arange</em> da biblioteca numpy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span> <span class="c1"># início, fim, passo</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-1.   -0.75 -0.5  -0.25  0.    0.25  0.5   0.75  1.    1.25  1.5   1.75
+  2.    2.25  2.5   2.75  3.    3.25  3.5   3.75  4.    4.25  4.5   4.75
+  5.    5.25  5.5   5.75]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Agora definimos as funções para obter os valores de <span class="math notranslate nohighlight">\(f1(x)\)</span> e <span class="math notranslate nohighlight">\(f2(x)\)</span>. Isso pode ser feito usando a função <code class="docutils literal notranslate"><span class="pre">lambda</span></code> ou <code class="docutils literal notranslate"><span class="pre">def</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Agora, basta plotar:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f1</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">,</span> <span class="n">f2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2daef026453c0fdb81f67477b0e3f188309357affc16974d02ca958aaa045192.png" src="../_images/2daef026453c0fdb81f67477b0e3f188309357affc16974d02ca958aaa045192.png" />
+</div>
+</div>
+<p><strong>Exemplo 2.1.7:</strong>
+Atribuindo valores para <span class="math notranslate nohighlight">\(x\)</span> e avaliando a função <span class="math notranslate nohighlight">\(f(x)=e^x-sen(x)-2\)</span> para esses valores obtemos:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>f(0.0) = -1.0000  
+f(0.5) = -0.8307  
+f(1.0) = -0.1232  
+f(1.5) = 1.4842 
+f(2.0) = 4.4798 
+f(2.5) = 9.5840 
+</pre></div>
+</div>
+<p>Como <span class="math notranslate nohighlight">\(f(1.0) \cdot f(1.5)&lt;0\)</span>, podemos concluir que existe pelo menos uma raíz entre <span class="math notranslate nohighlight">\(1.0\)</span> e <span class="math notranslate nohighlight">\(1.5\)</span>.</p>
+<p>Ainda, considerando essa mesma função, podemos verificar a existência de uma única raíz no intervalo <span class="math notranslate nohighlight">\([1.0, 1.5]\)</span> plotando seu gráfico</p>
+<img src="https://github.com/tiagoburiol/NUMETHODS/raw/master/3_ZEROS_DE_FUNCOES/images/exemplo2.png" width="300">
+<p>Em Python, podemos plotar os gráficos de <span class="math notranslate nohighlight">\(f_1(x)=e^x\)</span> e <span class="math notranslate nohighlight">\(f_2(x)=sen(x)+2\)</span> usando o seguinte script:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+
+<span class="n">f1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f1</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">,</span> <span class="n">f2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/1db0e81475a0454f532537fe5604f0892fd2773e1300fd3030ae0f2004ded703.png" src="../_images/1db0e81475a0454f532537fe5604f0892fd2773e1300fd3030ae0f2004ded703.png" />
+</div>
+</div>
+<p>Ou, então, plotar apenas o gráfico de <span class="math notranslate nohighlight">\(f(x)=e^x - sen(x) -2\)</span> usando o seguinte script:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9cc07f060c9c7bbda192b2fed53d1fabe14399163953cf6d24125917e39a90ea.png" src="../_images/9cc07f060c9c7bbda192b2fed53d1fabe14399163953cf6d24125917e39a90ea.png" />
+</div>
+</div>
+<p><strong>Exercícios:</strong></p>
+<p><strong>1.</strong> Localize graficamente e determine uma aproximação para as raízes reais das funções dadas.</p>
+<p>a) <span class="math notranslate nohighlight">\(f(x) = –0.5x^2 + 2.5x + 4.5\)</span></p>
+<p>b) <span class="math notranslate nohighlight">\(f(x) = 5x^2 – 5x^2 + 6x -2\)</span></p>
+<p>c) <span class="math notranslate nohighlight">\(f(x) = –25 + 82x – 90x^2 + 44x^3 – 8x^4 + 0.7x^5\)</span></p>
+<p>d) <span class="math notranslate nohighlight">\(f(x) = – 12 – 21x + 18x^2 – 2.75x^3\)</span></p>
+<p><strong>2.</strong> Determine um intervalo pequeno (de tamanho 0.1, por exemplo) que contenha as raízes reais das funções dadas.</p>
+<p>a) <span class="math notranslate nohighlight">\(f(x)=x-e^x=0\)</span></p>
+<p>b) <span class="math notranslate nohighlight">\(f(x)=\operatorname{sen}(x)+x^2+1=0\)</span></p>
+<p>c) <span class="math notranslate nohighlight">\(f(x)=\operatorname{sen}(x)-x+2=0\)</span></p>
+<p>d) <span class="math notranslate nohighlight">\(f(x)=2 x-\operatorname{tg}(x)=0\)</span></p>
+<p>e) <span class="math notranslate nohighlight">\(f(x)=3 x-\cos (x)+1=0\)</span></p>
+<p>f) <span class="math notranslate nohighlight">\(f(x)=\ln (x)-\operatorname{sen}(x)=0\)</span></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./2_ZEROS_DE_FUNCOES"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../1_INTRODUCAO_ERROS/1.4_exemplos_aplicados.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">1.4 Exemplos aplicados</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="2.2_metodo_da_bissecao.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2.2. Método da bisseção</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Localização de Raízes</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tiago M. Buriol
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
