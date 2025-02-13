@@ -79,10 +79,10 @@ plt.savefig('png/bolzano.png',dpi=300)
 ----- stderr -----
 <>:13: SyntaxWarning: invalid escape sequence '\o'
 <>:13: SyntaxWarning: invalid escape sequence '\o'
-/tmp/ipykernel_31054/3091409264.py:13: SyntaxWarning: invalid escape sequence '\o'
+/tmp/ipykernel_40130/3091409264.py:13: SyntaxWarning: invalid escape sequence '\o'
   ax.text(2.55,f(2.485)-0.8, "$\overline{x}$", style='italic')
 ----- stderr -----
-/tmp/ipykernel_31054/3091409264.py:13: SyntaxWarning: invalid escape sequence '\o'
+/tmp/ipykernel_40130/3091409264.py:13: SyntaxWarning: invalid escape sequence '\o'
   ax.text(2.55,f(2.485)-0.8, "$\overline{x}$", style='italic')
 ------------------
 
