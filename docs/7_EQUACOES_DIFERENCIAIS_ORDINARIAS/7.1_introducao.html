@@ -1,0 +1,713 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>7.1 Introdução &#8212; Caderno didático de Métodos Numéricos em Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.1_introducao';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/capa.png" class="logo__image only-light" alt="Caderno didático de Métodos Numéricos em Python - Home"/>
+    <script>document.write(`<img src="../_static/capa.png" class="logo__image only-dark" alt="Caderno didático de Métodos Numéricos em Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Métodos Numéricos em Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">1. Introdução e erros</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.1_o_basico_sobre_erros.html">1.1 O básicos sobre erros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.2_aritmetica_de_ponto_flutuante.html">1.2. Aritmética de ponto flutuante</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.3_erros_nas_aproximacoes_numericas.html">1.3 Erros nas aproximações numéricas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.4_exemplos_aplicados.html">1.4 Exemplos aplicados</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">2. Zeros de funções</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.1_localizacao_de_raizes.html">2.1 Localização de raízes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.2_metodo_da_bissecao.html">2.2. Método da bisseção</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.3_metodo_do_ponto_fixo.html">2.3 Método do ponto fixo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.4_metodo_de_newton_raphson.html">2.4 Método de Newton-Raphson</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">3.5 Método das Secantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.6_raizes_de_polinomios.html">2.6. Raízes de polinômios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.7_estudos_de_caso.html">2.7 Estudo de casos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.1_forma_matricial.html">3.1. Forma matricial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos diretos: decomposição LU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.3_gauss-jordan_e_matriz_inversa.html">3.3 Eliminação de Gauss-Jordan e matriz inversa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.4_metodos_iterativos.html">3.4 Métodos iterativos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">4.Interpolação polinomial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html">4.1. Intepolação polinomial e fórmula de Lagrange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.2_interpolacao_de_newton.html">4.2 Fórmula de Newton</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.3_erro_na_interpolacao_polinomial.html">4.3. Erros na interpolação</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">5. Ajuste por minimos quadrados</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.1_minimos_quadrados_discreto.html">5.1 Minimos quadrados: caso discreto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.2_ajuste_linear_nos_parametros.html">5.2 Ajuste linear nos parâmetros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.3_ajuste_nao_linear_e_linearizacao.html">5.3 Ajuste não linear e linearização</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">6.Integração Numérica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.1_integracao_numerica.html">6.1 Integração Numérica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.2_metodo_de_newton_cotes.html">6.2 Regras de Newton-Cotes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.3_regra_dos_trapezios.html">6.3 Regra dos trapézios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.4_regras_de_simpson.html">6.4 Regras de Simpson</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/tiagoburiol/metodos_numericos_em_python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/tiagoburiol/metodos_numericos_em_python/issues/new?title=Issue%20on%20page%20%2F7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.1_introducao.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.1_introducao.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>7.1 Introdução</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-de-valor-inicial-pvi">Problema de valor Inicial (PVI)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicao">Definição</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discretizacao">Discretização</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="introducao">
+<h1>7.1 Introdução<a class="headerlink" href="#introducao" title="Link to this heading">#</a></h1>
+<p>As leis fundamentais da física, mecânica, eletrônica e termodinâmica, em geral, são baseadas em observações empíricas que explicam a variação das propriedades físicas e dos estados dos sistemas. Em vez de descrever os estados de sistemas físicos diretamente, as leis geralmente são dadas em termos de variações espaciais e temporais.</p>
+<p>Diversos exemplos estão listados na tabela a seguir. Essas leis definem mecanismos de variação. Quando combinadas com as leis de continuidade da energia, da massa e do momento, produzem equações diferenciais. A integração subsequente dessas equações diferenciais resulta em funções matemáticas que descrevem o estado espacial e temporal de um sistema em termos da variação de energia, massa ou velocidade (Chapra e Canale, 2016).</p>
+<p>A importância dos métodos numéricos para a resolução de equações diferenciais ordinárias (EDOs) deve-se ao fato de que essas equações ocorrer com frequência em modelos matemáticos com aplicação em diferentes situações práticas, nas áreas de engenharia, física, biologia, economia, biomedicina, etc.</p>
+<p>Tipicamente, problemas que relacionam funções de uma variável e suas derivadas levam a uma equação diferencial ordinária. Métodos numéricos são utilizados para resolução dessas equações diferenciais, pois com frequência soluções exatas não são possíveis, ou muito difícil de serem determinadas.</p>
+<p>Uma equação diferencial ordinária é uma equação que relaciona uma função de uma variável, <span class="math notranslate nohighlight">\(y(x)\)</span> e suas derivadas, sendo <span class="math notranslate nohighlight">\(x\)</span> a variável independente e $y(x)4 a função incógnita.</p>
+<p>A ordem de uma equação diferencial é determinada pela mais alta ordem da derivada da função <span class="math notranslate nohighlight">\(y(x)\)</span> presente na equação. As equações a seguir são exemplos de equações diferenciais ordinárias. Temos as seguintes notações usuais:</p>
+<div class="math notranslate nohighlight">
+\[y'= \frac{dy}{dx}, \,\,\,  y''= \frac{d^2y}{dx^2}, \,\,\,... \]</div>
+<p>Por exemplo:</p>
+<p><span class="math notranslate nohighlight">\( \frac{dy}{dx} = 3x-1\)</span> é uma EDO de ordem 1</p>
+<p><span class="math notranslate nohighlight">\( y' = -xy\)</span> é uma EDO de ordem 1</p>
+<p><span class="math notranslate nohighlight">\( \frac{d^2y}{dx^2} = x^2-y+e^x\)</span> é uma EDO de ordem 2</p>
+<p><span class="math notranslate nohighlight">\( y'' -4y' + 3y = x\)</span> é uma EDO de ordem 2</p>
+<p>Resolver uma equação diferencial consiste em determinar uma função 𝑦(𝑥) que satisfaça a equação.</p>
+<p><strong>Exemplos</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Precisamos importar as bibliotecas</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>1.</strong> A equação diferencial <span class="math notranslate nohighlight">\(y' = -x y\)</span> tem solução <span class="math notranslate nohighlight">\( y = c \, e^{\frac{-x^2}{2}}\)</span> com <span class="math notranslate nohighlight">\(c\)</span> constante, pois</p>
+<div class="math notranslate nohighlight">
+\[ y' = c \, e^{\frac{-x^2}{2}}(-x) = -xy\]</div>
+<p>ou seja, a função <span class="math notranslate nohighlight">\(y(x)\)</span> satisfaz a equação.</p>
+<p>Podemos observar que esta equação apresenta infinitas soluções, pois, para cada valor diferente de <span class="math notranslate nohighlight">\(c\)</span> temos uma solução diferente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="mi">1</span><span class="o">*</span><span class="n">y</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> 
+         <span class="n">X</span><span class="p">,</span><span class="mf">1.5</span><span class="o">*</span><span class="n">y</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> 
+         <span class="n">X</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> 
+         <span class="n">X</span><span class="p">,</span><span class="mf">2.5</span><span class="o">*</span><span class="n">y</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> 
+         <span class="n">X</span><span class="p">,</span><span class="mi">3</span><span class="o">*</span><span class="n">y</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> 
+         <span class="n">X</span><span class="p">,</span><span class="mf">0.5</span><span class="o">*</span><span class="n">y</span><span class="p">(</span><span class="n">X</span><span class="p">),</span>
+         <span class="n">X</span><span class="p">,</span><span class="mf">0.2</span><span class="o">*</span><span class="n">y</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2ce3bc5285ec9b7e4b9e6c7a35987b46760ef0a6f9f649e22c969fcdb915a335.png" src="../_images/2ce3bc5285ec9b7e4b9e6c7a35987b46760ef0a6f9f649e22c969fcdb915a335.png" />
+</div>
+</div>
+<p><strong>2.</strong> A equação diferencial <span class="math notranslate nohighlight">\(\frac{du}{dt} = t + 2\)</span> tem solução obtida facilmente integrando ambos os lados fazendo</p>
+<div class="math notranslate nohighlight">
+\[ \int \frac{du}{dt}  = \int (t+2)dt \]</div>
+<div class="math notranslate nohighlight">
+\[ u(t) = \frac{t^2}{2}+2t+k\]</div>
+<p>em que <span class="math notranslate nohighlight">\(k\)</span> é a constante de integração. Nesse caso a família de soluções, para <span class="math notranslate nohighlight">\(k=\{-1,0,1,5,10,15, 20\}\)</span> pode ser visualizada como é mostrado abaixo.a</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="p">(</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">u</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> 
+         <span class="n">t</span><span class="p">,</span><span class="n">u</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">0</span><span class="p">,</span> 
+         <span class="n">t</span><span class="p">,</span><span class="n">u</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>
+         <span class="n">t</span><span class="p">,</span><span class="n">u</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="mi">5</span><span class="p">,</span> 
+         <span class="n">t</span><span class="p">,</span><span class="n">u</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="mi">10</span><span class="p">,</span>
+         <span class="n">t</span><span class="p">,</span><span class="n">u</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="mi">15</span><span class="p">,</span>
+         <span class="n">t</span><span class="p">,</span><span class="n">u</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="mi">20</span><span class="p">,)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/770e06c19dfe8594d2c0ef576d8e19cff7c2c179e532a0314edbdfda6544578b.png" src="../_images/770e06c19dfe8594d2c0ef576d8e19cff7c2c179e532a0314edbdfda6544578b.png" />
+</div>
+</div>
+<p>Se impomos uma condição, como por exemplo <span class="math notranslate nohighlight">\(u(0)= 8\)</span>, obtemos o valor <span class="math notranslate nohighlight">\(k=8\)</span>, que restringe a solução a uma única curva e não mais à uma família de curvas. Uma equação diferencial com condições iniciais como essa compõem o que chamamos de um <em>problema de valor inicial</em> (PVI).</p>
+<p>Ou seja, o problema de valor inicial descrito acima pode ser enunciado como</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{cases} 
+\frac {du}{dt}= t+2\\ 
+\\
+u(0)=8
+\end{cases}\end{split}\]</div>
+<p><strong>Usando Scipy</strong></p>
+<p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#scipy.integrate.solve_ivp">https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#scipy.integrate.solve_ivp</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">du</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span> <span class="k">return</span> <span class="n">t</span><span class="o">+</span><span class="mi">2</span>  
+<span class="n">t0</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">tf</span> <span class="o">=</span> <span class="mf">5.0</span>
+<span class="n">u0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+<span class="n">ti</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span><span class="n">tf</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">du</span><span class="p">,</span> <span class="p">(</span><span class="n">t0</span><span class="p">,</span><span class="n">tf</span><span class="p">),</span> <span class="n">u0</span><span class="p">,</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">ti</span><span class="p">)</span>
+<span class="n">sol</span><span class="o">.</span><span class="n">y</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 8.        ,  8.56094183,  9.19113573,  9.89058172, 10.65927978,
+        11.49722992, 12.40443213, 13.38088643, 14.4265928 , 15.54155125,
+        16.72576177, 17.97922438, 19.30193906, 20.69390582, 22.15512465,
+        23.68559557, 25.28531856, 26.95429363, 28.69252078, 30.5       ]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ti</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;rx&#39;</span><span class="p">,</span> <span class="n">ti</span><span class="p">,</span> <span class="n">u</span><span class="p">(</span><span class="n">ti</span><span class="p">)</span><span class="o">+</span><span class="n">u0</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e00b4f73296fd640ba5040c6076c783bad988eb2ba0a334f8cd575b66a127bbc.png" src="../_images/e00b4f73296fd640ba5040c6076c783bad988eb2ba0a334f8cd575b66a127bbc.png" />
+</div>
+</div>
+<p>E existência e unicidade da solução de um PVI é garantida, sob certas condições, pelos teoremas <em>Condição de Lipschits</em>, <em>Pincard-Lindelof</em> e <em>Dependência contínua na condição inicial</em> enunciados e demonstrados em Medeiros e Oliveira (2020, p.24, <a class="reference external" href="http://www.mat.ufpb.br/milton/disciplinas/edo/livro_edo.pdf">http://www.mat.ufpb.br/milton/disciplinas/edo/livro_edo.pdf</a>)</p>
+<section id="problema-de-valor-inicial-pvi">
+<h2>Problema de valor Inicial (PVI)<a class="headerlink" href="#problema-de-valor-inicial-pvi" title="Link to this heading">#</a></h2>
+<p>Considere a equação diferencial ordinária, <span class="math notranslate nohighlight">\(y' = y\)</span>, cuja solução é dada por <span class="math notranslate nohighlight">\(y(x)=ce^x\)</span> <span class="math notranslate nohighlight">\(c\in R\)</span>.</p>
+<p>Assim, a equação diferencial dada apresenta infinitas soluções, uma vez que, para cada valor escolhido para a constante <span class="math notranslate nohighlight">\(c\)</span>, temos uma solução, como, por exemplo, <span class="math notranslate nohighlight">\(y(x)=c_0e^x\)</span>,<span class="math notranslate nohighlight">\(y(x)=c_1e^x\)</span>,<span class="math notranslate nohighlight">\(y(x)=c_2e^x\)</span>,sendo <span class="math notranslate nohighlight">\(c_0\)</span>, <span class="math notranslate nohighlight">\(c_1\)</span> , <span class="math notranslate nohighlight">\(c_2\)</span> valores fixados,conforme exibido na figura abaixo.</p>
+<img src="https://github.com/tiagoburiol/NUMETHODS/raw/master/8_SOLUCAO_NUMERICA_DE_EDOs/imagens/pvi01.png" width="560">
+<p>Se considerarmos que conhecemos o valor da função <span class="math notranslate nohighlight">\(y(x)\)</span> em um ponto, isto é, <span class="math notranslate nohighlight">\(x = x_0\)</span> , o valor de <span class="math notranslate nohighlight">\(y(x)\)</span> é <span class="math notranslate nohighlight">\(y(x_0) = y_0\)</span> e temos uma única solução para a equação proposta. Esta solução única é obtida quando usamos a solução geral da equação diferencial
+no ponto <span class="math notranslate nohighlight">\(x = x_0\)</span> e obtemos o valor da constante <span class="math notranslate nohighlight">\(c\)</span>, como segue: $<span class="math notranslate nohighlight">\(y(x_0)=y_0\)</span><span class="math notranslate nohighlight">\( 
+então 
+\)</span><span class="math notranslate nohighlight">\(ce^{x_0} = y_0\)</span><span class="math notranslate nohighlight">\( 
+logo 
+\)</span><span class="math notranslate nohighlight">\(c=y_0e^{0-x_0}\)</span>$</p>
+<p>Assim, a solução única para a equação diferencial é dada por:</p>
+<div class="math notranslate nohighlight">
+\[y(x) = ce^x = y_0 e^{-x_0} e^x = y_0e^{(x-x_0)}\]</div>
+<p>Portanto, <span class="math notranslate nohighlight">\(y(x) = y_0 e^{(x-x_0)}\)</span>, conforme exibido na figura.</p>
+</section>
+<section id="definicao">
+<h2>Definição<a class="headerlink" href="#definicao" title="Link to this heading">#</a></h2>
+<p>Um Problema de Valor Inicial (PVI) de primeira ordem consiste de uma equação diferencial <span class="math notranslate nohighlight">\(y' = f (x,y)\)</span>, <span class="math notranslate nohighlight">\(x \geq x_0\)</span> e uma condição inicial <span class="math notranslate nohighlight">\(y(x_0) = y_0\)</span>, em que <span class="math notranslate nohighlight">\(y_0\)</span> é um valor dado, chamado de valor inicial.</p>
+<p>Neste caso, podemos escrever o PVI da seguinte forma:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{cases} 
+y'= f(x,y)\\ 
+\\
+y(x_0)=y_0
+\end{cases}\end{split}\]</div>
+<p>Resolver o PVI consiste em determinar uma função <span class="math notranslate nohighlight">\(y(x)\)</span> que satisfaça a equação diferencial <span class="math notranslate nohighlight">\(y' = f (x,y)\)</span> e a condição inicial <span class="math notranslate nohighlight">\(y(x_0) = y_0\)</span>.</p>
+<p>Se a função <span class="math notranslate nohighlight">\(f\)</span> e <span class="math notranslate nohighlight">\( \frac{\partial f}{\partial y}\)</span> são contínuas, temos que o PVI apresenta solução única.</p>
+</section>
+<section id="discretizacao">
+<h2>Discretização<a class="headerlink" href="#discretizacao" title="Link to this heading">#</a></h2>
+<p>Resolver numericamente um PVI consiste em calcular aproximações para <span class="math notranslate nohighlight">\(y = y(x)\)</span> em pontos discretos <span class="math notranslate nohighlight">\(x_0,x_1,x_2,...,x_N\)</span> de um intervalo <span class="math notranslate nohighlight">\([a,b]\)</span>.</p>
+<p>Para discretizar o intervalo <span class="math notranslate nohighlight">\([a,b]\)</span>, tomamos <span class="math notranslate nohighlight">\(N\)</span> subintervalos <span class="math notranslate nohighlight">\((N \geq 1)\)</span> e fazemos <span class="math notranslate nohighlight">\(x_n = x_0 + nh\)</span>, <span class="math notranslate nohighlight">\(n = 0,1,2,...,N\)</span> com <span class="math notranslate nohighlight">\(x_0 =a\)</span> e <span class="math notranslate nohighlight">\(x_N =b\)</span>,sendo <span class="math notranslate nohighlight">\(h = (x_N −x_0)/N\)</span>.</p>
+<p>A este conjunto de pontos <span class="math notranslate nohighlight">\(x_0,x_1,x_2,...,x_N\)</span> denominamos rede ou malha de pontos discretos, e calculamos aproximações para a função <span class="math notranslate nohighlight">\(y(x)\)</span> nestes pontos, isto é, determinamos <span class="math notranslate nohighlight">\(y_n\)</span> tal que <span class="math notranslate nohighlight">\(y_n \approx y(x_n)\)</span>, <span class="math notranslate nohighlight">\(n=0,1,...,N\)</span>.</p>
+<p>A partir de um ponto inicial dado <span class="math notranslate nohighlight">\(y(x_0) = y_0\)</span> (valor inicial), calculamos passo a passo, nos pontos</p>
+<p><span class="math notranslate nohighlight">\(x_1 = x_0 +h\)</span>,</p>
+<p><span class="math notranslate nohighlight">\(x_2 = x_0 +2h\)</span>,</p>
+<p><span class="math notranslate nohighlight">\(x_3 = x_0 +3h\)</span></p>
+<p>,…,</p>
+<p><span class="math notranslate nohighlight">\(x_n = x_0 +nh\)</span>,</p>
+<p>soluções aproximadas <span class="math notranslate nohighlight">\(y_n\)</span> para a solução exata <span class="math notranslate nohighlight">\(y(x_n)\)</span>, <span class="math notranslate nohighlight">\(n=0,1,2,...,N\)</span>, conforme ilustrado na figura a seguir.</p>
+<img src="https://github.com/tiagoburiol/NUMETHODS/raw/master/8_SOLUCAO_NUMERICA_DE_EDOs/imagens/discretizacao.png" width="560"></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./7_EQUACOES_DIFERENCIAIS_ORDINARIAS"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-de-valor-inicial-pvi">Problema de valor Inicial (PVI)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicao">Definição</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discretizacao">Discretização</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tiago M. Buriol
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

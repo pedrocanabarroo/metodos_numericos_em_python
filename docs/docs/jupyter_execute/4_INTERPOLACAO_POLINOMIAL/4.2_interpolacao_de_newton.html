@@ -1,0 +1,1033 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4.2 Fórmula de Newton &#8212; Caderno didático de Métodos Numéricos em Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/jupyter_execute/4_INTERPOLACAO_POLINOMIAL/4.2_interpolacao_de_newton';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/capa.png" class="logo__image only-light" alt="Caderno didático de Métodos Numéricos em Python - Home"/>
+    <script>document.write(`<img src="../../../_static/capa.png" class="logo__image only-dark" alt="Caderno didático de Métodos Numéricos em Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Métodos Numéricos em Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">1. Introdução e erros</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../1_INTRODUCAO_ERROS/1.1_o_basico_sobre_erros.html">1.1 O básicos sobre erros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../1_INTRODUCAO_ERROS/1.2_aritmetica_de_ponto_flutuante.html">1.2. Aritmética de ponto flutuante</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../1_INTRODUCAO_ERROS/1.3_erros_nas_aproximacoes_numericas.html">1.3 Erros nas aproximações numéricas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../1_INTRODUCAO_ERROS/1.4_exemplos_aplicados.html">1.4 Exemplos aplicados</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">2. Zeros de funções</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../2_ZEROS_DE_FUNCOES/2.1_localizacao_de_raizes.html">2.1 Localização de raízes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../2_ZEROS_DE_FUNCOES/2.2_metodo_da_bissecao.html">2.2. Método da bisseção</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../2_ZEROS_DE_FUNCOES/2.3_metodo_do_ponto_fixo.html">2.3 Método do ponto fixo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../2_ZEROS_DE_FUNCOES/2.4_metodo_de_newton_raphson.html">2.4 Método de Newton-Raphson</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">3.5 Método das Secantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../2_ZEROS_DE_FUNCOES/2.6_raizes_de_polinomios.html">2.6. Raízes de polinômios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../2_ZEROS_DE_FUNCOES/2.7_estudos_de_caso.html">2.7 Estudo de casos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../3_SISTEMAS_LINEARES/3.1_forma_matricial.html">3.1. Forma matricial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos diretos: decomposição LU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../3_SISTEMAS_LINEARES/3.3_gauss-jordan_e_matriz_inversa.html">3.3 Eliminação de Gauss-Jordan e matriz inversa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../3_SISTEMAS_LINEARES/3.4_metodos_iterativos.html">3.4 Métodos iterativos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">4.Interpolação polinomial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html">4.1. Intepolação polinomial e fórmula de Lagrange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../4_INTERPOLACAO_POLINOMIAL/4.2_interpolacao_de_newton.html">4.2 Fórmula de Newton</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../4_INTERPOLACAO_POLINOMIAL/4.3_erro_na_interpolacao_polinomial.html">4.3. Erros na interpolação</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">5. Ajuste por minimos quadrados</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../5_MINIMOS_QUADRADOS/5.1_minimos_quadrados_discreto.html">5.1 Minimos quadrados: caso discreto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../5_MINIMOS_QUADRADOS/5.2_ajuste_linear_nos_parametros.html">5.2 Ajuste linear nos parâmetros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../5_MINIMOS_QUADRADOS/5.3_ajuste_nao_linear_e_linearizacao.html">5.3 Ajuste não linear e linearização</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">6.Integração Numérica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../6_INTEGRACAO_NUMERICA/6.1_integracao_numerica.html">6.1 Integração Numérica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../6_INTEGRACAO_NUMERICA/6.2_metodo_de_newton_cotes.html">6.2 Regras de Newton-Cotes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../6_INTEGRACAO_NUMERICA/6.3_regra_dos_trapezios.html">6.3 Regra dos trapézios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../6_INTEGRACAO_NUMERICA/6.4_regras_de_simpson.html">6.4 Regras de Simpson</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/tiagoburiol/metodos_numericos_em_python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/tiagoburiol/metodos_numericos_em_python/issues/new?title=Issue%20on%20page%20%2Fdocs/jupyter_execute/4_INTERPOLACAO_POLINOMIAL/4.2_interpolacao_de_newton.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/docs/jupyter_execute/4_INTERPOLACAO_POLINOMIAL/4.2_interpolacao_de_newton.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>4.2 Fórmula de Newton</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolacao-inversa">Interpolação Inversa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercicios">Exercícios</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="formula-de-newton">
+<h1>4.2 Fórmula de Newton<a class="headerlink" href="#formula-de-newton" title="Link to this heading">#</a></h1>
+<p>Seja <span class="math notranslate nohighlight">\(f(x)\)</span> definida em <span class="math notranslate nohighlight">\(x_0, x_1,...,x_n\)</span>, (n+1) pontos distintos de um intervalo <span class="math notranslate nohighlight">\([a,b]\)</span> e <span class="math notranslate nohighlight">\(y_i=f(x_i)\)</span>, <span class="math notranslate nohighlight">\(i=0,1,...,n\)</span>. O polinômio interpolador de Newton é dado por</p>
+<div class="math notranslate nohighlight">
+\[P(x)=f[x_0]+(x-x_0)f[x_0,x_1]+(x-x_0)(x-x_1)f[x_0,x_1,x_2]+...\]</div>
+<div class="math notranslate nohighlight">
+\[...+(x-x_0)(x-x_1)...(x-x_{n-1})f[x_0,...,x_n]\]</div>
+<p>onde <span class="math notranslate nohighlight">\(f[x_0]\)</span>, <span class="math notranslate nohighlight">\(f[x_0,x_1]\)</span>,…,<span class="math notranslate nohighlight">\(f[x_0,...,x_n]\)</span> são as <strong>diferenças divididas</strong>, definidas como é mostrado a seguir:</p>
+<p><strong>Diferença dividida de ordem 0:</strong>
+$<span class="math notranslate nohighlight">\(f[x_i]=f(x_i), i=0,1,...,n\)</span>$</p>
+<p><strong>Diferença dividida de ordem 1:</strong>
+$<span class="math notranslate nohighlight">\(f[x_i, x_{i+1}]=\frac{f[x_{i+1}]-f[x_{i}]}{x_{i+1}-x_i}, i=0,1,...,n-1\)</span>$</p>
+<p><strong>Diferença dividida de ordem 2:</strong>
+$<span class="math notranslate nohighlight">\(f[x_i, x_{i+1}, x_{i+2}]=\frac{f[x_{i+1}, x_{i+2}] - f[x_{i}, x_{i+1}]}   {x_{i+2} - x_i}, i=0,1,...,n-2\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[\vdots\]</div>
+<p><strong>Diferença dividida de ordem n:</strong>
+$<span class="math notranslate nohighlight">\(f[x_0,...,x_n]=\frac{f[x_1,...,x_n] - f[x_0, ...,x_{n-1}]}   {x_n - x_0} \)</span>$</p>
+<p>A seguir é apresentado um exemplo de como obter as diferenças divididas para um conjunto de 5 pontos distintos da função <span class="math notranslate nohighlight">\(f(x)=1/x\)</span>.</p>
+<p><strong>Exemplo 4.2.1 :</strong> Considere os pontos
+\begin{array}{cccccc}
+\hline
+i   &amp;0     &amp;1    &amp;2     &amp;3     &amp;4     \ \hline
+x_i &amp;1     &amp;2    &amp;4     &amp;5     &amp;8     \
+f(x_i) &amp;1.00  &amp;0.50 &amp;0.25  &amp;0.20  &amp;0.125 \ \hline
+\end{array}</p>
+<p>Diferenças divididas de ordem 0:</p>
+<p><span class="math notranslate nohighlight">\(f[x_0]=f(x_0)=f(1)=1.00\)</span><br />
+<span class="math notranslate nohighlight">\(f[x_1]=f(x_1)=f(2)=0.50\)</span><br />
+<span class="math notranslate nohighlight">\(f[x_2]=f(x_2)=f(4)=0.25\)</span><br />
+<span class="math notranslate nohighlight">\(f[x_3]=f(x_3)=f(5)=0.20\)</span><br />
+<span class="math notranslate nohighlight">\(f[x_4]=f(x_4)=f(8)=0.125\)</span></p>
+<p>Diferenças divididas de ordem 1:</p>
+<p><span class="math notranslate nohighlight">\(f[x_0,x_1]=\frac{f[x_1]-f[x_0]}{x_1-x_0}=\frac{0.5-1}{2-1}=-0.5\)</span><br />
+<span class="math notranslate nohighlight">\(f[x_1,x_2]=\frac{f[x_2]-f[x_1]}{x_2-x_1}=\frac{0.25-0.5}{4-2}=-0.125\)</span><br />
+<span class="math notranslate nohighlight">\(f[x_2,x_3]=\frac{f[x_3]-f[x_2]}{x_3-x_2}=\frac{0.2-0.25}{5-4}=-0.05\)</span><br />
+<span class="math notranslate nohighlight">\(f[x_3,x_4]=\frac{f[x_4]-f[x_3]}{x_4-x_3}=\frac{0.125-0.2}{8-5}=-0.025\)</span></p>
+<p>Diferenças divididas de ordem 2:</p>
+<p><span class="math notranslate nohighlight">\(f[x_0,x_1,x_2]=\frac{f[x_1,x_2]-f[x_0,x_1]}{x_2-x_0}=\frac{-0.125-(-0.5)}{4-1}=0.125\)</span><br />
+<span class="math notranslate nohighlight">\(f[x_1,x_2,x_3]=\frac{f[x_2,x_3]-f[x_1,x_2]}{x_3-x_1}=\frac{-0.05-(-0.125)}{5-2}=0.025\)</span><br />
+<span class="math notranslate nohighlight">\(f[x_2,x_3,x_4]=\frac{f[x_3,x_4]-f[x_2,x_3]}{x_4-x_2}=\frac{-0.025-(-0.05)}{8-4}=0.00625\)</span></p>
+<p>Diferenças divididas de ordem 3:</p>
+<p><span class="math notranslate nohighlight">\(f[x_0,x_1,x_2,x_3]=\frac{f[x_1,x_2,x_3]-f[x_0,x_1,x_2]}{x_3-x_0}=\frac{0.025-0.125}{5-1}=-0.025\)</span><br />
+<span class="math notranslate nohighlight">\(f[x_1,x_2,x_3,x_4]=\frac{f[x_2,x_3,x_4]-f[x_1,x_2,x_3]}{x_4-x_1}=\frac{0.00625-0.025}{5-2}=-0.003125\)</span></p>
+<p>Diferenças divididas de ordem 4:</p>
+<p><span class="math notranslate nohighlight">\(f[x_0,x_1,x_2,x_3,x_4]=\frac{f[x_1,x_2,x_3,x_4]-f[x_0,x_1,x_2,x_3]}{x_4-x_0}=\frac{-0.003125-(-0.025)}{8-1}=0.003125\)</span></p>
+<p>Para facilitar o cálculo dessas diferencas divididas, é conveniente construir uma tabela em que cada coluna, a partir da terceira, é obtida usando as diferencas entre elementos consecutivos da coluna anterior e valores correspondentes da coluna de <span class="math notranslate nohighlight">\(x_i\)</span>. Para o exemplo anterior a tebela ficaria como é mostrado a seguir:</p>
+<p>\begin{eqnarray*}
+x_i&amp; &amp; &amp;f[x_i]&amp;  &amp;f[x_i,x_{i+1}]&amp;  &amp;f[x_i,\dots,x_{i+2}]&amp;  &amp;f[x_i,\dots,x_{i+3}]&amp;  &amp;f[x_i,\dots,x_{i+4}]\ \hline
+1&amp;  &amp; &amp;1&amp;      &amp;-0.5&amp;    &amp;0.125&amp;   &amp;-0.025&amp;  &amp;0.003125\
+2&amp;  &amp; &amp;0.5&amp;    &amp;-0.125&amp;  &amp;0.025&amp;   &amp;-0.003125\
+4&amp;  &amp; &amp;0.25&amp;   &amp;-0.05&amp;   &amp;0.00625\
+5&amp;  &amp; &amp; 0.2&amp;   &amp;-0.025\
+8&amp;  &amp; &amp;0.125
+\end{eqnarray*}</p>
+<p>Uma vez calculadas as diferenças divididas, usa-se o seguinte método recursivo para avaliar o polinômio em um determinado valor de <span class="math notranslate nohighlight">\(x\)</span></p>
+<p><span class="math notranslate nohighlight">\(P_0(x) = f[x_0,\dots,x_n]\)</span></p>
+<p><span class="math notranslate nohighlight">\(P_1(x) = f[x_0,\dots,x_{n-1}]+ (x-x_{n-1})P_0(x)\)</span></p>
+<p><span class="math notranslate nohighlight">\(P_2(x) = f[x_0,\dots,x_{n-2}]+ (x-x_{n-2})P_1(x)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\vdots\)</span></p>
+<p><span class="math notranslate nohighlight">\(P_n(x) = f[x_0]+ (x-x_0)P_n(x)\)</span></p>
+<p><strong>Exemplo 4.2.1</strong>
+Considere a função <span class="math notranslate nohighlight">\(f(x)=e^x +sen(x)\)</span> tabelada  nos pontos <span class="math notranslate nohighlight">\(x_0=0.0\)</span>, <span class="math notranslate nohighlight">\(x_1=0.5\)</span> e <span class="math notranslate nohighlight">\(x_2=1.0\)</span>. Determine o polinômio interpolador usando a fórmula de Newton e avalie <span class="math notranslate nohighlight">\(f(0.7)\)</span>.</p>
+<p>Vamos fazer isso, inicialmente de um modo “não vetorizado”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definindo a lista de pontos a serem interpolados</span>
+<span class="n">X</span>  <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+
+<span class="c1"># Definindo a função a ser interpolada</span>
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Calculando os valores de f(xi)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.  0.5 1. ]
+[1.     2.1281 3.5598]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Criando uma lista de listas para a tabela de diferencas divididas </span>
+<span class="n">dd</span><span class="o">=</span><span class="p">[</span><span class="n">Y</span><span class="p">]</span> <span class="c1">#ordem 0</span>
+
+<span class="c1"># Gerando a tabela de dif. div. a partir da ordem 1 em diante</span>
+<span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)):</span>
+    <span class="n">dd</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>   <span class="c1"># Adiciona uma lista vazia para armazenar as dds de ordem 1</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">-</span><span class="n">o</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> 
+        <span class="n">valor</span> <span class="o">=</span> <span class="p">(</span><span class="n">dd</span><span class="p">[</span><span class="n">o</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">dd</span><span class="p">[</span><span class="n">o</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">k</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="n">o</span><span class="p">]</span><span class="o">-</span><span class="n">X</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>    
+        <span class="n">dd</span><span class="p">[</span><span class="n">o</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">valor</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">dd</span><span class="p">[</span><span class="n">o</span><span class="p">],</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2.2563 2.8632]
+[0.6069]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">produtorio</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">prod</span> <span class="o">=</span> <span class="mf">1.</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">prod</span> <span class="o">=</span> <span class="n">prod</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">prod</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculaP</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">soma</span> <span class="o">=</span> <span class="n">dd</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)):</span>
+        <span class="n">soma</span> <span class="o">=</span> <span class="n">soma</span> <span class="o">+</span> <span class="n">produtorio</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">dd</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">soma</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;P(0.7) =&quot;</span><span class="p">,</span> <span class="n">calculaP</span><span class="p">(</span><span class="mf">0.7</span><span class="p">))</span>
+ 
+<span class="c1"># Cria a lista de pontos e calcula os valores para p plot</span>
+<span class="n">Xp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">num</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> 
+<span class="n">Yp</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">Xp</span><span class="p">:</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">calculaP</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">Yp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">Xp</span><span class="p">,</span> <span class="n">Yp</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P(0.7) = 2.664374107530382
+</pre></div>
+</div>
+<img alt="../../../_images/3e3cb93070d6d45143c949d05a99ed72568dee580b16f13ba92426824bb90f21.png" src="../../../_images/3e3cb93070d6d45143c949d05a99ed72568dee580b16f13ba92426824bb90f21.png" />
+</div>
+</div>
+<p><strong>Melhorando (vetorizando) nosso algoritmo</strong></p>
+<p>Observe que as colunas da tabela de diferenças divididas mostradas no Exemplo 4.2.1 podem ser calculadas de forma bastante prática usando operações vetoriais entre <code class="docutils literal notranslate"><span class="pre">numpy.arrays</span></code>, por exemplo as diferencas divididas de ordem 1 podem ser obtidas fazendo <code class="docutils literal notranslate"><span class="pre">(f[1:]-f[0:-1])/(x[1:]-x[0:-1])</span></code> sendo <code class="docutils literal notranslate"><span class="pre">x</span></code> e <code class="docutils literal notranslate"><span class="pre">f</span></code> <em>arrays</em> contendo os dados de <span class="math notranslate nohighlight">\(x_i\)</span> e <span class="math notranslate nohighlight">\(f(x_i)\)</span> conforme é mostrado a seguir:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span><span class="mf">2.</span><span class="p">,</span><span class="mf">4.</span><span class="p">,</span><span class="mf">5.</span><span class="p">,</span><span class="mf">8.</span><span class="p">])</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span>
+<span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">-</span><span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.5  , -0.125, -0.05 , -0.025])
+</pre></div>
+</div>
+</div>
+</div>
+<p>fazendo um laço de repetição para as linhas seguintes podemos obter a tabela de diferenças divididas como é mostrado abaixo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">-</span><span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">n</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.    0.5   0.25  0.2   0.125]
+[-0.5   -0.125 -0.05  -0.025]
+[0.125   0.025   0.00625]
+[-0.025    -0.003125]
+[0.003125]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Por fim, como precisamos apenas do primeiro elemento de cada linha acima, bastaria armazenar os resultados em um único <code class="docutils literal notranslate"><span class="pre">array</span></code>como é mostrado abaixo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">n</span><span class="p">]</span> <span class="o">-</span> <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">n</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1.       -0.5       0.125    -0.025     0.003125]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vamos agora melhorar nosso algoritmo usando a vetorização do código.</p>
+<p><strong>Exemplo 4.2.2:</strong></p>
+<p>Seja a função <span class="math notranslate nohighlight">\(f(x)=e^xcos(x)\sqrt{x}\)</span> tabelada  nos pontos <span class="math notranslate nohighlight">\(x_0=0.0\)</span>, <span class="math notranslate nohighlight">\(x_1=1.0\)</span>, <span class="math notranslate nohighlight">\(x_2=2.3\)</span>, <span class="math notranslate nohighlight">\(x_3=2.5\)</span> e <span class="math notranslate nohighlight">\(x_4=4.0\)</span>. Vamos usar a fórmula de interpolatória de Newton para obter o gráfico do polinômio que interpola esses pontos calculando o valor numérico do poliômio em conjunto discreto de pontos. Também vamos obter uma forma analítica para esse polinônio usando Python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definindo a lista de pontos a serem interpolados</span>
+<span class="n">func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">])</span>
+<span class="n">yi</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># uma função para calcular as diferenças divididas</span>
+<span class="k">def</span> <span class="nf">difdiv</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">dd</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
+        <span class="n">dd</span><span class="p">[</span><span class="n">k</span><span class="p">:</span><span class="n">m</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">dd</span><span class="p">[</span><span class="n">k</span><span class="p">:</span><span class="n">m</span><span class="p">]</span><span class="o">-</span><span class="n">dd</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="p">:</span><span class="n">m</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">dd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">difdiv</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span><span class="n">yi</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0.          1.46869394 -4.50049655 -2.26454299  2.25023479]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculaP</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">xi</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span><span class="n">xi</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="p">])</span><span class="o">*</span><span class="n">p</span>
+    <span class="k">return</span> <span class="n">p</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cria a lista de pontos para o plot</span>
+<span class="n">xp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">51</span><span class="p">)</span> 
+<span class="n">yp</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xp</span><span class="p">:</span> 
+    <span class="n">yp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">calculaP</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">xi</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
+
+<span class="c1"># Plota</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span>
+         <span class="n">xp</span><span class="p">,</span> <span class="n">func</span><span class="p">(</span><span class="n">xp</span><span class="p">),</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> 
+         <span class="n">xp</span><span class="p">,</span> <span class="n">yp</span><span class="p">,</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/d93e106440c6b5ea9d59dc5c37842c1b7975bb9f7b45a9236ed500850cfa5bf0.png" src="../../../_images/d93e106440c6b5ea9d59dc5c37842c1b7975bb9f7b45a9236ed500850cfa5bf0.png" />
+</div>
+</div>
+<p><strong>Exemplo 4.2.3:</strong></p>
+<p>Considere a função <span class="math notranslate nohighlight">\(f(x)=\frac{x}{(x+1)}\)</span> tabelada  nos pontos <span class="math notranslate nohighlight">\(x_0=0.0\)</span>, <span class="math notranslate nohighlight">\(x_1=1.0\)</span> e <span class="math notranslate nohighlight">\(x_2=2.0\)</span>. Determine o polinômio interpolador usando a fórmula de Newton e avalie <span class="math notranslate nohighlight">\(f(1.3)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">])</span>
+<span class="n">func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">yi</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">difdiv</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span><span class="n">yi</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0.          0.5        -0.16666667]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;P(1.3) =&quot;</span><span class="p">,</span> <span class="n">calculaP</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">xi</span><span class="p">,</span><span class="mf">1.3</span><span class="p">))</span>
+
+<span class="n">xp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">yp</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xp</span><span class="p">:</span>
+    <span class="n">yp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">calculaP</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">xi</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="s2">&quot;ro&quot;</span><span class="p">,</span> 
+         <span class="n">xp</span><span class="p">,</span> <span class="n">yp</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span>
+         <span class="n">xp</span><span class="p">,</span> <span class="n">func</span><span class="p">(</span><span class="n">xp</span><span class="p">),</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P(1.3) = 0.5850000000000001
+</pre></div>
+</div>
+<img alt="../../../_images/5f649a6f1f2d3b848fdc0db59fa48d7eeff7b4296896169bc7af2d7c8d41c611.png" src="../../../_images/5f649a6f1f2d3b848fdc0db59fa48d7eeff7b4296896169bc7af2d7c8d41c611.png" />
+</div>
+</div>
+<p>A biblioteca SciPy para computação científica em Python possui diversos algoritmos para interpolação uni e multidimensional, incluindo <em>splines</em>, métodos de Lagrange e baseados em série de Taylor. Veja como fica fácil com o exemplo abaixo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">lagrange</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">lagrange</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">coef</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.16666667  0.66666667  0.        ]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> 
+        <span class="n">xp</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">xp</span><span class="p">),</span><span class="s1">&#39;--&#39;</span><span class="p">,</span>
+        <span class="n">xp</span><span class="p">,</span> <span class="n">func</span><span class="p">(</span><span class="n">xp</span><span class="p">),</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/1a40f3e4b47514b9dc03e3f106d421ce847a61ca385a49e513cfdd538ba6a536.png" src="../../../_images/1a40f3e4b47514b9dc03e3f106d421ce847a61ca385a49e513cfdd538ba6a536.png" />
+</div>
+</div>
+<p>Para saber mais, pesquise sobre <code class="docutils literal notranslate"><span class="pre">scipy.interpolate</span></code> na <em>internet</em>.</p>
+<section id="interpolacao-inversa">
+<h2>Interpolação Inversa<a class="headerlink" href="#interpolacao-inversa" title="Link to this heading">#</a></h2>
+<p>Denominamos interpolação inversa quando, conhecidos os valores de uma função <span class="math notranslate nohighlight">\(f(x)\)</span> definida em <span class="math notranslate nohighlight">\((n+1)\)</span>  pontos distintos <span class="math notranslate nohighlight">\(x_i\)</span> ,<span class="math notranslate nohighlight">\(i =0,...,n\)</span>, necessitamos calcular o valor numérico da variável <span class="math notranslate nohighlight">\(x\)</span> correspondente a um valor <span class="math notranslate nohighlight">\(y = f(x)\)</span> conhecido inicialmente.</p>
+<p>Supondo que a função inversa de <span class="math notranslate nohighlight">\(f (x)\)</span> exista no intervalo de interpolação, a qual denotamos por <span class="math notranslate nohighlight">\(f^{-1}(x)\)</span>, então para os pontos tabelados <span class="math notranslate nohighlight">\( y_i = f(x_i) \)</span>, <span class="math notranslate nohighlight">\(i = 0,...,n\)</span> temos <span class="math notranslate nohighlight">\(x_i =f^{-1}(y_i)\)</span>, e o valor desejado <span class="math notranslate nohighlight">\(x\)</span> tal que <span class="math notranslate nohighlight">\(y=f(x)\)</span> é obtido por <span class="math notranslate nohighlight">\(x=f^{-1}(y)\)</span>.</p>
+<p>Assim, simplesmente trocamos na tabela de dados os valores de <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(f(x)\)</span> e fazemos a interpolação de <span class="math notranslate nohighlight">\(f^{-1}(x)\)</span>, como visto anteriormente.</p>
+<p>Lembramos, ainda, que a função inversa <span class="math notranslate nohighlight">\(x = f^{-1}(y)\)</span> existe e é única se <span class="math notranslate nohighlight">\(f(x)\)</span> é contínua e monótona crescente ou decrescente no intervalo de interpolação.</p>
+<p><strong>Exemplo 4.2.4:</strong></p>
+<p>Considere uma função <span class="math notranslate nohighlight">\(f (x)\)</span> tabelada, como segue:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{cccc}
+x_i    &amp;0     &amp;1     &amp;2\\ 
+f(x_i) &amp;1.31  &amp;3.51  &amp;3.78 
+\end{array} \end{split}\]</div>
+<p>Usando	interpolação	inversa, determine <span class="math notranslate nohighlight">\(x\)</span> tal que <span class="math notranslate nohighlight">\(f(x) = 3.63\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.00</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">2.00</span><span class="p">])</span>
+<span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.31</span><span class="p">,</span> <span class="mf">3.51</span><span class="p">,</span> <span class="mf">3.78</span><span class="p">])</span>
+
+
+<span class="k">def</span> <span class="nf">evalPoly</span><span class="p">(</span><span class="n">dd</span><span class="p">,</span><span class="n">xi</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="c1"># Degree of polynomial</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">dd</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">dd</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span><span class="n">xi</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">])</span><span class="o">*</span><span class="n">p</span>
+    <span class="k">return</span> <span class="n">p</span>
+
+<span class="k">def</span> <span class="nf">coeffts</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span><span class="n">yi</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
+    <span class="c1"># Number of data points</span>
+    <span class="n">dd</span> <span class="o">=</span> <span class="n">yi</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
+        <span class="n">dd</span><span class="p">[</span><span class="n">k</span><span class="p">:</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">dd</span><span class="p">[</span><span class="n">k</span><span class="p">:</span><span class="n">m</span><span class="p">]</span> <span class="o">-</span> <span class="n">dd</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">xi</span><span class="p">[</span><span class="n">k</span><span class="p">:</span><span class="n">m</span><span class="p">]</span> <span class="o">-</span> <span class="n">xi</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">dd</span>
+
+
+<span class="n">dd</span> <span class="o">=</span> <span class="n">coeffts</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span><span class="n">yi</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;dd&#39;</span><span class="p">,</span><span class="n">dd</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P(3.63)=&quot;</span><span class="p">,</span><span class="n">evalPoly</span><span class="p">(</span><span class="n">dd</span><span class="p">,</span><span class="n">xi</span><span class="p">,</span><span class="mf">3.63</span><span class="p">))</span>
+
+<span class="n">Xplot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xi</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xi</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">21</span><span class="p">)</span>
+<span class="n">Yplot</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">Xplot</span><span class="p">:</span>
+    <span class="n">Yplot</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">evalPoly</span><span class="p">(</span><span class="n">dd</span><span class="p">,</span><span class="n">xi</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="s2">&quot;ro&quot;</span><span class="p">,</span> <span class="n">Xplot</span><span class="p">,</span> <span class="n">Yplot</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dd [0.         0.45454545 1.31544868]
+P(3.63)= 1.4207663681347895
+</pre></div>
+</div>
+<img alt="../../../_images/923e78bc1a2bf34066683fca1285058e9600a58f60b018ed69f5f421750901df.png" src="../../../_images/923e78bc1a2bf34066683fca1285058e9600a58f60b018ed69f5f421750901df.png" />
+</div>
+</div>
+</section>
+<section id="exercicios">
+<h2>Exercícios<a class="headerlink" href="#exercicios" title="Link to this heading">#</a></h2>
+<p><strong>1.</strong> Considere os dados,
+$<span class="math notranslate nohighlight">\(
+\begin{array}{cccccc}
+\hline
+x    &amp;1,6  &amp;1,9  &amp;2,5    &amp;3,2   &amp;3,9  &amp;4,5 \\ \hline
+f(x) &amp;2,0  &amp;8,0  &amp;14,0   &amp;15,5  &amp;9,0  &amp;2,1  \\
+\hline
+\end{array}
+\)</span>$</p>
+<p>(a) Calcule <span class="math notranslate nohighlight">\(f(2,9)\)</span> usando polinômios interpoladores de Newton de segundo a quarto graus. Escolha a sequência de pontos que julgar mais adequada.</p>
+<p>(b) Utilize a expressão</p>
+<div class="math notranslate nohighlight">
+\[ R_n \cong (x-x_0)(x-x_1)...(x-x_n)f[x_0, x_1,...,x_n, x]\]</div>
+<p>para fazer uma estimativa do erro em cada uma das previsões.</p>
+<p>(c) Para o polinômio que forneceu o melhor resultado, use a fórmula de Lagrange com os mesmos pontos e compare o resultado. Comente o que você observou.</p>
+<p><strong>2.</strong> O volume específico de um vapor superaquecido está listado nas tabelas de vapor para diversas temperaturas. por exemplo, na pressão absoluta de 3000 lb/pol<span class="math notranslate nohighlight">\(^2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+	\begin{array}{cccccc}
+			\hline
+			T, ^\circ F &amp;700 &amp;720 &amp;740 &amp;760 &amp;780 \\ \hline
+			v, pés^3/lb_m &amp;0,0977 &amp;0,12184 &amp;0,14060 &amp;0,15509 &amp;0,16643  \\
+			\hline
+		\end{array}
+\end{split}\]</div>
+<p>Use interpolação para obter uma tabela que forneça <span class="math notranslate nohighlight">\(v\)</span> a cada 5<span class="math notranslate nohighlight">\(^\circ\)</span> entre as temperaturas 720<span class="math notranslate nohighlight">\(^\circ\)</span> e 760<span class="math notranslate nohighlight">\(^\circ\)</span> usando a fórmula de Lagrange e a fórmula de Newton. Compare os resultados e comente o que você observou.</p>
+<p><strong>3.</strong> Após serem efetuadas medições num gerador de corrente contínua, foram obtidos os seguintes
+valores indicados por um voltímetro e um amperímetro.
+$<span class="math notranslate nohighlight">\(
+\begin{array}{ccccccccccccc}
+    \hline
+I(A) &amp;1.58&amp; 1.75&amp; 2.10&amp; 2.20&amp; 2.50&amp; 3.50&amp; 3.75&amp; 4.25&amp; 4.50&amp; 4.90&amp; 3.12    \\ \hline
+V(v) &amp;210&amp; 165&amp; 154&amp; 120&amp; 85&amp; 50&amp; 73&amp; 76&amp; 110&amp; 128&amp; 60		  \\
+\hline
+\end{array}
+\)</span><span class="math notranslate nohighlight">\(
+Faça um gráfico dos dados.(a) Ajuste os dados por polinômio de grau adequado. (b) Estime o valor a ser obtido no voltímetro quando o amperímetro estiver marcando \)</span>4.0A$.</p>
+<p><strong>4.</strong> Considere a função
+$<span class="math notranslate nohighlight">\(f(x)=\frac{3.21}{0.73 + 9.81x^2}\)</span>$</p>
+<p>(a) Aproxime o valor de <span class="math notranslate nohighlight">\(f(1.78)\)</span> usando um polinômio interpolador de grau 3 no intervalo [1, 2] e compare com o valor da função. Mostre o gráfico do polinômio e da função nesse intervalo. (b) Repita o item anterior, mas dessa vez utilize um polinômio de grau 10 no intervalo [-2,2] e comente o que você observou. (c)Pesquise e responda o que é “Fenômeno de Runge”.</p>
+<p><strong>5.</strong> Dada a tabela a seguir, de valores de uma função <span class="math notranslate nohighlight">\(f\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+		\begin{array}{cccccccccc}
+			\hline
+			x   &amp;0.15&amp;  0.17&amp;  0.19&amp;  0.21&amp;  0.23&amp;  0.25&amp;  0.27\\ \hline
+			f(x) &amp;0.1761&amp; 0.2304&amp; 0.2788&amp; 0.3222&amp; 0.3617&amp; 0.3979&amp; 0.4314  \\ \hline
+		\end{array}
+\end{split}\]</div>
+<p>(a) Utilize todos os pontos para obter uma estimativa para <span class="math notranslate nohighlight">\(f(0,22)\)</span> usando um polinômio interpolador com a fórmula de Newton.</p>
+<p>(b) Plote o gráfico do polinômio obtido juntamente com os pontos tabelados para verificar o resultado da interpolação.</p>
+<p>(c) Escolha 4 pontos e estime <span class="math notranslate nohighlight">\(f(0,22)\)</span> utilizando um polinomio de terceiro grau. Plote o gráfico e compare com o resultado do item anterior. Comente.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/jupyter_execute/4_INTERPOLACAO_POLINOMIAL"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolacao-inversa">Interpolação Inversa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercicios">Exercícios</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tiago M. Buriol
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
