@@ -1,0 +1,759 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1.2. Aritmética de ponto flutuante &#8212; Caderno didático de Métodos Numéricos em Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '1_INTRODUCAO_ERROS/1.2_aritmetica_de_ponto_flutuante';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.3 Erros nas aproximações numéricas" href="1.3_erros_nas_aproximacoes_numericas.html" />
+    <link rel="prev" title="1.1 O básicos sobre erros" href="1.1_o_basico_sobre_erros.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/capa.png" class="logo__image only-light" alt="Caderno didático de Métodos Numéricos em Python - Home"/>
+    <script>document.write(`<img src="../_static/capa.png" class="logo__image only-dark" alt="Caderno didático de Métodos Numéricos em Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Métodos Numéricos em Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">1. Introdução e erros</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1.1_o_basico_sobre_erros.html">1.1 O básicos sobre erros</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1.2. Aritmética de ponto flutuante</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.3_erros_nas_aproximacoes_numericas.html">1.3 Erros nas aproximações numéricas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.4_exemplos_aplicados.html">1.4 Exemplos aplicados</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">2. Zeros de funções</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.1_localizacao_de_raizes.html">2.1 Localização de raízes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.2_metodo_da_bissecao.html">2.2. Método da bisseção</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.3_metodo_do_ponto_fixo.html">2.3 Método do ponto fixo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.4_metodo_de_newton_raphson.html">2.4 Método de Newton-Raphson</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">3.5 Método das Secantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.6_raizes_de_polinomios.html">2.6. Raízes de polinômios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.7_estudos_de_caso.html">2.7 Estudo de casos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.1_forma_matricial.html">3.1. Forma matricial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos diretos: decomposição LU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.3_gauss-jordan_e_matriz_inversa.html">3.3 Eliminação de Gauss-Jordan e matriz inversa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.4_metodos_iterativos.html">3.4 Métodos iterativos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">4.Interpolação polinomial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html">4.1. Intepolação polinomial e fórmula de Lagrange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.2_interpolacao_de_newton.html">4.2 Fórmula de Newton</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.3_erro_na_interpolacao_polinomial.html">4.3. Erros na interpolação</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">5. Ajuste por minimos quadrados</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.1_minimos_quadrados_discreto.html">5.1 Minimos quadrados: caso discreto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.2_ajuste_linear_nos_parametros.html">5.2 Ajuste linear nos parâmetros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.3_ajuste_nao_linear_e_linearizacao.html">5.3 Ajuste não linear e linearização</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">6.Integração Numérica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.1_integracao_numerica.html">6.1 Integração Numérica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.2_metodo_de_newton_cotes.html">6.2 Regras de Newton-Cotes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.3_regra_dos_trapezios.html">6.3 Regra dos trapézios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.4_regras_de_simpson.html">6.4 Regras de Simpson</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/tiagoburiol/NUMETHODS" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/tiagoburiol/NUMETHODS/issues/new?title=Issue%20on%20page%20%2F1_INTRODUCAO_ERROS/1.2_aritmetica_de_ponto_flutuante.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/1_INTRODUCAO_ERROS/1.2_aritmetica_de_ponto_flutuante.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>1.2. Aritmética de ponto flutuante</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="aritmetica-de-ponto-flutuante">
+<h1>1.2. Aritmética de ponto flutuante<a class="headerlink" href="#aritmetica-de-ponto-flutuante" title="Link to this heading">#</a></h1>
+<p>Um número no Sistema de Ponto Flutuante (STF) é caracterizado por uma base <span class="math notranslate nohighlight">\(b\)</span>, um número de dígitos significativos <span class="math notranslate nohighlight">\(n\)</span> e um expoente <span class="math notranslate nohighlight">\(exp\)</span>. Assim, dizemos que um número real <span class="math notranslate nohighlight">\(n_r\)</span> está representado no SPF se estiver na forma</p>
+<div class="math notranslate nohighlight">
+\[ n_r = \pm 0.d_1 d_2 d_3...d_n \times b^{exp}\]</div>
+<p>em que <span class="math notranslate nohighlight">\(m=d_1 d_2...d_n\)</span> é a mantissa com <span class="math notranslate nohighlight">\(n\)</span> dígitos significativos <span class="math notranslate nohighlight">\(d_1, d_2,...,d_n\)</span> satisfazendo <span class="math notranslate nohighlight">\(0 \leq d_i \leq (b-1)\)</span>, <span class="math notranslate nohighlight">\(i=1,...,n\)</span> e <span class="math notranslate nohighlight">\(d_1 \neq 0\)</span>.</p>
+<p>O expoente <span class="math notranslate nohighlight">\(exp\)</span> da base <span class="math notranslate nohighlight">\(b\)</span> varia da seguinte maneira</p>
+<div class="math notranslate nohighlight">
+\[ exp_{min} \leq exp \leq exp_{max}\]</div>
+<p>sendo <span class="math notranslate nohighlight">\( exp_{min} \leq 0 \)</span> e <span class="math notranslate nohighlight">\(exp_{max} \geq 1\)</span> com  <span class="math notranslate nohighlight">\(exp_{min}\)</span> e <span class="math notranslate nohighlight">\(exp_{max}\)</span> inteiros.</p>
+<p>Considerando o sistema de ponto flutuante normalizado, na forma genérica <span class="math notranslate nohighlight">\(SPF(b,n,exp_{min}, exp_{max})\)</span>, temos que apenas um conjunto finito de números reais podem ser exatamente representados, tal que</p>
+<p>a) o número zero é representado como:</p>
+<div class="math notranslate nohighlight">
+\[ 0.000...0 \times b^{exp_{min}}\]</div>
+<p>b) o menor positivo exatamente representável é</p>
+<div class="math notranslate nohighlight">
+\[ 0.100...0 \times b^{exp_{min}}\]</div>
+<p>c) o maior positivo exatamente representável é</p>
+<div class="math notranslate nohighlight">
+\[ 0.(b-1)(b-1)(b-1)...(b-1) \times b^{exp_{max}}\]</div>
+<p>d) o número máximo de mantissas positivas possíveis é</p>
+<div class="math notranslate nohighlight">
+\[ mantissas_+ = (b-1)b^{n-1}\]</div>
+<p>e) o número máximo de expoentes possíveis é</p>
+<div class="math notranslate nohighlight">
+\[ exp_{possiveis}=exp_{max}-exp_{min}+1 \]</div>
+<p>f) o número máximo de reais positivos é</p>
+<div class="math notranslate nohighlight">
+\[ NR_+ = mantissas_+ \times exp_{possiveis}\]</div>
+<p>g) assim, considerando os números negativos e o zero, o número total de números reais exatamente representáveis é</p>
+<div class="math notranslate nohighlight">
+\[NR_t = 2\times NR_+ + 1\]</div>
+<p><strong>Exemplo 1.2.8:</strong> Em Python também dispomos de algumas funções para acessar as informações do sistema de ponto flutuante:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>  
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Máximo representável:&quot;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">max</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Mínimo represenável:&quot;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">min</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Épsilon da máquina:&quot;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Todas informações:&quot;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Máximo representável: 1.7976931348623157e+308
+Mínimo represenável: 2.2250738585072014e-308
+Épsilon da máquina: 2.220446049250313e-16
+Todas informações: sys.float_info(max=1.7976931348623157e+308, max_exp=1024, max_10_exp=308, min=2.2250738585072014e-308, min_exp=-1021, min_10_exp=-307, dig=15, mant_dig=53, epsilon=2.220446049250313e-16, radix=2, rounds=1)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exemplo 1.2.9:</strong> Considere o sistema de ponto flutuante normalizado <strong>SPF (3, 2,−1, 2)</strong>, de base 3, 2 dígitos na mantissa, menor expoente igual a −1 e maior expoente 2.</p>
+<p>Para esse sistema tem-se que os números</p>
+<div class="math notranslate nohighlight">
+\[ x = \frac{1}{9} = (0.10)_3 \times 3^{-1} \]</div>
+<p>e</p>
+<div class="math notranslate nohighlight">
+\[ y = 5 = (0.12)_3 \times 3^2 \]</div>
+<p>são exatamente representáveis, no entanto,</p>
+<div class="math notranslate nohighlight">
+\[ (x+y) = (0.00010)_3 \times 3^2 + (0.12)_3 \times 3^2 = (0.1201)_3 \times 3^2\]</div>
+<p>não é exatamente representável, uma vez que a mantissa é de 2 dígitos. Nesse sistema <span class="math notranslate nohighlight">\((x+y)=(0.12)_3 \times 3^2\)</span>. Ou seja, <span class="math notranslate nohighlight">\((x+y)=y\)</span>.</p>
+<p>Assim, pode ocorrer de propriedades bem conhecidas no conjunto dos números reais, como  as propriedades comutativa e associativa na adição e as propriedades comutativa e distributiva na multiplicação, não serem verdadeiras no sistema de ponto flutuante</p>
+<p>Por exemplo, em um sistema de ponto flutuante, base decimal, 3 dígitos e arredondamento, as seguintes operações geram <strong>erros de arredondamento</strong></p>
+<p>Sejam <span class="math notranslate nohighlight">\(x=5.26\)</span>, <span class="math notranslate nohighlight">\(y=9.34\)</span> e <span class="math notranslate nohighlight">\(z = 5.04\)</span>. Então:</p>
+<div class="math notranslate nohighlight">
+\[ (x+y)+z = (5.26 + 9.34) + 5.04 = 14.6 + 5.04 = 19.6 \]</div>
+<p>e</p>
+<div class="math notranslate nohighlight">
+\[ x+(y+z)=5.26+(9.34+5.04)=5.26+14.4=19.7\]</div>
+<p>Ou seja,</p>
+<div class="math notranslate nohighlight">
+\[ x+(y+z) \neq (x+y) +z\]</div>
+<p><strong>Exemplo 1.2.10:</strong> Exemplos de somas que fornecem resultados diferentes de forem realizadas em uma ordem diferente. Tente explicar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;0.2 + 0.4 - 0.5 =&quot;</span><span class="p">,</span> <span class="mf">0.2</span> <span class="o">+</span> <span class="mf">0.4</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;- 0.5 + 0.4 + 0.2 =&quot;</span><span class="p">,</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="mf">0.4</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;0.2 -0.1 + 0.2 - 0.1 =&quot;</span><span class="p">,</span> <span class="mf">0.2</span> <span class="o">-</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;0.2 - 0.1 + (0.2 - 0.1) =&quot;</span><span class="p">,</span> <span class="mf">0.2</span> <span class="o">-</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="p">(</span><span class="mf">0.2</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;0.2 + 0.3 + 0.1 =&quot;</span><span class="p">,</span> <span class="mf">0.2</span> <span class="o">+</span> <span class="mf">0.3</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;0.2 + 0.1 + 0.3 =&quot;</span><span class="p">,</span> <span class="mf">0.2</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.3</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2 + 0.4 - 0.5 = 0.10000000000000009
+- 0.5 + 0.4 + 0.2 = 0.10000000000000003
+0.2 -0.1 + 0.2 - 0.1 = 0.20000000000000004
+0.2 - 0.1 + (0.2 - 0.1) = 0.2
+0.2 + 0.3 + 0.1 = 0.6
+0.2 + 0.1 + 0.3 = 0.6000000000000001
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exemplo 1.2.11:</strong> Alguns exemplos de operações simples que ilustram erros devido à limitação do computador em representar certos números reais.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">==</span> <span class="mf">0.3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">0.4</span> <span class="o">+</span> <span class="mf">0.2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6000000000000001
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
+<span class="n">Decimal</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Decimal(&#39;0.1000000000000000055511151231257827021181583404541015625&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exemplo 1.2.12:</strong>
+Considere o seguinte processo iterativo</p>
+<div class="math notranslate nohighlight">
+\[x^{(0)} = \frac{1}{3}\]</div>
+<p>e</p>
+<div class="math notranslate nohighlight">
+\[x^{(n+1)} = 4x^{(n)}-1, \,\,\,\, n=1,2,...\]</div>
+<p>O resultado dessa sequência é</p>
+<div class="math notranslate nohighlight">
+\[x^{(1)}=x^{(2)}=x^{(3)}=...=x^{(n)}=\frac{1}{3}\]</div>
+<p>Agora observe o programa abaixo. Você pode explicar os resultados?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.33333333333333326
+0.33333333333333304
+0.33333333333333215
+0.3333333333333286
+0.3333333333333144
+0.33333333333325754
+0.33333333333303017
+0.3333333333321207
+0.3333333333284827
+0.3333333333139308
+0.3333333332557231
+0.3333333330228925
+0.3333333320915699
+0.3333333283662796
+0.3333333134651184
+0.33333325386047363
+0.33333301544189453
+0.3333320617675781
+0.3333282470703125
+0.33331298828125
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercícios:</strong></p>
+<p>(Fontes: Ruggiero (2016), <a class="reference external" href="https://integrada.minhabiblioteca.com.br/reader/books/9788580555691/pageid/87">Chapra e Canale (2016)</a>)</p>
+<p><strong>1.</strong> Converta os seguintes números decimais para sua forma binária:</p>
+<div class="math notranslate nohighlight">
+\[a) (37)_{10} \quad  b) (2345)_{10} \quad  c) (0,1217)_{10} \quad
+  d) (71,263)_{10} \quad  e) (3,147)_{10} \quad  f) (625,125)_{10}\]</div>
+<p><strong>2.</strong> Converta os seguintes números na base 2 para a base 10:</p>
+<div class="math notranslate nohighlight">
+\[a) (101101)_{2} \quad b) (101,101)_{2} \quad c) (110101011)_{2} \quad 
+d) (0,1101)_{2} \quad e) (0,111111101)_{2} \quad f) (0,01101)_{2} \quad\]</div>
+<p><strong>3.</strong> Seja um sistema de aritmética de ponto flutuante de quatro dígitos e base decimal. Dados os números:</p>
+<div class="math notranslate nohighlight">
+\[
+x=0.7237 \times 10^4 \quad y=0.2145 \times 10^{-3} \quad \text { e } \quad z=0.2585 \times 10^1
+\]</div>
+<p>efetue as seguintes operações e obtenha o erro relativo no resultado, supondo que <span class="math notranslate nohighlight">\(x, y\)</span> e z estão exatamente representados:</p>
+<p>a) <span class="math notranslate nohighlight">\(\mathrm{x}+\mathrm{y}+\mathrm{z}\)</span></p>
+<p>d) <span class="math notranslate nohighlight">\((\mathrm{xy}) / \mathrm{z}\)</span></p>
+<p>b) <span class="math notranslate nohighlight">\(x-y-z\)</span></p>
+<p>e) <span class="math notranslate nohighlight">\(\mathrm{x}(\mathrm{y} / \mathrm{z})\)</span></p>
+<p>c) <span class="math notranslate nohighlight">\(\mathrm{x} / \mathrm{y}\)</span></p>
+<p><strong>4.</strong>	(a) Calcule o polinômio <span class="math notranslate nohighlight">\(y = x^3-5x^2+6x+0,55\)</span>
+em <span class="math notranslate nohighlight">\(x = 1,37\)</span>. Use aritmética com 3 algarismos significativos e truncamento. Estime o erro.</p>
+<p>(b) Repita (a), mas expresse <span class="math notranslate nohighlight">\(y\)</span> como <span class="math notranslate nohighlight">\(y = ((x – 5)x + 6)x + 0,55\)</span>
+Estime o erro e compare com a parte (a)</p>
+<p><strong>5.</strong> Use aritmética com 5 algarismos significativos para determinar as raízes da equação</p>
+<div class="math notranslate nohighlight">
+\[x^2 – 5000,002x + 10=0\]</div>
+<p>com as fórmulas</p>
+<div class="math notranslate nohighlight">
+\[x=\frac{-b \pm \sqrt{b^2- 4ac}} {2a}\]</div>
+<p>e</p>
+<div class="math notranslate nohighlight">
+\[x=\frac{-2c}{b \pm \sqrt{b^2 -4ac}}.\]</div>
+<p>Então, calcule os erros percentuais para o seu resultado.</p>
+<p><strong>6.</strong> Faça seu próprio programa para determinar o épsilon da máquina do seu computador.</p>
+<p><strong>Respostas:</strong></p>
+<p><strong>1.</strong>   <span class="math notranslate nohighlight">\(a) (100101)_{2} \quad  b) (100100101001)_{2} \quad  c) (0,000111110010)_{2}\)</span>
+<span class="math notranslate nohighlight">\(d) (1000111,010000110101...)_{2} \quad  e) (11,0010010110100...)_{2} \quad  f) (1001110001,001)_{2}\)</span></p>
+<p><strong>2.</strong> <span class="math notranslate nohighlight">\(a) (45)_{10} \quad b) (5,625)_{10} \quad c) (427)_{10} \quad 
+d) (0,8125)_{10} \quad e) (0,994140625)_{10} \quad f) (0,40625)_{10} \quad\)</span></p>
+<p><strong>3.</strong> <span class="math notranslate nohighlight">\(a)\mathrm{x}+\mathrm{y}+\mathrm{z}=0.7240 \times 10^4\)</span> <span class="math notranslate nohighlight">\(\quad \left|\mathrm{ER}_{\mathrm{x}+\mathrm{y}+\mathrm{z}}\right|&lt;10^{-3}\)</span></p>
+<p><span class="math notranslate nohighlight">\(b) \mathrm{x}-\mathrm{y}-\mathrm{z}=0.7234 \times 10^4\)</span>
+<span class="math notranslate nohighlight">\(\quad \left|\mathrm{ER}_{\mathrm{x}-\mathrm{y}-\mathrm{z}}\right|&lt;1.0002 \times 10^{-3}\)</span></p>
+<p><span class="math notranslate nohighlight">\(c)\mathrm{x} / \mathrm{y}=0.3374 \times 10^8\)</span>
+<span class="math notranslate nohighlight">\(\quad \left|E R_{x / y}\right|&lt;\frac{1}{2} \times 10^{-3}\)</span></p>
+<p><span class="math notranslate nohighlight">\(d) (\mathrm{xy}) / \mathrm{z}=0.6004\)</span>
+<span class="math notranslate nohighlight">\(\quad \left|\mathrm{ER}_{(\mathrm{xy}) / \mathrm{z}}\right|&lt;10^{-3}\)</span></p>
+<p><span class="math notranslate nohighlight">\(e) \mathrm{x}(\mathrm{y} / \mathrm{z})=0.6005\)</span>
+<span class="math notranslate nohighlight">\(\quad\left|\mathrm{ER}_{\mathrm{x}(\mathrm{y} / \mathrm{z})}\right|&lt;10^{-3}\)</span></p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./1_INTRODUCAO_ERROS"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="1.1_o_basico_sobre_erros.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">1.1 O básicos sobre erros</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="1.3_erros_nas_aproximacoes_numericas.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">1.3 Erros nas aproximações numéricas</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tiago M. Buriol
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

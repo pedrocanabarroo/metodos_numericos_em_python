@@ -1,0 +1,797 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1.1 O básicos sobre erros &#8212; Caderno didático de Métodos Numéricos em Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '1_INTRODUCAO_ERROS/1.1_o_basico_sobre_erros';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.2. Aritmética de ponto flutuante" href="1.2_aritmetica_de_ponto_flutuante.html" />
+    <link rel="prev" title="Métodos Numéricos em Python" href="../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/capa.png" class="logo__image only-light" alt="Caderno didático de Métodos Numéricos em Python - Home"/>
+    <script>document.write(`<img src="../_static/capa.png" class="logo__image only-dark" alt="Caderno didático de Métodos Numéricos em Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Métodos Numéricos em Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">1. Introdução e erros</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1.1 O básicos sobre erros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.2_aritmetica_de_ponto_flutuante.html">1.2. Aritmética de ponto flutuante</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.3_erros_nas_aproximacoes_numericas.html">1.3 Erros nas aproximações numéricas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.4_exemplos_aplicados.html">1.4 Exemplos aplicados</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">2. Zeros de funções</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.1_localizacao_de_raizes.html">2.1 Localização de raízes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.2_metodo_da_bissecao.html">2.2. Método da bisseção</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.3_metodo_do_ponto_fixo.html">2.3 Método do ponto fixo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.4_metodo_de_newton_raphson.html">2.4 Método de Newton-Raphson</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">3.5 Método das Secantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.6_raizes_de_polinomios.html">2.6. Raízes de polinômios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.7_estudos_de_caso.html">2.7 Estudo de casos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.1_forma_matricial.html">3.1. Forma matricial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos diretos: decomposição LU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.3_gauss-jordan_e_matriz_inversa.html">3.3 Eliminação de Gauss-Jordan e matriz inversa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.4_metodos_iterativos.html">3.4 Métodos iterativos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">4.Interpolação polinomial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html">4.1. Intepolação polinomial e fórmula de Lagrange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.2_interpolacao_de_newton.html">4.2 Fórmula de Newton</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.3_erro_na_interpolacao_polinomial.html">4.3. Erros na interpolação</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">5. Ajuste por minimos quadrados</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.1_minimos_quadrados_discreto.html">5.1 Minimos quadrados: caso discreto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.2_ajuste_linear_nos_parametros.html">5.2 Ajuste linear nos parâmetros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.3_ajuste_nao_linear_e_linearizacao.html">5.3 Ajuste não linear e linearização</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">6.Integração Numérica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.1_integracao_numerica.html">6.1 Integração Numérica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.2_metodo_de_newton_cotes.html">6.2 Regras de Newton-Cotes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.3_regra_dos_trapezios.html">6.3 Regra dos trapézios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.4_regras_de_simpson.html">6.4 Regras de Simpson</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/tiagoburiol/NUMETHODS" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/tiagoburiol/NUMETHODS/issues/new?title=Issue%20on%20page%20%2F1_INTRODUCAO_ERROS/1.1_o_basico_sobre_erros.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/1_INTRODUCAO_ERROS/1.1_o_basico_sobre_erros.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>1.1 O básicos sobre erros</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacao-de-numeros-em-ponto-flutuante">Representação de números em ponto flutuante</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#padrao-ieee">Padrão IEEE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conversao-entre-bases">Conversão entre bases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-binaria">Base binária</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-decimal">Base decimal</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outras-bases">Outras bases</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="o-basicos-sobre-erros">
+<h1>1.1 O básicos sobre erros<a class="headerlink" href="#o-basicos-sobre-erros" title="Link to this heading">#</a></h1>
+<p>De modo geral, a resolução de um problema de engenharia passa necessariamente por 3 etapas distintas</p>
+<ol class="arabic simple">
+<li><p>observação e entendimento do(s) fenômeno(s) envolvido(s);</p></li>
+<li><p>construção de um modelo matemático que represente o problema;</p></li>
+<li><p>a resolução do modelo matemático por métodos numéricos ou analíticos.</p></li>
+</ol>
+<p>As duas primeiras etapas consistem na <strong>fase de modelagem</strong> e a terceira é a <strong>fase de resolução</strong>. Tanto na fase de modelagem quanto na fase de resolução podem ocorrer erros, mesmo que esses erros não tornem a resposta obtida inválida ou inútil. Em geral busca-se uma solução aproximada, dentro de uma precisão pré-estabelecida.</p>
+<img src="https://github.com/tiagoburiol/NUMETHODS/raw/master/1_INTRODUCAO_ERROS/imagens/erros.png" width="600">
+<p>Fonte: <a class="reference external" href="https://integrada.minhabiblioteca.com.br/reader/books/9788522112821/pageid/14">Arenalles e Darezzo, 2016</a>.</p>
+<p>Os erros na fase de modelagem podem ser decorrentes de medições imprecisas, erros de anotação, simplificações e deduções equivocadas. Os erros na fase de resolução ocorrem devido a erros de cálculo, escolha de um método ineficaz, aproximações numéricas ou arredondamentos. Dizemos que métodos analíticos de resolução geram soluções exatas e métodos numéricos geram soluções aproximadas.</p>
+<p>A maioria dos problemas envolvendo fenômenos reais produzem modelos matemáticos cuja solução analítica é difícil (ou impossível) de se obter, mesmo quando provamos que a solução existe. Nesses casos usamos <strong>métodos numéricos</strong>, os quais fornecem <strong>soluções aproximadas</strong>, que apesar de, em geral, serem diferentes da solução exata, podem ser suficientemete próximas para que sejam úteis em suas aplicações.</p>
+<section id="representacao-de-numeros-em-ponto-flutuante">
+<h2>Representação de números em ponto flutuante<a class="headerlink" href="#representacao-de-numeros-em-ponto-flutuante" title="Link to this heading">#</a></h2>
+<p>Os métodos numéricos são especialmente úteis quando utilizamos computadores para realizar os cálculos, no entanto, existem limitações na capacidade de armazenar certos números internamente. A representação de números reais nas máquinas é feita, geralmente, utilizando o <strong>sistema de ponto flutuante normalizado</strong> e <strong>base binária</strong>. Ou seja, os números reais são armazenados em um conjunto fixo de bits. Cada bit pode assumir somente dois valores, 0 ou 1 (corte ou passagem de energia, respectivamente), dessa forma, nem todos os números reais podem ser representados de forma exata. Vamos entender isso um pouco melhor com os argumentos a seguir.</p>
+<p>Sabemos que o número <span class="math notranslate nohighlight">\(0.125\)</span>, na base decimal, pode ser escrito como</p>
+<div class="math notranslate nohighlight">
+\[0.125 = \frac{1}{10} + \frac{2}{100} + \frac{5}{1000}\]</div>
+<p>ou, equivalentemente,</p>
+<div class="math notranslate nohighlight">
+\[0.125 = 1 \times 10^{-1} + 2 \times 10^{-2} + 5\times 10^{-3}.\]</div>
+<p>De forma análoga, a fração binária de valor idêntico <span class="math notranslate nohighlight">\(0.001\)</span> pode ser escrita como</p>
+<div class="math notranslate nohighlight">
+\[ 0.001 = 0/2+0/4+1/8.\]</div>
+<p>Nesse caso os denominadores das parcelas são potências de <span class="math notranslate nohighlight">\(2\)</span>, ou seja, podemos escrever</p>
+<div class="math notranslate nohighlight">
+\[ 0.001 = 0\times 2^{-1} +0 \times 2^{-2} + 1\times 2^{-3}.\]</div>
+<p>No sistema de ponto flutuante normalizado (SPFN), um número é representado apenas pela sua forma fracionária, em que apenas um número finito de algarismos são armazenados (algarismos significativos), além do expoente da base e o sinal.</p>
+<p>Por exemplo, o número <span class="math notranslate nohighlight">\(1.2345\)</span> na base decimal será representado como</p>
+<div class="math notranslate nohighlight">
+\[ 1.2345 = 0.12345 \times 10^1\]</div>
+<p>em que 12345 são os algarismos significativos e 1 é o expoente da base 10.</p>
+<p>A maioria das máquinas que usamos atualmente operam na base 2 (binária) em que os algarismos disponíveis são 0 e 1. O número decimal <span class="math notranslate nohighlight">\(1.2\)</span>, pode ser representado na base binária pelo número <span class="math notranslate nohighlight">\(1.00110011001100110011 \overline{0011}\)</span> que tem infinitas casas após a vírgula, portanto nem todos algarismos significativos poderão ser armazenados. Supondo que apenas 10 algarismos possam ser armazenados, sua respresentação será</p>
+<div class="math notranslate nohighlight">
+\[ 0.1001100110 \times 2^1.\]</div>
+<p>No SPFN apenas os dígitos <span class="math notranslate nohighlight">\(1001100110\)</span>, o sinal (0 para positivo e 1 para negativo) e o expoente <span class="math notranslate nohighlight">\(1\)</span>  precisam ser armazenados para representar o número.</p>
+<p><strong>Exemplo 1.2.1:</strong> Para converter um inteiro decimal em binário, podemos usar a função <code class="docutils literal notranslate"><span class="pre">bin()</span></code> do Python. O resultado será uma stringo com o prefixo <code class="docutils literal notranslate"><span class="pre">'0b'</span></code> no começo. Veja alguns exemplos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">bin</span><span class="p">(</span><span class="mi">22</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0b10110&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Observe o que acontece fazendo a operação <span class="math notranslate nohighlight">\(1\times2^4+0\times2^3+1\times2^2+1\times2^1+1\times2^0\)</span>, como é mostrado a seguir</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">*</span><span class="mi">2</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">0</span><span class="o">*</span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="mi">2</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="mi">2</span><span class="o">**</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">0</span><span class="o">*</span><span class="mi">2</span><span class="o">**</span><span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use esse exemplo para testar outros números inteiros.</p>
+</section>
+<section id="padrao-ieee">
+<h2>Padrão IEEE<a class="headerlink" href="#padrao-ieee" title="Link to this heading">#</a></h2>
+<p>Em geral, uma máquina com 32 bit utiliza 23 bit para armazenar os algarismos da parte fracionária, 8 bit para os algarismos do expoente da base e 1 bit para armazenar o sinal. Para 64 bits, são 52 bits de digitos significativos, 11 bits para o expoente e 1 bit para o sinal.</p>
+<p>O esquema para 32 bits é ilustrado na figura abaixo.</p>
+<img src="https://github.com/tiagoburiol/NUMETHODS/raw/master/1_INTRODUCAO_ERROS/imagens/floatstructure.png" width="360">
+<p>O padrão IEEE 754 é atualmente o mais utilizado para representar números reais. Na precisão  <code class="docutils literal notranslate"><span class="pre">float</span></code> usa 23 bits, para a parte fracionária, 8 bits para o expoente e 1 bit para o sinal. Na precisão <code class="docutils literal notranslate"><span class="pre">double</span></code>, usa 52 bits, para a parte fracionária, 11 bits para o expoente e 1 bit para o sinal, o que permite representar valores entre  <span class="math notranslate nohighlight">\(2^{-1022}\)</span> até <span class="math notranslate nohighlight">\(2^{1023}\)</span>. Alguns exemplos de representações do numero zero, infinito e “não número”.</p>
+<img src="https://github.com/tiagoburiol/NUMETHODS/raw/master/1_INTRODUCAO_ERROS/imagens/tabelafloat.gif" width="400">
+<p>Alguns exemplos de tipos de dados disponíveis no módulo numérico <strong>Numpy</strong> (<a class="reference external" href="http://numpy.org">numpy.org</a>) são mostrados abaixo para o caso de um</p>
+<img src="https://github.com/tiagoburiol/NUMETHODS/raw/master/1_INTRODUCAO_ERROS/imagens/datatypes.png" width="400">
+<p>Alguns números, como os irracionais ou a fração 1/3, por exemplo, têm representações fracionárias com infinitas casas decimais. Então, para serem computados precisam ser truncados ou arredondados. Além disso, alguns números com representação decimal finita, possuem representação binária infinita, e vice versa. Assim, erros de arredondamento podem ocorrer no processo de conversão entre bases e, também, nas operações aritméticas de ponto flutuante.</p>
+<p><strong>Exemplo 1.2.2:</strong> Observe o que acontece se fazemos <span class="math notranslate nohighlight">\(x=\frac{1}{3}\)</span> e, então espera-se obter <span class="math notranslate nohighlight">\(x\times 10 \times 0.3 = \frac{1}{3} \times 3 = 1\)</span>. vejamos o que acontece computacionalmente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3333333333333333
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">*</span><span class="mi">10</span><span class="o">*</span><span class="mf">0.3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9999999999999999
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tente fazer <span class="math notranslate nohighlight">\(x\times (10 \times 0.3)\)</span> e tente explicar o que você observou  nos resultados obtidos.</p>
+</section>
+<hr class="docutils" />
+<section id="conversao-entre-bases">
+<h2>Conversão entre bases<a class="headerlink" href="#conversao-entre-bases" title="Link to this heading">#</a></h2>
+<p>Usualmente, utilizamos o sistema de numeração decimal para representar números. Esse é um sistema de numeração posicional onde a posição do dígito indica a potência de 10 que o dígito representa. Por exemplo, o número 293 é decomposto como 293 = 2 centenas +9 dezenas +  3 unidades. O sistema de numeração posicional também pode ser usado com outras bases.</p>
+<p>Dado um número real, <span class="math notranslate nohighlight">\(N\)</span>, é sempre possível representá-lo em qualquer base <span class="math notranslate nohighlight">\(b\)</span>, da seguinte forma</p>
+<div class="math notranslate nohighlight">
+\[ N_b=\sum_{i=n}^m a_ i \times b^i\]</div>
+<p>em que <span class="math notranslate nohighlight">\(a_i \in \{0,1,2,3,...,(b-1)\}\)</span>, com <span class="math notranslate nohighlight">\(n\)</span> e <span class="math notranslate nohighlight">\(m\)</span> inteiros.</p>
+<section id="base-binaria">
+<h3>Base binária<a class="headerlink" href="#base-binaria" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[ N_2=\sum_{i=n}^m a_ i \times 2^i, \,\,\,\,\ a_2 \in \{0,1\}\]</div>
+<p><strong>Exemplos 1.2.3:</strong> (Fonte: <a class="reference external" href="https://integrada.minhabiblioteca.com.br/reader/books/9788522112821/pageid/15">Arenalles e Darezzo, 2016</a>)</p>
+<p>a) <span class="math notranslate nohighlight">\((1011)_2 = 1 \times 2^0 + 1 \times 2^1 + 0 \times 2^2 + 1 \times 2^3\)</span></p>
+<p>b) <span class="math notranslate nohighlight">\((111.01)_2 = 1 \times 2^{-2} + 0 \times 2^{-1} + 1 \times 2^0 + 1 \times 2^1 + 1 \times 2^2 \)</span></p>
+</section>
+<section id="base-decimal">
+<h3>Base decimal<a class="headerlink" href="#base-decimal" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[ N_{10}=\sum_{i=n}^m a_ i \times 10^i, \,\,\,\,\ a_{10} \in \{0,1,2,3,...,9 \}\]</div>
+<p><strong>Exemplos 1.2.4:</strong> (Fonte: <a class="reference external" href="https://integrada.minhabiblioteca.com.br/reader/books/9788522112821/pageid/15">Arenalles e Darezzo, 2016</a>)</p>
+<p>a) <span class="math notranslate nohighlight">\((231)_{10} = 1 \times 10^0 + 3 \times 10^1 + 2 \times 10^2\)</span></p>
+<p>b) <span class="math notranslate nohighlight">\((231.35)_{10} = 5 \times 10^{-2} +3\times 10^{-1} +1 \times 10^0 + 3 \times 10^1 + 2 \times 10^2\)</span></p>
+<p>c) Podemos facilmente converter um número binário para a base decimal escrevendo o número em formato de somatória e realizando as ‘contas’ no sistema decimal, com é mostrado a seguir</p>
+<p><span class="math notranslate nohighlight">\((1001.101)_2 = \)</span></p>
+<p><span class="math notranslate nohighlight">\( 1\times 2^{-3} + 0\times 2^{-2} + 2\times 10^{-1} +1 \times 2^0 + 0 \times 2^1 + 0 \times 2^2 + 1 \times 2^3 = \)</span></p>
+<p><span class="math notranslate nohighlight">\( 1/8 + 0/4 + 1/2 + 1/1 + 0 \cdot 2 + 0 \cdot 4 + 1 \cdot 8 =\)</span></p>
+<p><span class="math notranslate nohighlight">\(0.125+0.5+1.0+8.0 =\)</span></p>
+<p><span class="math notranslate nohighlight">\(9.625\)</span></p>
+<p>Assim <span class="math notranslate nohighlight">\((1001.101)_2 = (9,625)_{10}\)</span>.</p>
+<p>A mudança de <strong>base decimal para binária</strong>, no caso de um número inteiro, é realizada dividindo o número sucessivamente por 2 até obter o quociente 1. Então, toma-se o quociente e os restos das divisões na ordem contrária em que foram obtidos para formar o número binário. Vejamos um exemplo.</p>
+<p><strong>Exemplo 1.2.5:</strong> (Fonte: <a class="reference external" href="https://integrada.minhabiblioteca.com.br/reader/books/9788522112821/pageid/16">Arenalles e Darezzo, 2016</a>)</p>
+<p>O número 25, na base 10, pode ser convertido para a base 2 procedenco sucessivas divisões por 2 como é mostrado abaixo.</p>
+<img src="https://github.com/tiagoburiol/NUMETHODS/raw/master/1_INTRODUCAO_ERROS/imagens/dec2bin_int.png" width="200">
+<p>Tomando-se o quociente 1 e os restos das divisões na ordem contrária em que foram obtidos, formamos o número binário 11001. Assim,</p>
+<div class="math notranslate nohighlight">
+\[(25)_{10}=(11001)_2.\]</div>
+<p><strong>Exercício 1.2.1:</strong> Faça um programa em Python para converter um inteiro decimal em um binário. Teste para o número <span class="math notranslate nohighlight">\((11)_{10}=(1011)_2\)</span>. Dica: o operador <code class="docutils literal notranslate"><span class="pre">%</span></code> usado no lugar do operador <code class="docutils literal notranslate"><span class="pre">/</span></code> em uma divisão, retorna o resto dessa divisão.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">11</span><span class="o">%</span><span class="k">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para converter uma fração decimal para a base binária procedemos sucessivas multiplicações por 2. A parte inteira do resultado obtido será o primeiro dígito binário. A parte fracionária será multiplicada novamente por 2 para obter-se os próximos dígitos no número binário, sucessivamente. vejamos um exemplo.</p>
+<p><strong>Exemplo 1.2.6:</strong></p>
+<p>O número <span class="math notranslate nohighlight">\((0.1875)_{10}\)</span> pode ser convertido para a base binária procedendo como é mostrado na figura abaixo</p>
+<img src="https://github.com/tiagoburiol/NUMETHODS/raw/master/1_INTRODUCAO_ERROS/imagens/dec2bin_frac.png" width="400">
+<p>Assim, obtemos que <span class="math notranslate nohighlight">\((0.1875)_{10}=(0.0011)_2\)</span>.</p>
+<p><strong>Exercício 1.2.2:</strong> Converta os números <span class="math notranslate nohighlight">\((13.25)_{10}\)</span> e <span class="math notranslate nohighlight">\((0.2)_{10}\)</span> para a base binária.</p>
+<p><strong>Exercício 1.2.3:</strong> Faça um programa em Python para converter um número qualquer da base decimal para a base binária. Dica: para pegar a parte inteira podemos usar a função <code class="docutils literal notranslate"><span class="pre">floor</span></code> da biblioteca <code class="docutils literal notranslate"><span class="pre">math</span></code> do Python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># por exemplo</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span>
+<span class="n">floor</span><span class="p">(</span><span class="mf">13.25</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="outras-bases">
+<h2>Outras bases<a class="headerlink" href="#outras-bases" title="Link to this heading">#</a></h2>
+<p><strong>Exemplo 1.2.7:</strong> Em Python existem funções para representar números em diferentes bases, incluindo os sistemas octogonal e hexadecimal. Para converter um inteiro em um binário, octal, ou hexadecimal, podemos proceder como é mostrado abaixo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1234</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Binário:     x =&#39;</span><span class="p">,</span> <span class="nb">bin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Octal:       x =&#39;</span><span class="p">,</span> <span class="nb">oct</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Hexadecimal: x =&#39;</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Binário:     x = 0b10011010010
+Octal:       x = 0o2322
+Hexadecimal: x = 0x4d2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ou, alternativamente</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Binário:     x =&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Octal:       x =&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Hexadecimal: x =&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Binário:     x = 10011010010
+Octal:       x = 2322
+Hexadecimal: x = 4d2
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercícios:</strong></p>
+<p>(Fontes: Ruggiero (2016), <a class="reference external" href="https://integrada.minhabiblioteca.com.br/reader/books/9788580555691/pageid/87">Chapra e Canale (2016)</a>)</p>
+<p><strong>1.</strong> Converta os seguintes números decimais para sua forma binária:</p>
+<div class="math notranslate nohighlight">
+\[a) (37)_{10} \quad  b) (2345)_{10} \quad  c) (0,1217)_{10} \quad
+  d) (71,263)_{10} \quad  e) (3,147)_{10} \quad  f) (625,125)_{10}\]</div>
+<p><strong>2.</strong> Converta os seguintes números na base 2 para a base 10:</p>
+<div class="math notranslate nohighlight">
+\[a) (101101)_{2} \quad b) (101,101)_{2} \quad c) (110101011)_{2} \quad 
+d) (0,1101)_{2} \quad e) (0,111111101)_{2} \quad f) (0,01101)_{2} \quad\]</div>
+<p><strong>Respostas:</strong></p>
+<p><strong>1.</strong>   <span class="math notranslate nohighlight">\(a) (100101)_{2} \quad  b) (100100101001)_{2} \quad  c) (0,000111110010)_{2}\)</span>
+<span class="math notranslate nohighlight">\(d) (1000111,010000110101...)_{2} \quad  e) (11,0010010110100...)_{2} \quad  f) (1001110001,001)_{2}\)</span></p>
+<p><strong>2.</strong> <span class="math notranslate nohighlight">\(a) (45)_{10} \quad b) (5,625)_{10} \quad c) (427)_{10} \quad 
+d) (0,8125)_{10} \quad e) (0,994140625)_{10} \quad f) (0,40625)_{10} \quad\)</span></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./1_INTRODUCAO_ERROS"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Métodos Numéricos em Python</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="1.2_aritmetica_de_ponto_flutuante.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">1.2. Aritmética de ponto flutuante</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacao-de-numeros-em-ponto-flutuante">Representação de números em ponto flutuante</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#padrao-ieee">Padrão IEEE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conversao-entre-bases">Conversão entre bases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-binaria">Base binária</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-decimal">Base decimal</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outras-bases">Outras bases</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tiago M. Buriol
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
