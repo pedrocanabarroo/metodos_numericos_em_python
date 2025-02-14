@@ -1,6 +1,6 @@
 # Métodos Numéricos em Python
 
-O *Caderno didático de Métodos Numéricos em Python* foi produzido para ser usados nas disciplinas de métodos numéricos para cursos de graduação da Universidade Federal de Santa Maria.
+O *Caderno didático de Métodos Numéricos em Python* foi produzido para ser usados nas disciplinas de Métodos Numéricos Computacionais e Cálculo Numérico ministradas de cursos de graduação e pós-graduação da Universidade Federal de Santa Maria.
 
 <a href="https://tiagoburiol.github.io/metodos_numericos_em_python/intro.html">
 <img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/docs/_static/capa.png" width="400">
