@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -194,9 +194,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.2_metodo_da_bissecao.html">2.2. Método da bisseção</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.3_metodo_do_ponto_fixo.html">2.3 Método do ponto fixo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.4_metodo_de_newton_raphson.html">2.4 Método de Newton-Raphson</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">3.5 Método das Secantes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.6_raizes_de_polinomios.html">2.6. Raízes de polinômios</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.7_estudos_de_caso.html">2.7 Estudo de casos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">2.5 Método das Secantes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
 <ul class="nav bd-sidenav">
@@ -223,6 +221,13 @@
 <li class="toctree-l1"><a class="reference internal" href="6.2_metodo_de_newton_cotes.html">6.2 Regras de Newton-Cotes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="6.3_regra_dos_trapezios.html">6.3 Regra dos trapézios</a></li>
 <li class="toctree-l1"><a class="reference internal" href="6.4_regras_de_simpson.html">6.4 Regras de Simpson</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">7. Equações diferenciais</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.1_introducao.html">7.1 Introdução</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.2_metodo_de_euler.html">7.2 Método de Euler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.3_metodos_de_serie_de_taylor.html">7.3 Métodos de Série de Taylor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.4_metodos_de_runge_kutta.html">7.4 Métodos de Runge-Kutta</a></li>
 </ul>
 
     </div>
@@ -428,12 +433,14 @@ document.write(`
 \[I=\int_a^b f(x)dx = F(b) - F(a)\]</div>
 <p>em que a função <span class="math notranslate nohighlight">\(F(x)\)</span> é a primitiva (ou antiderivada) de <span class="math notranslate nohighlight">\(f\)</span>, ou seja, é tal que <span class="math notranslate nohighlight">\(F'(x) = f(x)\)</span>.</p>
 <p>Graficamente, considerando a função <span class="math notranslate nohighlight">\(f(x) \geq 0\)</span>, para todo <span class="math notranslate nohighlight">\(x \in [a,b]\)</span> podemos interpretar a intergral <span class="math notranslate nohighlight">\(I=\int_a^b f(x)dx\)</span> como a área entre a curva de <span class="math notranslate nohighlight">\(f\)</span> e o eixo das abcissas:</p>
-<img src="imagens/integral.png" width="400">
-Figura 6.1 - A integral definida como área sob o gráfico<p><strong>Soma de Riemann</strong></p>
+<img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/6_INTEGRACAO_NUMERICA/imagens/integral.png" width="600">
+<p>Figura 6.1 - A integral definida como área sob o gráfico</p>
+<p><strong>Soma de Riemann</strong></p>
 <p>A forma mais simples de obter um valor aproximado para uma integral definida é por meio da soma de Riemann. Para isto, divide-se o intervalo de integração <span class="math notranslate nohighlight">\((a,b)\)</span> em <span class="math notranslate nohighlight">\(n\)</span> subintervalos e somam-se as áreas dos retângulos definidos em cada subintervalo. A largura de cada retângulo será dado por <span class="math notranslate nohighlight">\(h=\frac{x_n-x_0}{n}\)</span> e a altura será dada por <span class="math notranslate nohighlight">\(f(x)\)</span> para algum <span class="math notranslate nohighlight">\(x\)</span> dentro do subintervalo <span class="math notranslate nohighlight">\([x_i,x_{i+1}]\)</span>, com <span class="math notranslate nohighlight">\(i=0,1,...,n\)</span>. Uma escolha natural para o valor de <span class="math notranslate nohighlight">\(x\)</span> é um dos extremos do intervalo, o extremo esquerdo <span class="math notranslate nohighlight">\(x_i\)</span> (“pela esquerda”) ou o extremo direito <span class="math notranslate nohighlight">\(x_{i+1}\)</span> (“pela direita”):</p>
-<img src="imagens/RiemannRight.png" width="400">
-<img src="imagens/RiemannLeft.png" width="400">
-Figura 6.2 - Somas de Riemann "pela direita" e "pela esquerda"<p>Claramente podemos aumentar a acurácia da aproximação obtida aumentando o número de subintervalos. A <em>regra do ponto médio</em> considera a altura do retângulo definida em cada subintervalo como sendo o valor da função no ponto médio entre <span class="math notranslate nohighlight">\(x_i\)</span> e <span class="math notranslate nohighlight">\(x_{i+1}\)</span>:</p>
+<img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/6_INTEGRACAO_NUMERICA/imagens/RiemannRight.png" width="600">
+<img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/6_INTEGRACAO_NUMERICA/imagens/RiemannLeft.png" width="600">
+<p>Figura 6.2 - Somas de Riemann “pela direita” e “pela esquerda”</p>
+<p>Claramente podemos aumentar a acurácia da aproximação obtida aumentando o número de subintervalos. A <em>regra do ponto médio</em> considera a altura do retângulo definida em cada subintervalo como sendo o valor da função no ponto médio entre <span class="math notranslate nohighlight">\(x_i\)</span> e <span class="math notranslate nohighlight">\(x_{i+1}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\int_a^b f(x)dx \approx \sum_{i = 0}^{n-1} hf\left(\frac{x_i+x_{i+1}}{2} \right)\]</div>
 <p><strong>Exemplo 6.1:</strong> Nesse exemplo vamos calcular a integral <span class="math notranslate nohighlight">\(\int_{0.1}^{0.8} x^2ln(x)dx\)</span> usando aproximações da soma de Riemann pela esquerda, pela direita e pela regra do ponto médio, e comparar os resultados. Então vamos comparar com a solução exata

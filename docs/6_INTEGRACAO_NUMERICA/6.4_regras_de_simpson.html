@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -62,6 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '6_INTEGRACAO_NUMERICA/6.4_regras_de_simpson';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7.1 Introdução" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.1_introducao.html" />
     <link rel="prev" title="6.3 Regra dos trapézios" href="6.3_regra_dos_trapezios.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -193,9 +194,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.2_metodo_da_bissecao.html">2.2. Método da bisseção</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.3_metodo_do_ponto_fixo.html">2.3 Método do ponto fixo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.4_metodo_de_newton_raphson.html">2.4 Método de Newton-Raphson</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">3.5 Método das Secantes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.6_raizes_de_polinomios.html">2.6. Raízes de polinômios</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.7_estudos_de_caso.html">2.7 Estudo de casos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">2.5 Método das Secantes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
 <ul class="nav bd-sidenav">
@@ -222,6 +221,13 @@
 <li class="toctree-l1"><a class="reference internal" href="6.2_metodo_de_newton_cotes.html">6.2 Regras de Newton-Cotes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="6.3_regra_dos_trapezios.html">6.3 Regra dos trapézios</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">6.4 Regras de Simpson</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">7. Equações diferenciais</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.1_introducao.html">7.1 Introdução</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.2_metodo_de_euler.html">7.2 Método de Euler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.3_metodos_de_serie_de_taylor.html">7.3 Métodos de Série de Taylor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.4_metodos_de_runge_kutta.html">7.4 Métodos de Runge-Kutta</a></li>
 </ul>
 
     </div>
@@ -441,9 +447,9 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[ \int_{x_0}^{x_n} f(x) dx \approx \frac{h}{3}[f(x_0)+4f(x_1)+f(x_2)]\]</div>
 <p>conhecida como <em>Regra 1/3 de Simpson</em>.</p>
-<p>Graficamente, tem-se
-<img src="imagens/integral2.png" width="400">
-Figura 6.4 - Aproximação pela integral do polinômio interpolador de grau 2</p>
+<p>Graficamente, tem-se</p>
+<img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/6_INTEGRACAO_NUMERICA/imagens/integral2.png" width="400">
+<p>Figura 6.4 - Aproximação pela integral do polinômio interpolador de grau 2</p>
 <p>Um <em>limitante superior</em> para o erro será dado por</p>
 <div class="math notranslate nohighlight">
 \[ |E_2| \leq \frac{h^5}{90} max.\{|f^{(4)}(x)|, x_0 \leq \xi \leq x_2 \}\]</div>
@@ -462,26 +468,17 @@ Figura 6.4 - Aproximação pela integral do polinômio interpolador de grau 2</p
 <span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">xn</span><span class="o">-</span><span class="n">x0</span><span class="p">)</span><span class="o">/</span><span class="n">n</span>
 
 <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">xn</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
+<span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">xn</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">yi</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
 
 <span class="c1"># Regra 1/3 de Simpson </span>
-<span class="n">Is</span> <span class="o">=</span> <span class="p">(</span><span class="n">h</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">Is</span> <span class="o">=</span> <span class="p">(</span><span class="n">h</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">yi</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">yi</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">yi</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Resultado 1/3 Simpson: &quot;</span><span class="p">,</span> <span class="n">Is</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">xn</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># Regra 1/3 de Simpson </span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">Is</span> <span class="o">=</span> <span class="p">(</span><span class="n">h</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-
-<span class="ne">NameError</span>: name &#39;xi&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultado 1/3 Simpson:  0.5182548311717724
 </pre></div>
 </div>
 </div>
@@ -490,7 +487,12 @@ Figura 6.4 - Aproximação pela integral do polinômio interpolador de grau 2</p
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="k">as</span> <span class="nn">integrate</span>
-<span class="n">integrate</span><span class="o">.</span><span class="n">simps</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">integrate</span><span class="o">.</span><span class="n">simpson</span><span class="p">(</span><span class="n">yi</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">xi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5182548311717724
 </pre></div>
 </div>
 </div>
@@ -520,27 +522,49 @@ Figura 6.4 - Aproximação pela integral do polinômio interpolador de grau 2</p
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">simps</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">))</span>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n= 10 , I= 172.8109327815904
+n= 20 , I= 172.79549085115607
+n= 100 , I= 172.79445177011632
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">simps</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">integrate</span><span class="o">.</span><span class="n">simpson</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xi</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="n">xi</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>172.81093278159045
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">simps</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">integrate</span><span class="o">.</span><span class="n">simpson</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xi</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="n">xi</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>172.79549085115613
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">integrate</span><span class="o">.</span><span class="n">simpson</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xi</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="n">xi</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>172.79445177011632
 </pre></div>
 </div>
 </div>
@@ -561,9 +585,9 @@ Figura 6.4 - Aproximação pela integral do polinômio interpolador de grau 2</p
 <div class="math notranslate nohighlight">
 \[\int_{x_0}^{x_3} f(x) dx \approx \frac{3}{8}h \left[f(x_0)+3f(x_1)+3f(x_2)+f(x_3) \right]\]</div>
 <p>que consiste na regra 3/8 de Simpson.</p>
-<p>Graficamente, tem-se
-<img src="imagens/simpson3p8.png" width="400">
-Figura 6.5 - Aproximação pela integral do polinômio interpolador de grau 3</p>
+<p>Graficamente, tem-se</p>
+<img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/6_INTEGRACAO_NUMERICA/imagens/simpson3p8.png" width="400">
+<p>Figura 6.5 - Aproximação pela integral do polinômio interpolador de grau 3</p>
 <p>Um <em>limitante superior</em> para o erro será dado por</p>
 <div class="math notranslate nohighlight">
 \[ |E_3| \leq \frac{3h^5}{80} max.\{|f^{(4)}(x)|, x_0 \leq \xi \leq x_3 \}\]</div>
@@ -579,10 +603,20 @@ Calcule o valor aproximado da integral <span class="math notranslate nohighlight
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15.335299315082702
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">simps</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">integrate</span><span class="o">.</span><span class="n">simpson</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15.335928614229697
 </pre></div>
 </div>
 </div>
@@ -615,6 +649,13 @@ f(x_0) + 3f(x_1)+3f(x_2)+f(x_3) \right] +
     <span class="n">I</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">h</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span><span class="o">+</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span> <span class="o">+</span>\
                  <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="n">n</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span><span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;n=&quot;</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="s2">&quot;, I=&quot;</span><span class="p">,</span><span class="n">I</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n= 4 , I= 11.761407778686316
+n= 20 , I= 11.75388556350441
+n= 40 , I= 12.510405538009266
 </pre></div>
 </div>
 </div>
@@ -678,6 +719,15 @@ f(x_0) + 3f(x_1)+3f(x_2)+f(x_3) \right] +
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">6.3 Regra dos trapézios</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.1_introducao.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">7.1 Introdução</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

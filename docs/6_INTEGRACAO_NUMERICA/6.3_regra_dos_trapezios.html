@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -194,9 +194,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.2_metodo_da_bissecao.html">2.2. Método da bisseção</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.3_metodo_do_ponto_fixo.html">2.3 Método do ponto fixo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.4_metodo_de_newton_raphson.html">2.4 Método de Newton-Raphson</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">3.5 Método das Secantes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.6_raizes_de_polinomios.html">2.6. Raízes de polinômios</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.7_estudos_de_caso.html">2.7 Estudo de casos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">2.5 Método das Secantes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
 <ul class="nav bd-sidenav">
@@ -223,6 +221,13 @@
 <li class="toctree-l1"><a class="reference internal" href="6.2_metodo_de_newton_cotes.html">6.2 Regras de Newton-Cotes</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">6.3 Regra dos trapézios</a></li>
 <li class="toctree-l1"><a class="reference internal" href="6.4_regras_de_simpson.html">6.4 Regras de Simpson</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">7. Equações diferenciais</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.1_introducao.html">7.1 Introdução</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.2_metodo_de_euler.html">7.2 Método de Euler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.3_metodos_de_serie_de_taylor.html">7.3 Métodos de Série de Taylor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.4_metodos_de_runge_kutta.html">7.4 Métodos de Runge-Kutta</a></li>
 </ul>
 
     </div>
@@ -437,7 +442,8 @@ document.write(`
 \[\int_{x_0}^{x_n} f(x) dx \approx \frac{h}{2} [f(x_0)+f(x_1)]\]</div>
 <p>ou seja, tem-se aqui a fórmula da área do trapézio.</p>
 <p>Graficamente, tem-se</p>
-<img src="imagens/trapezio.png" width="400">
+<p>RiemannLeft.png</p>
+<img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/6_INTEGRACAO_NUMERICA/imagens/trapezio.png" width="400">
 Figura 6.3 - Interpretação geométrica da regra dos trapézios
 <p>Um <strong>limitante superior</strong> para o erro será dado por</p>
 <div class="math notranslate nohighlight">
@@ -458,7 +464,7 @@ Figura 6.3 - Interpretação geométrica da regra dos trapézios
 \[\int_{1.5}^{5.5} \frac{1}{x}dx\]</div>
 <p>usando a regra dos trapézios.</p>
 <p><em>Solução:</em> Basta fazer  $<span class="math notranslate nohighlight">\(\int_{1.5}^{5.5} \frac{1}{x} dx \approx \frac{4}{2} [f(1.5)+f(5.5)] = 2 \left( \frac{1}{1.5} + \frac{1}{5.5} \right) \approx 1.697\)</span>$</p>
-<img src="imagens/trapezioExemplo.png" width="400">
+<img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/6_INTEGRACAO_NUMERICA/imagens/trapezioExemplo.png" width="400">
 <p>Resolvendo analiticamente o valor exato é <span class="math notranslate nohighlight">\(ln(5.5)\)</span> - <span class="math notranslate nohighlight">\(ln(1.5)\)</span> que pode ser calculado usando  uma calculadora obtendo-se <span class="math notranslate nohighlight">\(1.2992829841302609\)</span>. O valor obtido pela regra do trapézio é maior, como pode ser verificado observando na figura, comparando-se as áreas. Vamos usar a regra dos trapézios repetida para 5, 10 e 100 subintervalos para ver como fica.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
