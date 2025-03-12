@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -194,13 +194,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.2_metodo_da_bissecao.html">2.2. Método da bisseção</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.3_metodo_do_ponto_fixo.html">2.3 Método do ponto fixo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.4_metodo_de_newton_raphson.html">2.4 Método de Newton-Raphson</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">3.5 Método das Secantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">2.5 Método das Secantes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.6_raizes_de_polinomios.html">2.6. Raízes de polinômios</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.7_estudos_de_caso.html">2.7 Estudo de casos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.1_forma_matricial.html">3.1. Forma matricial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos diretos: decomposição LU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.3_gauss-jordan_e_matriz_inversa.html">3.3 Eliminação de Gauss-Jordan e matriz inversa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.4_metodos_iterativos.html">3.4 Métodos iterativos</a></li>
@@ -223,6 +221,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.2_metodo_de_newton_cotes.html">6.2 Regras de Newton-Cotes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.3_regra_dos_trapezios.html">6.3 Regra dos trapézios</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.4_regras_de_simpson.html">6.4 Regras de Simpson</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">7. Equações diferenciais</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.1_introducao.html">7.1 Introdução</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.2_metodo_de_euler.html">7.2 Método de Euler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.3_metodos_de_serie_de_taylor.html">7.3 Métodos de Série de Taylor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.4_metodos_de_runge_kutta.html">7.4 Métodos de Runge-Kutta</a></li>
 </ul>
 
     </div>
@@ -423,7 +428,7 @@ document.write(`
   <section id="exemplos-aplicados">
 <h1>1.4 Exemplos aplicados<a class="headerlink" href="#exemplos-aplicados" title="Link to this heading">#</a></h1>
 <p>A seguir são apresentados alguns exemplos envolvendo a modelagem matemática de problemas físicos e sua respectiva resolução numéricas.</p>
-<p><strong>Exemplo 1:</strong> (Fórmula iterativa para obter raiz quadrada)</p>
+<p><strong>Exemplo 1.4.1:</strong> (Fórmula iterativa para obter raiz quadrada)</p>
 <p>A equação <span class="math notranslate nohighlight">\(f(x)=x^2-a=0\)</span>, com <span class="math notranslate nohighlight">\(a&gt;0\)</span>, podemos utilizar o seguinte processo iterativo:</p>
 <div class="math notranslate nohighlight">
 \[ x_{n+1}=\frac{1}{2} \left( x_n + \frac{a}{x_n} \right), \,\,\, n=1,2,...\]</div>
@@ -480,9 +485,9 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>Exemplo 2:</strong> (Obtendo a aproximação da raiz de uma equaçaõ de grau 3)</p>
+<p><strong>Exemplo 1.4.2:</strong> (Obtendo a aproximação da raiz de uma equaçaõ de grau 3)</p>
 <p>Uma esfera de madeira (densidade relativa <span class="math notranslate nohighlight">\(\mu_e =0,638\)</span> e raio <span class="math notranslate nohighlight">\(r=10 cm\)</span>) é colocada a flutuar sobre a água (densidade relativa <span class="math notranslate nohighlight">\(\mu=1\)</span>), conforme figura. Qual é a altura <span class="math notranslate nohighlight">\(d\)</span> da esfera que ficará submersa?</p>
-<p><img alt="esfera.png" src="https://github.com/tiagoburiol/NUMETHODS/raw/master/1_INTRODUCAO_ERROS/imagens/esfera.png" /></p>
+<img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/1_INTRODUCAO_ERROS/imagens/esfera.png" width="200">
 <p>Inicialmente, observemos que, pelo <em>Princípio de Arquimedes</em> o peso da esfera deve ser equilibrado com o peso do volume de água deslocada</p>
 <div class="math notranslate nohighlight">
 \[ M_e g = M_a g \]</div>
@@ -493,7 +498,8 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[ 4 \mu_e r^3 = \mu_a d^2 (3r-d)\]</div>
 <p>substituindo os valores obtemos</p>
-<p>$<span class="math notranslate nohighlight">\( d^3-30d^2+2552=0\)</span>$.</p>
+<div class="math notranslate nohighlight">
+\[ d^3-30d^2+2552=0 .\]</div>
 <p>A solução analítica para esse problema pode ser encontrada mas é um tanto complicada. No entanto, com uma rotina podemos encontrar uma aproximação numericamente.</p>
 <p><em>Solução:</em> Sabemos que a solução é um numero entre 0 e 20, então calculamos os valores da função <span class="math notranslate nohighlight">\( f(d) = d^3-30d^2+2552 \)</span> para valores entre 0 e 20 obtendo:</p>
 <div class="cell docutils container">
@@ -577,7 +583,7 @@ d= 11.89 , f(d)= -8.248731000000134
 </div>
 </div>
 <p>Assim, podemos tomar como uma solução aproximada o ponto médio entre 11.86 e 11.87 que resolta em <span class="math notranslate nohighlight">\(d=11.865 cm\)</span> com erro inferior a 0.005.</p>
-<p><strong>Exemplo:</strong> (Velocidade de um corpo em queda livre)</p>
+<p><strong>Exemplo 1.4.3:</strong> (Velocidade de um corpo em queda livre)</p>
 <p>Um corpo em queda livre pode ser descrito pelo modelo matemático</p>
 <div class="math notranslate nohighlight">
 \[ \frac{dv}{dt} = \frac{F}{m}\]</div>
@@ -656,13 +662,6 @@ d= 11.89 , f(d)= -8.248731000000134
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0  2  4  6  8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48]
-[0.0, 19.62, 32.037356828193836, 39.89621261813736, 44.87002590075947, 48.01791653924718, 50.01019387432531, 51.2710918646611, 52.069105130204015, 52.574161984020456, 52.89380883276478, 53.09611102337976, 53.22414662419483, 53.305179434695994, 53.356464517406714, 53.38892247724272, 53.40946488647814, 53.42246602947442, 53.43069435932962, 53.43590201008968, 53.439197894785096, 53.441283836493945, 53.442604013992494, 53.44343954483225, 53.44396834628884]
-</pre></div>
-</div>
-<img alt="../_images/78ffcbf08f4987fcbc3d3d8a047c59921c7a4c8b412ec3de173982108601cf95.png" src="../_images/78ffcbf08f4987fcbc3d3d8a047c59921c7a4c8b412ec3de173982108601cf95.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -673,11 +672,8 @@ d= 11.89 , f(d)= -8.248731000000134
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/40a372ff233ef25283053d717fe1d4fd6a83e8ae2690429cf7a0841b4fd09ccc.png" src="../_images/40a372ff233ef25283053d717fe1d4fd6a83e8ae2690429cf7a0841b4fd09ccc.png" />
 </div>
-</div>
-<p><strong>Exemplo:</strong></p>
+<p><strong>Exemplo 1.4.4:</strong></p>
 <p>Considere as expressões</p>
 <div class="math notranslate nohighlight">
 \[ \frac{e^{1/x}}{1+e^{1/x}} \,\,\,\,\,\, e \,\,\,\,\,\,  \frac{1}{e^{-1/x}+1}\]</div>
@@ -702,35 +698,13 @@ d= 11.89 , f(d)= -8.248731000000134
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f1(x)= 0.9999546021312976
-f2(x)= 0.9999546021312976
-f1(x)= 0.9999983804058308
-f2(x)= 0.9999983804058309
-f1(x)= 0.9999999979388464
-f2(x)= 0.9999999979388463
-f1(x)= 1.0
-f2(x)= 1.0
-f1(x)= 1.0
-f2(x)= 1.0
-f1(x)= 1.0
-f2(x)= 1.0
-f1(x)= 1.0
-f2(x)= 1.0
-f1(x)= math range error
-f2(x)= 1.0
-f1(x)= math range error
-f2(x)= 1.0
-</pre></div>
 </div>
-</div>
-</div>
-<p><strong>Comentário</strong> <br>
+<p><em>Comentário:</em> <br>
 Embora as duas expressões sejam idênticas, observando a saída dos códigos acima, percebe-se que para valores menores do que 0.0015 a primeira expressão resulta em um erro de <em><em>Overflow</em></em> (<em>ArithmeticError = math range error</em>) enquanto que a segunda expressão não ocorre o erro. Assim, podemos dizer que a segunda expressão é mais adequada para valores de x pequenos.</p>
-<p><strong>Exemplo:</strong>
+<p><strong>Exemplo 1.4.5:</strong>
 Apresente um programa em Python para obter aproximações para o valor da função
 <span class="math notranslate nohighlight">\(f(x) = ln(1 + x)\)</span> usando expansões em séries de Taylor em torno do ponto <span class="math notranslate nohighlight">\(x = 0\)</span>. Descubra quantos termos da série precisam ser retidos para calcular <span class="math notranslate nohighlight">\(ln(0.8)\)</span> com erro absoluto inferior a 0.0001.</p>
-<p><strong>Resolução</strong> <br>
+<p><em>Resolução:</em> <br>
 A Série de Taylor em torno de x=0, também chamada de Série de McLaurin, para a função <span class="math notranslate nohighlight">\(ln(1+x)\)</span> é dada por <span class="math notranslate nohighlight">\(\sum_{n=0}^{\infty}\frac{(-1)^nx^{n+1}}{n+1}\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -747,21 +721,12 @@ A Série de Taylor em torno de x=0, também chamada de Série de McLaurin, para 
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultado: -0.2 , Erro: 0.1037159764550898
-Resultado: -0.22000000000000003 , Erro: 0.014087574100598712
-Resultado: -0.2226666666666667 , Erro: 0.002137120453333192
-Resultado: -0.22306666666666672 , Erro: 0.00034455240624332016
-Resultado: -0.22313066666666673 , Erro: 5.774151870891082e-05
-</pre></div>
 </div>
-</div>
-</div>
-<p><strong>Comentário</strong> <br>
+<p><em>Comentário</em> <br>
 Pelo resultado do código acima, os 5 primeiros termos da série são suficientes para a aproximar <span class="math notranslate nohighlight">\(ln(0.8)\)</span>, ou seja, <span class="math notranslate nohighlight">\(ln(1+x)\)</span> com <span class="math notranslate nohighlight">\(x = -0.2\)</span>, com erro menor que 0.0001.</p>
-<p><strong>Exemplo:</strong></p>
+<p><strong>Exemplo 1.4.6:</strong></p>
 <p>De acordo com o <em>princípio de Arquimedes</em>, a força de <em>flutuação</em> é igual ao peso do fluido deslocado pela parte submersa de um objeto. Para o tronco de cone mostrado abaixo, use o método da bisseção e mais algum método de sua escolha para determinar a altura <span class="math notranslate nohighlight">\(h_1\)</span> da parte que está acima da água. Use os seguintes valores para seus cálculos: <span class="math notranslate nohighlight">\(r_1 = 0,5 m\)</span>, <span class="math notranslate nohighlight">\(r_2 = 1 m\)</span>, <span class="math notranslate nohighlight">\(h = 1 m\)</span>, <span class="math notranslate nohighlight">\(\rho_f=densidade do tronco=200 kg/m^3\)</span> e <span class="math notranslate nohighlight">\(\rho_w=densidade da água=1000 kg/m^3\)</span>. O volume do trondo de cone é dado por: $<span class="math notranslate nohighlight">\(V=\frac{\pi h}{3}(r_1^2+r_2^2+r_1 r_2)\)</span>$</p>
-<p><strong>Solução:</strong> A equação a ser resolvida é</p>
+<p><em>Resolução:</em><br> A equação a ser resolvida é</p>
 <div class="math notranslate nohighlight">
 \[200 \frac{\pi1.0}{3} (0.5^2+1.0^2+1.0 \times 0.5) = 1000\frac{\pi (1-h_1)}{3}((0.5+h_1/2)^2+1.0^2+1.0 \times (0.5+h_1/2))\]</div>
 <div class="cell docutils container">
@@ -783,21 +748,6 @@ Pelo resultado do código acima, os 5 primeiros termos da série são suficiente
     <span class="n">err</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_ant</span><span class="p">)</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">x_ant</span> <span class="o">=</span> <span class="n">x</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;| h1=</span><span class="si">%.10f</span><span class="s2">&quot;</span><span class="o">%</span><span class="k">x</span>)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| h1=0.5500000000
-| h1=0.7750000000
-| h1=0.8875000000
-| h1=0.8312500000
-| h1=0.8593750000
-| h1=0.8734375000
-| h1=0.8804687500
-| h1=0.8769531250
-| h1=0.8751953125
-| h1=0.8760742188
-| h1=0.8756347656
 </pre></div>
 </div>
 </div>
@@ -823,16 +773,8 @@ Pelo resultado do código acima, os 5 primeiros termos da série são suficiente
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| h1=0.8486486486
-| h1=0.8740418082
-| h1=0.8758028171
-| h1=0.8757774319
-</pre></div>
 </div>
-</div>
-</div>
-<p><strong>Exemplo:</strong>
+<p><strong>Exemplo 1.4.7:</strong>
 O deslocamento de uma estrutura é definido pela seguinte equação para uma oscilação amortecida:</p>
 <div class="math notranslate nohighlight">
 \[ y = 8 e^{-kt}cos(wt)\]</div>
@@ -849,13 +791,6 @@ O deslocamento de uma estrutura é definido pela seguinte equação para uma osc
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5235790672225676
-0.5235987755982874
-0.5235987755982989
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -869,21 +804,13 @@ O deslocamento de uma estrutura é definido pela seguinte equação para uma osc
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5236382814342175
-0.5235987755981139
-0.5235987755982989
-</pre></div>
 </div>
-</div>
-</div>
-<p><strong>Exemplo:</strong>
+<p><strong>Exemplo 1.4.8:</strong>
 A figura abaixo mostra uma viga uniforme sujeita a uma carga distribuída de forma uniformemente crescente. A equação para a curva elástica resultante é</p>
 <div class="math notranslate nohighlight">
 \[ y = \frac{w_0}{120 EIL} (-x^5+2L^2x^3-L^4x)\]</div>
 <p>Use um método de sua escolha para determinar o ponto de deflexão máxima (isto é, o valor de <span class="math notranslate nohighlight">\(x\)</span> para o qual <span class="math notranslate nohighlight">\(dy/dx=0\)</span>). A seguir, substitua esse valor na equação para determinar o valor da deflexão máxima. Use os seguintes valores dos parâmetros: <span class="math notranslate nohighlight">\(L = 450 cm\)</span>, <span class="math notranslate nohighlight">\(E = 50.000 kN/cm^2\)</span>, <span class="math notranslate nohighlight">\(I=30.000 cm^4\)</span> e <span class="math notranslate nohighlight">\(w_0=1,75 kN/cm\)</span>. Comente seus resultados e estime o erro.</p>
-<img src="https://github.com/tiagoburiol/NUMETHODS/raw/master/1_INTRODUCAO_ERROS/imagens/viga.jpg" width="400">
-</section>
+<img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/1_INTRODUCAO_ERROS/imagens/viga.jpg" width="300"></section>
 
     <script type="text/x-thebe-config">
     {

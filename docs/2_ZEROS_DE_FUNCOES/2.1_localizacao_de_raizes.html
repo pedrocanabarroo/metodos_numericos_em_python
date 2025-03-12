@@ -195,10 +195,10 @@
 <li class="toctree-l1"><a class="reference internal" href="2.3_metodo_do_ponto_fixo.html">2.3 Método do ponto fixo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2.4_metodo_de_newton_raphson.html">2.4 Método de Newton-Raphson</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2.5_metodo_das_secantes.html">2.5 Método das Secantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.6_raizes_de_polinomios.html">2.6. Raízes de polinômios</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.1_forma_matricial.html">3.1. Forma matricial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos diretos: decomposição LU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.3_gauss-jordan_e_matriz_inversa.html">3.3 Eliminação de Gauss-Jordan e matriz inversa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.4_metodos_iterativos.html">3.4 Métodos iterativos</a></li>
@@ -693,7 +693,7 @@ f_3(x)=a_3 x^3+a_2 x^2+a_1 x+a_0
 <p>exige seis multiplicações e seis adições. Em geral um polinômio de grau <span class="math notranslate nohighlight">\(n\)</span> exige <span class="math notranslate nohighlight">\(n(n+1) / 2\)</span> multiplicações e <span class="math notranslate nohighlight">\(n\)</span> adições para ser avaliado em um determinado ponto. Já se ele for reescrito como<br />
 $<span class="math notranslate nohighlight">\(f_3(x)=\left(\left(a_3 x+a_2\right) x+a_1\right)x+a_0\)</span>$</p>
 <p>então, requer três multiplicações e três adições.</p>
-<p><strong>Exemplo 2.6.1:</strong> Considere o polinômio <span class="math notranslate nohighlight">\(f(x)=0,8x^5 - 1,3x^4 +5x^3 +17x^2 + 1.9x +10\)</span>. Vamos calcular <span class="math notranslate nohighlight">\(P(0.5)\)</span> usando um laço simples em que cada passo efetuamos uma multiplicação e uma soma.</p>
+<p><strong>Exemplo 2.1.8:</strong> Considere o polinômio <span class="math notranslate nohighlight">\(f(x)=0,8x^5 - 1,3x^4 +5x^3 +17x^2 + 1.9x +10\)</span>. Vamos calcular <span class="math notranslate nohighlight">\(P(0.5)\)</span> usando um laço simples em que cada passo efetuamos uma multiplicação e uma soma.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span><span class="mf">1.9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
@@ -712,7 +712,7 @@ $<span class="math notranslate nohighlight">\(f_3(x)=\left(\left(a_3 x+a_2\right
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function &lt;lambda&gt; at 0x7f757df2b060&gt; 0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function &lt;lambda&gt; at 0x7f2fcfaf72e0&gt; 0
 </pre></div>
 </div>
 </div>
@@ -742,7 +742,7 @@ $<span class="math notranslate nohighlight">\(f_3(x)=\left(\left(a_3 x+a_2\right
 <div class="math notranslate nohighlight">
 \[ \left|x_k \right| &gt; \frac{1}{1+\frac{B}{\left|a_n \right|}}=r\]</div>
 <p>(Para a demonstração, ver Arenales e Darezzo, 2015, p 123)</p>
-<p><strong>Exemplo 2.1.8:</strong>
+<p><strong>Exemplo 2.1.9:</strong>
 As raízes de <span class="math notranslate nohighlight">\(P(x)=x^3+2x^2-x-2=0\)</span> estão localizadas em <span class="math notranslate nohighlight">\(-3&lt;x_k&lt; -1/2\)</span> ou <span class="math notranslate nohighlight">\(1/2&lt; x_k &lt;3\)</span>, pois:</p>
 <p><span class="math notranslate nohighlight">\( |x_k|&lt;1-\frac{2}{|1|} = 3 = R\)</span> e    <span class="math notranslate nohighlight">\(|x_k|&gt; \frac{1}{1+\frac{2}{|-2|}} = 1/2 = r\)</span></p>
 <p>De fato, as raízes de <span class="math notranslate nohighlight">\(P(x) = 0\)</span> são dadas por <span class="math notranslate nohighlight">\(x = 1\)</span>, <span class="math notranslate nohighlight">\(x = −1\)</span> e <span class="math notranslate nohighlight">\(x = −2\)</span>.</p>
@@ -757,7 +757,7 @@ As raízes de <span class="math notranslate nohighlight">\(P(x)=x^3+2x^2-x-2=0\
 \[
 P(x), P^{(1)}(x), \ldots, P^{(n-1)}, 1
 \]</div>
-<p><strong>Exemplo 2.6.3:</strong> (Fonte: <a class="reference external" href="https://integrada.minhabiblioteca.com.br/reader/books/9788522112821/pageid/137">Arenales e Darezzo, 2016</a>) Considere o polinômio <span class="math notranslate nohighlight">\(P(x)=x^3+2 x^2-x-2\)</span>. Aplicando o teorema de Budan-Fourier, vemos que os valores 3 e -3 não são raízes de <span class="math notranslate nohighlight">\(P(x)=0\)</span>, pois <span class="math notranslate nohighlight">\(P(3)=40\)</span> e <span class="math notranslate nohighlight">\(P(-3)=-8\)</span>. Desta forma, é possível calcular o número de raízes localizadas em <span class="math notranslate nohighlight">\([-3,3]\)</span> :</p>
+<p><strong>Exemplo 2.1.10:</strong> (Fonte: <a class="reference external" href="https://integrada.minhabiblioteca.com.br/reader/books/9788522112821/pageid/137">Arenales e Darezzo, 2016</a>) Considere o polinômio <span class="math notranslate nohighlight">\(P(x)=x^3+2 x^2-x-2\)</span>. Aplicando o teorema de Budan-Fourier, vemos que os valores 3 e -3 não são raízes de <span class="math notranslate nohighlight">\(P(x)=0\)</span>, pois <span class="math notranslate nohighlight">\(P(3)=40\)</span> e <span class="math notranslate nohighlight">\(P(-3)=-8\)</span>. Desta forma, é possível calcular o número de raízes localizadas em <span class="math notranslate nohighlight">\([-3,3]\)</span> :</p>
 <p>Seja <span class="math notranslate nohighlight">\(P^{(i)}(x) \rightarrow i\)</span>-ésima derivada de <span class="math notranslate nohighlight">\(P(x)\)</span>. Assim, temos:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}

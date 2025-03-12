@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -192,13 +192,11 @@
 <li class="toctree-l1"><a class="reference internal" href="2_ZEROS_DE_FUNCOES/2.2_metodo_da_bissecao.html">2.2. Método da bisseção</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_ZEROS_DE_FUNCOES/2.3_metodo_do_ponto_fixo.html">2.3 Método do ponto fixo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_ZEROS_DE_FUNCOES/2.4_metodo_de_newton_raphson.html">2.4 Método de Newton-Raphson</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">3.5 Método das Secantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">2.5 Método das Secantes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_ZEROS_DE_FUNCOES/2.6_raizes_de_polinomios.html">2.6. Raízes de polinômios</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_ZEROS_DE_FUNCOES/2.7_estudos_de_caso.html">2.7 Estudo de casos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="3_SISTEMAS_LINEARES/3.1_forma_matricial.html">3.1. Forma matricial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos diretos: decomposição LU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_SISTEMAS_LINEARES/3.3_gauss-jordan_e_matriz_inversa.html">3.3 Eliminação de Gauss-Jordan e matriz inversa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_SISTEMAS_LINEARES/3.4_metodos_iterativos.html">3.4 Métodos iterativos</a></li>
@@ -221,6 +219,13 @@
 <li class="toctree-l1"><a class="reference internal" href="6_INTEGRACAO_NUMERICA/6.2_metodo_de_newton_cotes.html">6.2 Regras de Newton-Cotes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="6_INTEGRACAO_NUMERICA/6.3_regra_dos_trapezios.html">6.3 Regra dos trapézios</a></li>
 <li class="toctree-l1"><a class="reference internal" href="6_INTEGRACAO_NUMERICA/6.4_regras_de_simpson.html">6.4 Regras de Simpson</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">7. Equações diferenciais</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.1_introducao.html">7.1 Introdução</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.2_metodo_de_euler.html">7.2 Método de Euler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.3_metodos_de_serie_de_taylor.html">7.3 Métodos de Série de Taylor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.4_metodos_de_runge_kutta.html">7.4 Métodos de Runge-Kutta</a></li>
 </ul>
 
     </div>
@@ -393,7 +398,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -409,6 +416,23 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conteudo">Conteúdo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introducao-e-erros">1. Introdução e erros</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zeros-de-funcoes">2. Zeros de funções</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sistemas-lineares">3. Sistemas Lineares</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolacao-polinomial">4. Interpolação polinomial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ajuste-por-minimos-quadrados">5. Ajuste por minimos quadrados</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integracao-numerica">6.Integração Numérica</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equacoes-diferenciais-ordinarias">7. Equações diferenciais ordinárias</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -420,7 +444,75 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="metodos-numericos-em-python">
 <h1>Métodos Numéricos em Python<a class="headerlink" href="#metodos-numericos-em-python" title="Link to this heading">#</a></h1>
-<p>Caderno didático para aulas práticas de métodos numéricos computacionais</p>
+<p>O <em>Caderno didático de Métodos Numéricos em Python</em> foi produzido para ser usados nas disciplinas de Métodos Numéricos Computacionais e Cálculo Numérico ministradas de cursos de graduação e pós-graduação da Universidade Federal de Santa Maria.</p>
+<a href="https://tiagoburiol.github.io/metodos_numericos_em_python/intro.html">
+<img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/docs/_static/capa.png" width="400">
+</a>
+<section id="conteudo">
+<h2>Conteúdo<a class="headerlink" href="#conteudo" title="Link to this heading">#</a></h2>
+<section id="introducao-e-erros">
+<h3>1. Introdução e erros<a class="headerlink" href="#introducao-e-erros" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/1_INTRODUCAO_ERROS/1.1_o_basico_sobre_erros.html">1.1 O básicos sobre erros</a></p></li>
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/1_INTRODUCAO_ERROS/1.2_aritmetica_de_ponto_flutuante.html">1.2. Aritmética de ponto flutuante</a></p></li>
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/1_INTRODUCAO_ERROS/1.3_erros_nas_aproximacoes_numericas.html">1.3 Erros nas aproximações numéricas</a></p></li>
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/1_INTRODUCAO_ERROS/1.4_exemplos_aplicados.html">1.4 Exemplos aplicados</a></p></li>
+</ul>
+</section>
+<section id="zeros-de-funcoes">
+<h3>2. Zeros de funções<a class="headerlink" href="#zeros-de-funcoes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/2_ZEROS_DE_FUNCOES/2.1_localizacao_de_raizes.html">2.1 Localização de raízes</a></p></li>
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/2_ZEROS_DE_FUNCOES/2.2_metodo_da_bissecao.html">2.2. Método da bisseção</a></p></li>
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/2_ZEROS_DE_FUNCOES/2.3_metodo_do_ponto_fixo.html">2.3 Método do ponto fixo</a></p></li>
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/2_ZEROS_DE_FUNCOES/2.4_metodo_de_newton_raphson.html">2.4 Método de Newton-Raphson</a></p></li>
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">2.5 Método das Secantes</a></p></li>
+</ul>
+</section>
+<section id="sistemas-lineares">
+<h3>3. Sistemas Lineares<a class="headerlink" href="#sistemas-lineares" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/3_SISTEMAS_LINEARES/3.1_forma_matricial.html">3.1. Forma matricial</a></p></li>
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos diretos: decomposição LU</a></p></li>
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/3_SISTEMAS_LINEARES/3.3_gauss-jordan_e_matriz_inversa.html">3.3 Eliminação de Gauss-Jordan e matriz inversa</a></p></li>
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/3_SISTEMAS_LINEARES/3.4_metodos_iterativos.html">3.4 Métodos iterativos</a></p></li>
+</ul>
+</section>
+<section id="interpolacao-polinomial">
+<h3>4. Interpolação polinomial<a class="headerlink" href="#interpolacao-polinomial" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html">4.1. Interpolação polinomial e fórmula de Lagrange</a></p></li>
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/4_INTERPOLACAO_POLINOMIAL/4.2_interpolacao_de_newton.html">4.2 Fórmula de Newton</a></p></li>
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/4_INTERPOLACAO_POLINOMIAL/4.3_erro_na_interpolacao_polinomial.html">4.3. Erros na interpolação</a></p></li>
+</ul>
+</section>
+<section id="ajuste-por-minimos-quadrados">
+<h3>5. Ajuste por minimos quadrados<a class="headerlink" href="#ajuste-por-minimos-quadrados" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/5_MINIMOS_QUADRADOS/5.1_minimos_quadrados_discreto.html">5.1 Mínimos quadrados: caso discreto</a></p></li>
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/5_MINIMOS_QUADRADOS/5.2_ajuste_linear_nos_parametros.html">5.2 Ajuste linear nos parâmetros</a></p></li>
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/5_MINIMOS_QUADRADOS/5.3_ajuste_nao_linear_e_linearizacao.html">5.3 Ajuste não linear e linearização</a></p></li>
+</ul>
+</section>
+<section id="integracao-numerica">
+<h3>6.Integração Numérica<a class="headerlink" href="#integracao-numerica" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/6_INTEGRACAO_NUMERICA/6.1_integracao_numerica.html">6.1 Integração Numérica</a></p></li>
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/6_INTEGRACAO_NUMERICA/6.2_metodo_de_newton_cotes.html">6.2 Regras de Newton-Cotes</a></p></li>
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/6_INTEGRACAO_NUMERICA/6.3_regra_dos_trapezios.html">6.3 Regra dos trapézios</a></p></li>
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/6_INTEGRACAO_NUMERICA/6.4_regras_de_simpson.html">6.4 Regras de Simpson</a></p></li>
+</ul>
+</section>
+<section id="equacoes-diferenciais-ordinarias">
+<h3>7. Equações diferenciais ordinárias<a class="headerlink" href="#equacoes-diferenciais-ordinarias" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.1_introducao.html">7.1 Introdução</a></p></li>
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.2_metodo_de_euler.html">7.2 Método de Euler</a></p></li>
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.3_metodos_de_serie_de_taylor.html">7.3 Métodos de Série de Taylor</a></p></li>
+<li><p><a class="reference external" href="https://tiagoburiol.github.io/metodos_numericos_em_python/7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.4_metodos_de_runge_kutta.html">7.4 Métodos de Runge-Kutta</a></p></li>
+</ul>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -459,6 +551,30 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conteudo">Conteúdo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introducao-e-erros">1. Introdução e erros</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zeros-de-funcoes">2. Zeros de funções</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sistemas-lineares">3. Sistemas Lineares</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolacao-polinomial">4. Interpolação polinomial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ajuste-por-minimos-quadrados">5. Ajuste por minimos quadrados</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integracao-numerica">6.Integração Numérica</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equacoes-diferenciais-ordinarias">7. Equações diferenciais ordinárias</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

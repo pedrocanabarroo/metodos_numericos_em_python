@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '2_ZEROS_DE_FUNCOES/2.4_metodo_de_newton_raphson';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.5 Método das Secantes" href="2.5_metodo_das_secantes.html" />
+    <link rel="next" title="2.5 Método das Secantes" href="2.5_metodo_das_secantes.html" />
     <link rel="prev" title="2.3 Método do ponto fixo" href="2.3_metodo_do_ponto_fixo.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -194,13 +194,11 @@
 <li class="toctree-l1"><a class="reference internal" href="2.2_metodo_da_bissecao.html">2.2. Método da bisseção</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2.3_metodo_do_ponto_fixo.html">2.3 Método do ponto fixo</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">2.4 Método de Newton-Raphson</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2.5_metodo_das_secantes.html">3.5 Método das Secantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.5_metodo_das_secantes.html">2.5 Método das Secantes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2.6_raizes_de_polinomios.html">2.6. Raízes de polinômios</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2.7_estudos_de_caso.html">2.7 Estudo de casos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.1_forma_matricial.html">3.1. Forma matricial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos diretos: decomposição LU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.3_gauss-jordan_e_matriz_inversa.html">3.3 Eliminação de Gauss-Jordan e matriz inversa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.4_metodos_iterativos.html">3.4 Métodos iterativos</a></li>
@@ -223,6 +221,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.2_metodo_de_newton_cotes.html">6.2 Regras de Newton-Cotes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.3_regra_dos_trapezios.html">6.3 Regra dos trapézios</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.4_regras_de_simpson.html">6.4 Regras de Simpson</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">7. Equações diferenciais</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.1_introducao.html">7.1 Introdução</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.2_metodo_de_euler.html">7.2 Método de Euler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.3_metodos_de_serie_de_taylor.html">7.3 Métodos de Série de Taylor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.4_metodos_de_runge_kutta.html">7.4 Métodos de Runge-Kutta</a></li>
 </ul>
 
     </div>
@@ -531,10 +536,7 @@ Encontre a raiz de <span class="math notranslate nohighlight">\(f(x)=ln(x)+x-4\)
 <img alt="../_images/0743aaf10dcc261922a72ee20a4f85fc9a3a56165d286b300d7c2081a7ca4f07.png" src="../_images/0743aaf10dcc261922a72ee20a4f85fc9a3a56165d286b300d7c2081a7ca4f07.png" />
 </div>
 </div>
-<p><strong>Exercício 2.4.1:</strong> Usando o método de Newton, resolva as equações a seguir com precisão de 5 casas decimais.</p>
-<p>a) <span class="math notranslate nohighlight">\(f(x)=x^3+8 x^2-4 x-2=0\)</span></p>
-<p>b) <span class="math notranslate nohighlight">\(f(x)=2 x-e^{-x}=0\)</span></p>
-<p>c) <span class="math notranslate nohighlight">\(f(x)=\ln (x)-\operatorname{sen}(x)=0\)</span></p>
+<p>Use o exemplo 2.4.1 como modelo para resolver o Exercício 1 no final da seção.</p>
 <section id="o-metodo-de-newton-e-a-serie-te-taylor">
 <h2>O método de Newton e a série te Taylor<a class="headerlink" href="#o-metodo-de-newton-e-a-serie-te-taylor" title="Link to this heading">#</a></h2>
 <p>O método de Newton também pode ser deduzido a partir do polinômio de Taylor em torno de <span class="math notranslate nohighlight">\(x_0\)</span>:</p>
@@ -608,7 +610,11 @@ x=0.28357,   err=0.00000
 </div>
 </div>
 <p><strong>Exercícios:</strong></p>
-<p><strong>1.</strong> Utilize o método de Newton para encontrar soluções com precisão de <span class="math notranslate nohighlight">\(10^{-5}\)</span> para os problemas a seguir (Fonte: <a class="reference external" href="https://integrada.minhabiblioteca.com.br/reader/books/9788522123414/pageid/98">Burden et al., 2016</a>):</p>
+<p><strong>1.</strong> Usando o método de Newton, resolva as equações a seguir com precisão de 5 casas decimais.</p>
+<p>a) <span class="math notranslate nohighlight">\(f(x)=x^3+8 x^2-4 x-2=0\)</span></p>
+<p>b) <span class="math notranslate nohighlight">\(f(x)=2 x-e^{-x}=0\)</span></p>
+<p>c) <span class="math notranslate nohighlight">\(f(x)=\ln (x)-\operatorname{sen}(x)=0\)</span></p>
+<p><strong>2.</strong> Utilize o método de Newton para encontrar soluções com precisão de <span class="math notranslate nohighlight">\(10^{-5}\)</span> para os problemas a seguir (Fonte: <a class="reference external" href="https://integrada.minhabiblioteca.com.br/reader/books/9788522123414/pageid/98">Burden et al., 2016</a>):</p>
 <p>a) <span class="math notranslate nohighlight">\(e^x+2^{-x}+2 \cos x-6=0\)</span></p>
 <p>b) <span class="math notranslate nohighlight">\(\ln (x-1)+\cos (x-1)=0\)</span></p>
 <p>c) <span class="math notranslate nohighlight">\(2 x \cos 2 x-(x-2)^2=0\)</span></p>
@@ -618,15 +624,15 @@ x=0.28357,   err=0.00000
 <p>g) <span class="math notranslate nohighlight">\(x^3+3 x^2-1=0\)</span></p>
 <p>h) <span class="math notranslate nohighlight">\(x^3-2 x^2-5=0\)</span></p>
 <p>i) <span class="math notranslate nohighlight">\(x-0,8-0,2 \operatorname{sen} x=0\)</span></p>
-<p><strong>2.</strong>
+<p><strong>3.</strong>
 Use o método de Newton-Raphson para determinar uma raiz real de <span class="math notranslate nohighlight">\(f(x)=-1+5,5 x-4 x^2+0,5 x^3\)</span> usando aproximações iniciais (a) 4,52 e (b) 4,54 . Discuta e use métodos gráficos e analíticos para explicar quaisquer peculiaridades nos seus resultados (Fonte: <a class="reference external" href="https://integrada.minhabiblioteca.com.br/reader/books/9788580555691/pageid/169">Chapra, 2016</a>).</p>
-<p><strong>3.</strong> Use o método de Newton-Raphson para encontrar a raiz de</p>
+<p><strong>4.</strong> Use o método de Newton-Raphson para encontrar a raiz de</p>
 <div class="math notranslate nohighlight">
 \[
 f(x)=e^{-0,5 x}(4-x)-2
 \]</div>
 <p>Use aproximações iniciais de (a) 2, (b) 6 e (c) 8 . Explique seus resultados (Fonte: <a class="reference external" href="https://integrada.minhabiblioteca.com.br/reader/books/9788580555691/pageid/170">Chapra, 2016</a>)..</p>
-<p><strong>4.</strong> A função descrita por <span class="math notranslate nohighlight">\(f(x)=\ln \left(x^2+1\right)-\mathrm{e}^{0,4 x} \cos \pi x\)</span> tem um número infinito de zeros (Fonte:<a class="reference external" href="https://integrada.minhabiblioteca.com.br/reader/books/9788522123414/pageid/99">Burden et al., 2016</a>).</p>
+<p><strong>5.</strong> A função descrita por <span class="math notranslate nohighlight">\(f(x)=\ln \left(x^2+1\right)-\mathrm{e}^{0,4 x} \cos \pi x\)</span> tem um número infinito de zeros (Fonte:<a class="reference external" href="https://integrada.minhabiblioteca.com.br/reader/books/9788522123414/pageid/99">Burden et al., 2016</a>).</p>
 <p>a) Determine, com precisão de <span class="math notranslate nohighlight">\(10^{-6}\)</span>, o único zero negativo.</p>
 <p>b) Determine, com precisão de <span class="math notranslate nohighlight">\(10^{-6}\)</span>, os quatro menores zeros positivos.</p>
 <p>c) Determine uma aproximação inicial razoável para determinar o enésimo menor zero positivo de <span class="math notranslate nohighlight">\(f\)</span>.</p>
@@ -678,7 +684,7 @@ f(x)=e^{-0,5 x}(4-x)-2
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">3.5 Método das Secantes</p>
+        <p class="prev-next-title">2.5 Método das Secantes</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

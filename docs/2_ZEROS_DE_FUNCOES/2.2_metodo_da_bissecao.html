@@ -195,10 +195,10 @@
 <li class="toctree-l1"><a class="reference internal" href="2.3_metodo_do_ponto_fixo.html">2.3 Método do ponto fixo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2.4_metodo_de_newton_raphson.html">2.4 Método de Newton-Raphson</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2.5_metodo_das_secantes.html">2.5 Método das Secantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.6_raizes_de_polinomios.html">2.6. Raízes de polinômios</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.1_forma_matricial.html">3.1. Forma matricial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos diretos: decomposição LU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.3_gauss-jordan_e_matriz_inversa.html">3.3 Eliminação de Gauss-Jordan e matriz inversa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.4_metodos_iterativos.html">3.4 Métodos iterativos</a></li>
@@ -425,10 +425,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-de-bolzano">Teorema de Bolzano:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numero-de-iteracoes">Número de iterações</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-1">Exemplo 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-2">Exemplo 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-3">Exemplo 3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-4">Exemplo 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercicios">Exercícios</a></li>
 </ul>
             </nav>
         </div>
@@ -473,10 +470,8 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[ n&gt;\frac{log(b-a)-log(\epsilon)}{log2}-1\]</div>
 <p>Assim, <span class="math notranslate nohighlight">\(n\)</span> é o número mínimo de iterações que devem ser realizadas para se obter <span class="math notranslate nohighlight">\(\overline{x}\)</span> com precisão <span class="math notranslate nohighlight">\(\epsilon\)</span>.</p>
-</section>
-<section id="exemplo-1">
-<h2>Exemplo 1<a class="headerlink" href="#exemplo-1" title="Link to this heading">#</a></h2>
-<p>Usando o método da bisseção, resolva a equação <span class="math notranslate nohighlight">\(x^2+ln(x)=0\)</span>, com <span class="math notranslate nohighlight">\(\epsilon = 0.01\)</span>.</p>
+<p><strong>Exemplo 2.2.1:</strong>
+Usando o método da bisseção, resolva a equação <span class="math notranslate nohighlight">\(x^2+ln(x)=0\)</span>, com <span class="math notranslate nohighlight">\(\epsilon = 0.01\)</span>.</p>
 <p><em>Solução:</em> Reescrevendo a equação como <span class="math notranslate nohighlight">\(x^2=-ln(x)\)</span> e esboçando os gráficos de <span class="math notranslate nohighlight">\(f_1(x)=x^2\)</span> e <span class="math notranslate nohighlight">\(f_2(x)=-ln(x)\)</span> observamos que existe uma raiz no intervalo <span class="math notranslate nohighlight">\([0.1,1]\)</span>.</p>
 <img src="https://github.com/tiagoburiol/NUMETHODS/raw/master/3_ZEROS_DE_FUNCOES/images/3.3_exemplo_1loc.png" width="400">
 <p>Então, na primeira iteração fazemos <span class="math notranslate nohighlight">\(x_m = \frac{a+b}{2}=\frac{1.0-0.1}{2}=0.55\)</span>. Como <span class="math notranslate nohighlight">\(f(a)=f(0.1)=-2.293\)</span>, <span class="math notranslate nohighlight">\(f(b)=f(1.0)=1\)</span> e <span class="math notranslate nohighlight">\(f(x_m)=f(0.55)=-0.295\)</span> temos que a raíz está no intervalo <span class="math notranslate nohighlight">\([x_m,b]\)</span>. Além disso, <span class="math notranslate nohighlight">\(\frac{|x_1-x_0|}{|x_0|}=0.2953\)</span> é maior que <span class="math notranslate nohighlight">\(\epsilon = 0.01\)</span>. Então seguimos o processo iterativo obtendo a sequência abaixo.</p>
@@ -513,10 +508,8 @@ x = 0.6520 | Erro = 0.0054
 </div>
 </div>
 </div>
-</section>
-<section id="exemplo-2">
-<h2>Exemplo 2<a class="headerlink" href="#exemplo-2" title="Link to this heading">#</a></h2>
-<p>Calcular, pelo método da bisseção, corretamente até a terceira casa decimal, a raiz da equação  <span class="math notranslate nohighlight">\( \left( \frac{x}{2} \right)^2 -sen(x) = 0 \)</span>, localizada no intervalo (<span class="math notranslate nohighlight">\(a_0=1,5\)</span> e <span class="math notranslate nohighlight">\(b_0=2\)</span>).</p>
+<p><strong>Exemplo 2.2.2:</strong>
+Calcular, pelo método da bisseção, corretamente até a terceira casa decimal, a raiz da equação  <span class="math notranslate nohighlight">\( \left( \frac{x}{2} \right)^2 -sen(x) = 0 \)</span>, localizada no intervalo (<span class="math notranslate nohighlight">\(a_0=1,5\)</span> e <span class="math notranslate nohighlight">\(b_0=2\)</span>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
@@ -562,10 +555,8 @@ x = 1.9338 | Err = 0.0001
 </div>
 </div>
 </div>
-</section>
-<section id="exemplo-3">
-<h2>Exemplo 3<a class="headerlink" href="#exemplo-3" title="Link to this heading">#</a></h2>
-<p>Use o método da bisseção para obter um zero da função <span class="math notranslate nohighlight">\(f(x)=x\log x-1\)</span> com precisão <span class="math notranslate nohighlight">\(\epsilon = 0.01\)</span></p>
+<p><strong>Exemplo 2.2.3:</strong>
+Use o método da bisseção para obter um zero da função <span class="math notranslate nohighlight">\(f(x)=x\log x-1\)</span> com precisão <span class="math notranslate nohighlight">\(\epsilon = 0.01\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log10</span> 
@@ -605,10 +596,8 @@ x = 1.9338 | Err = 0.0001
 </div>
 </div>
 </div>
-</section>
-<section id="exemplo-4">
-<h2>Exemplo 4<a class="headerlink" href="#exemplo-4" title="Link to this heading">#</a></h2>
-<p>Localize e as raízes e use o método da bisseção para obter os zero da função <span class="math notranslate nohighlight">\(f(x)=x^3-9x+3\)</span> com precisão <span class="math notranslate nohighlight">\(\epsilon = 10^{-3}\)</span></p>
+<p><strong>Exemplo 2.2.4:</strong>
+Localize e as raízes e use o método da bisseção para obter os zero da função <span class="math notranslate nohighlight">\(f(x)=x^3-9x+3\)</span> com precisão <span class="math notranslate nohighlight">\(\epsilon = 10^{-3}\)</span></p>
 <p><strong>Solução:</strong> Nesse exemplo, vamos começar fazendo o gráfico da função.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -669,23 +658,19 @@ x = 1.9338 | Err = 0.0001
 </div>
 </div>
 </div>
-<p><strong>Exercícios:</strong></p>
-<ol class="arabic simple">
-<li><p>Localize graficamente e determine as raízes reais das funções dadas. Estime o erro relativo a cada iteração e pare quando <span class="math notranslate nohighlight">\(\epsilon \leq 1\% \)</span>.</p></li>
-</ol>
+</section>
+<section id="exercicios">
+<h2>Exercícios<a class="headerlink" href="#exercicios" title="Link to this heading">#</a></h2>
+<p><strong>1.</strong> Localize graficamente e determine as raízes reais das funções dadas. Estime o erro relativo a cada iteração e pare quando <span class="math notranslate nohighlight">\(\epsilon \leq 1\% \)</span>.</p>
 <p>a) <span class="math notranslate nohighlight">\(f(x) = –0.5x^2 + 2.5x + 4.5\)</span></p>
 <p>b) <span class="math notranslate nohighlight">\(f(x) = 5x^2 – 5x^2 + 6x -2\)</span></p>
 <p>c) <span class="math notranslate nohighlight">\(f(x) = –25 + 82x – 90x^2 + 44x^3 – 8x^4 + 0.7x^5\)</span></p>
 <p>d) <span class="math notranslate nohighlight">\(f(x) = – 12 – 21x + 18x^2 – 2.75x^3\)</span></p>
-<ol class="arabic simple" start="2">
-<li><p>Como mostrado na figura abaixo, a velocidade da água, <span class="math notranslate nohighlight">\(v(m/s)\)</span>, descarregada de um tanque cilíndrico através de um cano longo pode ser calculada por</p></li>
-</ol>
+<p><strong>2.</strong> Como mostrado na figura abaixo, a velocidade da água, <span class="math notranslate nohighlight">\(v(m/s)\)</span>, descarregada de um tanque cilíndrico através de um cano longo pode ser calculada por</p>
 <div class="math notranslate nohighlight">
 \[ v = \sqrt{2gH} \tanh \left( \frac{\sqrt{2gH}}{2L}t \right)\]</div>
 <p>em que <span class="math notranslate nohighlight">\(g=9.81m/s^2\)</span>, <span class="math notranslate nohighlight">\(H\)</span> é a altura inicial <span class="math notranslate nohighlight">\((m)\)</span>, <span class="math notranslate nohighlight">\(L\)</span> é o comprimento do cano (<span class="math notranslate nohighlight">\(m\)</span>) e <span class="math notranslate nohighlight">\(t\)</span> é o tempo decorrido (<span class="math notranslate nohighlight">\(s\)</span>). Determine a altura necessária para atingir <span class="math notranslate nohighlight">\(v=5m/s\)</span> em <span class="math notranslate nohighlight">\(2.5s\)</span> para um cano de <span class="math notranslate nohighlight">\(4m\)</span> de comprimento pelo método da bisseção e pelo método do ponto-fixo com <span class="math notranslate nohighlight">\(\epsilon =  0.001\)</span></p>
-<img src="imagens/tanque_de_agua.png" width="360"><ol class="arabic simple" start="3">
-<li><p>Água está escoando em um canal trapezoidal a uma vazão de Q = 20 m<span class="math notranslate nohighlight">\(^3\)</span>/s. A profundidade crítica <span class="math notranslate nohighlight">\(y\)</span> para tal canal deve satisfazer a equação</p></li>
-</ol>
+<img src="imagens/tanque_de_agua.png" width="360"><p><strong>3.</strong> Água está escoando em um canal trapezoidal a uma vazão de Q = 20 m<span class="math notranslate nohighlight">\(^3\)</span>/s. A profundidade crítica <span class="math notranslate nohighlight">\(y\)</span> para tal canal deve satisfazer a equação</p>
 <div class="math notranslate nohighlight">
 \[0=1- \frac{Q^2}{gA_c^3}B\]</div>
 <p>onde <span class="math notranslate nohighlight">\(g\)</span> = 9.81 m/s<span class="math notranslate nohighlight">\(^2\)</span>, <span class="math notranslate nohighlight">\(A_c\)</span> é a área da seção transversal (m<span class="math notranslate nohighlight">\(^2\)</span>) e <span class="math notranslate nohighlight">\(B\)</span> é a largura do canal na superfície (m). Para esse caso, a largura e a área transversal podem ser relacionadas à profundidade <span class="math notranslate nohighlight">\(y\)</span> por</p>
@@ -762,10 +747,7 @@ $B = 3+y \,\,\,\,$  e $\,\,\,\,A_c=3y+\frac{y^2}{2}$
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-de-bolzano">Teorema de Bolzano:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numero-de-iteracoes">Número de iterações</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-1">Exemplo 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-2">Exemplo 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-3">Exemplo 3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-4">Exemplo 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercicios">Exercícios</a></li>
 </ul>
   </nav></div>
 

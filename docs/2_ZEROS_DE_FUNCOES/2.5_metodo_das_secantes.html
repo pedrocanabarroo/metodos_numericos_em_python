@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.1. Forma matricial" href="../3_SISTEMAS_LINEARES/3.1_forma_matricial.html" />
+    <link rel="next" title="2.6. Raízes de polinômios" href="2.6_raizes_de_polinomios.html" />
     <link rel="prev" title="2.4 Método de Newton-Raphson" href="2.4_metodo_de_newton_raphson.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -195,10 +195,10 @@
 <li class="toctree-l1"><a class="reference internal" href="2.3_metodo_do_ponto_fixo.html">2.3 Método do ponto fixo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2.4_metodo_de_newton_raphson.html">2.4 Método de Newton-Raphson</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">2.5 Método das Secantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.6_raizes_de_polinomios.html">2.6. Raízes de polinômios</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.1_forma_matricial.html">3.1. Forma matricial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos diretos: decomposição LU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.3_gauss-jordan_e_matriz_inversa.html">3.3 Eliminação de Gauss-Jordan e matriz inversa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.4_metodos_iterativos.html">3.4 Métodos iterativos</a></li>
@@ -501,13 +501,12 @@ x=2.92627 , err=0.00002
 </div>
 </div>
 </div>
-<p><strong>Exercício 2.5.1:</strong> Seja <span class="math notranslate nohighlight">\(f(x)=-x^3-\cos x\)</span>. Com <span class="math notranslate nohighlight">\(x_0=-1\)</span> e <span class="math notranslate nohighlight">\(x_1=0\)</span>. Obtenha uma solução com precisão de 5 casas decimais utilizando o método da secante.</p>
-<p><strong>Exercício 2.5.2:</strong> Obtenha uma solução para a equação <span class="math notranslate nohighlight">\(e^x+2^{-x}+2 \cos x-6=0\)</span> utilizando o método das secantes com <span class="math notranslate nohighlight">\(\epsilon = 10^{-5}\)</span> e faça um gráfico do erro relativo em função do número de iterações.</p>
 <p>O método da <strong>falsa posição</strong> (também conhecido como <em>regula falsi</em>) gera aproximações da mesma maneira que o método da secante, mas inclui um teste para garantir que a raiz esteja sempre no intervalo delimitado por
 iterações sucessivas.</p>
 <p>Primeiramente, escolha as aproximações iniciais <span class="math notranslate nohighlight">\(x_0\)</span>  e <span class="math notranslate nohighlight">\(x_1\)</span> com <span class="math notranslate nohighlight">\(f(x_0)\cdot f(x_1)&lt;0\)</span>. Então, do mesmo modo que no método da secante, a aproximação <span class="math notranslate nohighlight">\(x_2\)</span> é escolhida como a interseção da reta que liga os pontos <span class="math notranslate nohighlight">\((x_0, f(x_0))\)</span> e <span class="math notranslate nohighlight">\((x_1, f(x_1))\)</span> com o eixo <span class="math notranslate nohighlight">\(x\)</span>. O ponto de intersecção <span class="math notranslate nohighlight">\(x_2\)</span> divide o intervalo <span class="math notranslate nohighlight">\((x_0,x_1)\)</span> em dois subintervalos. Para a próxima iteração escolhe-se o intervalo que contém a raiz, verificando se
 <span class="math notranslate nohighlight">\(f(x_0)\cdot f(x_2)\)</span> ou <span class="math notranslate nohighlight">\(f(x_1)\cdot f(x_2)&lt;0\)</span>.</p>
 <p>Em <a class="reference external" href="https://github.com/JonathanWNogueira">Nogueira (2024)</a> é disponibilizada uma implementação do método da falsa posição, <code class="docutils literal notranslate"><span class="pre">false_pos</span></code>como uma função cujos parâmetros de entrada são os mesmos da função <code class="docutils literal notranslate"><span class="pre">secant</span></code>. O código abaixo mostra como utilizar a método da falsa posição para o mesmo problema do exemplo 2.5.1.</p>
+<p><strong>Exemplo 2.5.2:</strong> Vamos encontrar a raiz da equação <span class="math notranslate nohighlight">\(ln(x)+x-4=0\)</span> com tolerância <span class="math notranslate nohighlight">\(\epsilon = 0.0001\)</span> usando o método da falsa posição.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">false_pos</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">):</span>
@@ -542,10 +541,12 @@ iterações sucessivas.</p>
 </div>
 </div>
 </div>
-<p><strong>Exercício 2.5.3:</strong> Resolva os exercícios 2.5.1 e 2.5.2 usando o método da falsa posição e compare os resultados.</p>
-<p><strong>Exercício 2.5.4:</strong> Faça um programa para resolver equações utilizando os métodos da secante e da falsa posição, e plotar um gráfico do erro relativo em função do número de iterações para cada método. Use alguma das equações dos exercícios a seguir para testar.</p>
 <p><strong>Exercícios:</strong></p>
-<p><strong>1.</strong> Calcule, se possível, as raízes das seguintes funções com pelo menos 6 casas de precisão. Use diferentes métodos e compare a velocidade de convergência.</p>
+<p><strong>1.</strong> Seja <span class="math notranslate nohighlight">\(f(x)=-x^3-\cos x\)</span>. Com <span class="math notranslate nohighlight">\(x_0=-1\)</span> e <span class="math notranslate nohighlight">\(x_1=0\)</span>. Obtenha uma solução com precisão de 5 casas decimais utilizando o método da secante.</p>
+<p><strong>2.</strong>  Obtenha uma solução para a equação <span class="math notranslate nohighlight">\(e^x+2^{-x}+2 \cos x-6=0\)</span> utilizando o método das secantes com <span class="math notranslate nohighlight">\(\epsilon = 10^{-5}\)</span> e faça um gráfico do erro relativo em função do número de iterações.</p>
+<p><strong>3.</strong> Resolva os exercícios 1 e 2 usando o método da falsa posição e compare os resultados.</p>
+<p><strong>4.</strong> Faça um programa para resolver equações utilizando os métodos da secante e da falsa posição, e plotar um gráfico do erro relativo em função do número de iterações para cada método. Use alguma das equações do exercício a seguir para testar.</p>
+<p><strong>5.</strong> Calcule, se possível, as raízes das seguintes funções com pelo menos 6 casas de precisão. Use diferentes métodos e compare a velocidade de convergência.</p>
 <p>a) <span class="math notranslate nohighlight">\(f(x) = \sqrt{x}-5^{-x}\)</span></p>
 <p>b) <span class="math notranslate nohighlight">\(f(x) = e^{x} + x\)</span></p>
 <p>c) <span class="math notranslate nohighlight">\(f(x) = xln(x)-1\)</span></p>
@@ -600,11 +601,11 @@ iterações sucessivas.</p>
       </div>
     </a>
     <a class="right-next"
-       href="../3_SISTEMAS_LINEARES/3.1_forma_matricial.html"
+       href="2.6_raizes_de_polinomios.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">3.1. Forma matricial</p>
+        <p class="prev-next-title">2.6. Raízes de polinômios</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
