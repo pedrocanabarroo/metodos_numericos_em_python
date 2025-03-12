@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6.3 Regra dos trapézios &#8212; Caderno didático de Métodos Numéricos em Python</title>
+    <title>7.2 Regra dos trapézios &#8212; Caderno didático de Métodos Numéricos em Python</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -62,8 +62,6 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '6_INTEGRACAO_NUMERICA/6.3_regra_dos_trapezios';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6.4 Regras de Simpson" href="6.4_regras_de_simpson.html" />
-    <link rel="prev" title="6.2 Regras de Newton-Cotes" href="6.2_metodo_de_newton_cotes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -125,6 +123,8 @@
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -194,40 +194,28 @@
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.2_metodo_da_bissecao.html">2.2. Método da bisseção</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.3_metodo_do_ponto_fixo.html">2.3 Método do ponto fixo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.4_metodo_de_newton_raphson.html">2.4 Método de Newton-Raphson</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">2.5 Método das Secantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">3.5 Método das Secantes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.6_raizes_de_polinomios.html">2.6. Raízes de polinômios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.7_estudos_de_caso.html">2.7 Estudo de casos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos diretos: decomposição LU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.3_gauss-jordan_e_matriz_inversa.html">3.3 Eliminação de Gauss-Jordan e matriz inversa</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.4_metodos_iterativos.html">3.4 Métodos iterativos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos de decomposição</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.5_metodos_iterativos.html">3.5 Métodos Iterativos</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.6_condicionamento_de_sistemas_lineares.html">2.6 Condicionamento de Sistemas Lineares</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">4.Interpolação polinomial</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html">4.1. Intepolação polinomial e fórmula de Lagrange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html">4.1. Intepolação polinomial</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.2_interpolacao_de_newton.html">4.2 Fórmula de Newton</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.3_erro_na_interpolacao_polinomial.html">4.3. Erros na interpolação</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">5. Ajuste por minimos quadrados</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.1_minimos_quadrados_discreto.html">5.1 Minimos quadrados: caso discreto</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.2_ajuste_linear_nos_parametros.html">5.2 Ajuste linear nos parâmetros</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.3_ajuste_nao_linear_e_linearizacao.html">5.3 Ajuste não linear e linearização</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">6.Integração Numérica</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="6.1_integracao_numerica.html">6.1 Integração Numérica</a></li>
-<li class="toctree-l1"><a class="reference internal" href="6.2_metodo_de_newton_cotes.html">6.2 Regras de Newton-Cotes</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">6.3 Regra dos trapézios</a></li>
-<li class="toctree-l1"><a class="reference internal" href="6.4_regras_de_simpson.html">6.4 Regras de Simpson</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">7. Equações diferenciais</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.1_introducao.html">7.1 Introdução</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.2_metodo_de_euler.html">7.2 Método de Euler</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.3_metodos_de_serie_de_taylor.html">7.3 Métodos de Série de Taylor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.4_metodos_de_runge_kutta.html">7.4 Métodos de Runge-Kutta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.3_erro_na_interpolacao_polinomial.html">Fórmula de Lagrange</a></li>
+
 </ul>
 
     </div>
@@ -282,7 +270,7 @@
       
       
       
-      <li><a href="https://github.com/tiagoburiol/metodos_numericos_em_python" target="_blank"
+      <li><a href="https://github.com/tiagoburiol/NUMETHODS" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -299,7 +287,7 @@
       
       
       
-      <li><a href="https://github.com/tiagoburiol/metodos_numericos_em_python/issues/new?title=Issue%20on%20page%20%2F6_INTEGRACAO_NUMERICA/6.3_regra_dos_trapezios.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/tiagoburiol/NUMETHODS/issues/new?title=Issue%20on%20page%20%2F6_INTEGRACAO_NUMERICA/6.3_regra_dos_trapezios.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -400,7 +388,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -411,11 +401,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>6.3 Regra dos trapézios</h1>
+    <h1>7.2 Regra dos trapézios</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#erro-na-regra-dos-trapezios">Erro na regra dos trapézios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regra-dos-trapezios-gerneralizada">Regra dos trapézios gerneralizada</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo">Exemplo</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -426,132 +426,108 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="regra-dos-trapezios">
-<h1>6.3 Regra dos trapézios<a class="headerlink" href="#regra-dos-trapezios" title="Link to this heading">#</a></h1>
-<p>Consiste am aproximar a integral da função em um intervalo [𝑎,𝑏] pela integral do polinômio de grau 1 que passa pelos pontos (𝑎,𝑓(𝑎)) e (𝑏,𝑓(𝑏)). Se 𝑓(𝑥)&gt;0 em [𝑎,𝑏] a área entre o gráfico da função e o eixo 𝑥 é aproximado pela área do trapézio de altura ℎ=𝑏−𝑎 e bases 𝑓(𝑎) e 𝑓(𝑏).</p>
+<h1>7.2 Regra dos trapézios<a class="headerlink" href="#regra-dos-trapezios" title="Link to this heading">#</a></h1>
 <p>Considere uma função <span class="math notranslate nohighlight">\(f(x)\)</span> definida nos pontos <span class="math notranslate nohighlight">\(x_0\)</span> e <span class="math notranslate nohighlight">\(x_1\)</span> no intervalo <span class="math notranslate nohighlight">\([a,b]\)</span>. O polinômio de Lagrange para  esses pontos, considerando a mudança de variável <span class="math notranslate nohighlight">\(u = \frac{x-x_0}{h}\)</span>, é dado por</p>
 <div class="math notranslate nohighlight">
-\[P(u) =  f(x_0) (1-u) + f(x_1)(u)\]</div>
+\[ P(u) =  f(x_0) (1-u) + f(x_1)(u)\]</div>
 <p>e a integral pode ser aproximada como segue</p>
 <div class="math notranslate nohighlight">
-\[\int_{x_0}^{x_n} f(x) dx \approx \int_{x_0}^{x_1} P_1(x) dx= h \int_{0}^{1} P_1(u) du\]</div>
+\[ \int_{x_0}^{x_n} f(x) dx \approx \int_{x_0}^{x_1} P_1(x) dx= h \int_{0}^{1} P_1(u) du \]</div>
 <p>ou, ainda,</p>
 <div class="math notranslate nohighlight">
-\[h \int_{0}^{1} P_1(u) du  = h \int_{0}^{1} [f(x_0) (1-u) + f(x_1)(u)] du = h f(x_0) \int_{0}^{1} (1-u) du + hf(x_1)\int_{0}^{1} (u) du\]</div>
+\[ h \int_{0}^{1} P_1(u) du  = h \int_{0}^{1} [f(x_0) (1-u) + f(x_1)(u)] du = h f(x_0) \int_{0}^{1} (1-u) du + hf(x_1)\int_{0}^{1} (u) du\]</div>
 <p>que resulta em</p>
 <div class="math notranslate nohighlight">
-\[\int_{x_0}^{x_n} f(x) dx \approx \frac{h}{2} [f(x_0)+f(x_1)]\]</div>
-<p>ou seja, tem-se aqui a fórmula da área do trapézio.</p>
+\[ \int_{x_0}^{x_n} f(x) dx \approx \frac{h}{2} [f(x_0)+f(x_1)]\]</div>
+<p>que coincide com a fórmula da área do trapézio.</p>
 <p>Graficamente, tem-se</p>
-<p>RiemannLeft.png</p>
-<img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/6_INTEGRACAO_NUMERICA/imagens/trapezio.png" width="400">
-Figura 6.3 - Interpretação geométrica da regra dos trapézios
+<img src="https://github.com/tiagoburiol/NUMETHODS/raw/master/7_INTEGRACAO_NUMERICA/imagens/trapexio.jpg" width="400">
+<section id="erro-na-regra-dos-trapezios">
+<h2>Erro na regra dos trapézios<a class="headerlink" href="#erro-na-regra-dos-trapezios" title="Link to this heading">#</a></h2>
+<p>O erro na regra dos trapézios será dado por</p>
+<div class="math notranslate nohighlight">
+\[E_1 = -\frac{h^3}{12}f^{(2)}(\xi)\]</div>
+<p>com <span class="math notranslate nohighlight">\(x_0 \leq \xi \leq x_1\)</span>.</p>
 <p>Um <strong>limitante superior</strong> para o erro será dado por</p>
 <div class="math notranslate nohighlight">
-\[|E_1| \leq \frac{h^3}{12} max.\{|f^{(2)}(x)|, x_0 \leq x \leq x_1 \}\]</div>
-<p>A <strong>regra dos trapézios repetida</strong> (ou generalizada), consiste na subdivisão do intervalo <span class="math notranslate nohighlight">\([a,b]\)</span> em <span class="math notranslate nohighlight">\(n\)</span> subintervalos iguais, de amplitude <span class="math notranslate nohighlight">\(h=\frac{x_n-x_0}{n}\)</span>, <span class="math notranslate nohighlight">\(x_0=a\)</span> e <span class="math notranslate nohighlight">\(x_n=b\)</span> e na aplicação da regra dos trapézios repetidamente a cada dois pontos consecutivos.</p>
+\[ |E_1| \leq \frac{h^3}{12} max.\{|f^{(2)}(x)|, x_0 \leq x \leq x_1 \}\]</div>
+</section>
+<section id="regra-dos-trapezios-gerneralizada">
+<h2>Regra dos trapézios gerneralizada<a class="headerlink" href="#regra-dos-trapezios-gerneralizada" title="Link to this heading">#</a></h2>
+<p>Consiste na subdivisão do intervalo <span class="math notranslate nohighlight">\([a,b]\)</span> em <span class="math notranslate nohighlight">\(n\)</span> subintervalos iguais, de amplitude <span class="math notranslate nohighlight">\(h=\frac{x_n-x_0}{n}\)</span>, <span class="math notranslate nohighlight">\(x_0=a\)</span> e <span class="math notranslate nohighlight">\(x_n=b\)</span> e aplicarmos a regra dos trapézios a cada dois pontos consecutivos.</p>
+<img src="https://github.com/tiagoburiol/NUMETHODS/raw/master/7_INTEGRACAO_NUMERICA/imagens/trapezio2.jpg" width="580">
 <p>Assim, temos</p>
 <div class="math notranslate nohighlight">
-\[\int_{x_0}^{x_n} f(x) dx \approx \frac{h}{2} [f(x_0)+f(x_1)] + \frac{h}{2} [f(x_2)+f(x_2)] + ... + \frac{h}{2} [f(x_{n-1})+f(x_n)]=\]</div>
+\[ \int_{x_0}^{x_n} f(x) dx \approx \frac{h}{2} [f(x_0)+f(x_1)] + \frac{h}{2} [f(x_2)+f(x_2)] + ... + \frac{h}{2} [f(x_{n-1})+f(x_n)]=\]</div>
 <div class="math notranslate nohighlight">
-\[= \frac{h}{2} [f(x_0)+ 2f(x_1) + 2f(x_2)+...+2f(x_{n-1})+f(x_n)] =\]</div>
+\[ = \frac{h}{2} [f(x_0)+ 2f(x_1) + 2f(x_2)+...+2f(x_{n-1})+f(x_n)] = \]</div>
 <div class="math notranslate nohighlight">
-\[= \frac{h}{2} \{f(x_0)+ 2[f(x_1) + f(x_2)+...+f(x_{n-1})]+f(x_n)\}\]</div>
+\[ = \frac{h}{2} \{f(x_0)+ 2[f(x_1) + f(x_2)+...+f(x_{n-1})]+f(x_n)\}  \]</div>
 <p>E o <strong>limitante superior</strong> para o erro será dado por</p>
 <div class="math notranslate nohighlight">
-\[|E_t| \leq \frac{h^2}{12}(x_n-x_0) max.\{|f^{(2)}(x)|, x_0 \leq x \leq x_n \}\]</div>
-<p><strong>Exemplo 6.2:</strong> Vamos calcular o valor aproximado da integral</p>
+\[ |E_t| \leq \frac{h^2}{12}(x_n-x_0) max.\{|f^{(2)}(x)|, x_0 \leq x \leq x_n \}\]</div>
+</section>
+<section id="exemplo">
+<h2>Exemplo<a class="headerlink" href="#exemplo" title="Link to this heading">#</a></h2>
+<p>Calcule o valor aproximado da integral</p>
 <div class="math notranslate nohighlight">
-\[\int_{1.5}^{5.5} \frac{1}{x}dx\]</div>
-<p>usando a regra dos trapézios.</p>
-<p><em>Solução:</em> Basta fazer  $<span class="math notranslate nohighlight">\(\int_{1.5}^{5.5} \frac{1}{x} dx \approx \frac{4}{2} [f(1.5)+f(5.5)] = 2 \left( \frac{1}{1.5} + \frac{1}{5.5} \right) \approx 1.697\)</span>$</p>
-<img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/6_INTEGRACAO_NUMERICA/imagens/trapezioExemplo.png" width="400">
-<p>Resolvendo analiticamente o valor exato é <span class="math notranslate nohighlight">\(ln(5.5)\)</span> - <span class="math notranslate nohighlight">\(ln(1.5)\)</span> que pode ser calculado usando  uma calculadora obtendo-se <span class="math notranslate nohighlight">\(1.2992829841302609\)</span>. O valor obtido pela regra do trapézio é maior, como pode ser verificado observando na figura, comparando-se as áreas. Vamos usar a regra dos trapézios repetida para 5, 10 e 100 subintervalos para ver como fica.</p>
+\[ \int_1^4 \sqrt{x} \,\,dx\]</div>
+<p>usando a regra dos trapézios generalizada para 2, 4 e 6 subintervalos e um limitante superior para o erro.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x0</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">;</span> <span class="n">xn</span> <span class="o">=</span> <span class="mf">5.5</span> 
-<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span>
+<span class="c1"># Dados do enunciado</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">xn</span> <span class="o">=</span> <span class="mf">4.0</span> 
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>    <span class="c1"># nº de subintervalos</span>
 
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">]:</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">xn</span><span class="o">-</span><span class="n">x0</span><span class="p">)</span><span class="o">/</span><span class="n">n</span>
-    <span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">xn</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>   
-    <span class="n">It</span> <span class="o">=</span> <span class="n">h</span><span class="o">*</span><span class="p">((</span><span class="n">f</span><span class="p">(</span><span class="n">xi</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="n">f</span><span class="p">(</span><span class="n">xi</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xi</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])))</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;n=&quot;</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="s2">&quot;, I=&quot;</span><span class="p">,</span><span class="n">It</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">xn</span><span class="o">-</span><span class="n">x0</span><span class="p">)</span><span class="o">/</span><span class="n">n</span>
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Criando n+1 pontos igualmente espacados </span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">xn</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Regra dos trapézios usando funções do numpy</span>
+<span class="n">It</span> <span class="o">=</span> <span class="p">(</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">]))</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Resultado Trapézio: &quot;</span><span class="p">,</span> <span class="n">It</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n= 5 , I= 1.3206255135651455
-n= 10 , I= 1.304727563368882
-n= 100 , I= 1.2993378314867685
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.    1.003 1.006 ... 3.994 3.997 4.   ]
+Resultado Trapézio:  4.666666479166708
 </pre></div>
 </div>
 </div>
 </div>
-<p>A biblioteca <code class="docutils literal notranslate"><span class="pre">numpy</span></code> já traz uma implementação da regra dos trapézios. Veja como usar no exemplo a seguir com os pontos, o espaçameto e a função definidos acima.</p>
+<p>A regra dos trapézios também está disponível na biblioteca do Scipy como uma das funções para integração numérica. Assim, podemos chegar no mesmo resultado acima fazendo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xi</span><span class="p">),</span><span class="n">dx</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;I =&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">dx</span><span class="o">=</span><span class="n">h</span><span class="p">))</span>  <span class="c1"># entra com valores de f(xi) e de h</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2993378314867685
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I = 4.666666479166707
 </pre></div>
 </div>
 </div>
 </div>
-<p>A biblioteca <code class="docutils literal notranslate"><span class="pre">scipy</span></code> também possui funções para integrais definidas. Para saber mais pesquise por  <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code>.</p>
-<p><strong>Exemplo 6.2:</strong> Vamos calcular o valor aproximado da integral</p>
-<div class="math notranslate nohighlight">
-\[\int_1^4 \sqrt{x}dx\]</div>
-<p>usando a regra dos trapézios generalizada para 2, 4 e 6 subintervalos e obter um limitante superior para o erro.</p>
+<p>ou</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xi</span><span class="p">),</span> <span class="n">xi</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;I =&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">X</span><span class="p">))</span> <span class="c1"># entra com valores de f(xi) e de xi</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.772340295647981
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I = 4.666666479166707
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xi</span><span class="p">),</span> <span class="n">xi</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.78322070363297
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xi</span><span class="p">),</span> <span class="n">xi</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.786856407214704
-</pre></div>
-</div>
-</div>
-</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -584,30 +560,29 @@ n= 100 , I= 1.2993378314867685
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="6.2_metodo_de_newton_cotes.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">6.2 Regras de Newton-Cotes</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="6.4_regras_de_simpson.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">6.4 Regras de Simpson</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#erro-na-regra-dos-trapezios">Erro na regra dos trapézios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regra-dos-trapezios-gerneralizada">Regra dos trapézios gerneralizada</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo">Exemplo</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

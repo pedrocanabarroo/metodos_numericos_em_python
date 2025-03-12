@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4.1. Intepolação polinomial e fórmula de Lagrange &#8212; Caderno didático de Métodos Numéricos em Python</title>
+    <title>4.1. Intepolação polinomial &#8212; Caderno didático de Métodos Numéricos em Python</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -63,7 +63,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4.2 Fórmula de Newton" href="4.2_interpolacao_de_newton.html" />
-    <link rel="prev" title="3.4 Métodos iterativos" href="../3_SISTEMAS_LINEARES/3.4_metodos_iterativos.html" />
+    <link rel="prev" title="2.6 Condicionamento de Sistemas Lineares" href="../3_SISTEMAS_LINEARES/3.6_condicionamento_de_sistemas_lineares.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -194,40 +194,28 @@
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.2_metodo_da_bissecao.html">2.2. Método da bisseção</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.3_metodo_do_ponto_fixo.html">2.3 Método do ponto fixo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.4_metodo_de_newton_raphson.html">2.4 Método de Newton-Raphson</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">2.5 Método das Secantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">3.5 Método das Secantes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.6_raizes_de_polinomios.html">2.6. Raízes de polinômios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.7_estudos_de_caso.html">2.7 Estudo de casos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos diretos: decomposição LU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.3_gauss-jordan_e_matriz_inversa.html">3.3 Eliminação de Gauss-Jordan e matriz inversa</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.4_metodos_iterativos.html">3.4 Métodos iterativos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos de decomposição</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.5_metodos_iterativos.html">3.5 Métodos Iterativos</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.6_condicionamento_de_sistemas_lineares.html">2.6 Condicionamento de Sistemas Lineares</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">4.Interpolação polinomial</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">4.1. Intepolação polinomial e fórmula de Lagrange</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4.1. Intepolação polinomial</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="4.2_interpolacao_de_newton.html">4.2 Fórmula de Newton</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4.3_erro_na_interpolacao_polinomial.html">4.3. Erros na interpolação</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">5. Ajuste por minimos quadrados</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.1_minimos_quadrados_discreto.html">5.1 Minimos quadrados: caso discreto</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.2_ajuste_linear_nos_parametros.html">5.2 Ajuste linear nos parâmetros</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.3_ajuste_nao_linear_e_linearizacao.html">5.3 Ajuste não linear e linearização</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">6.Integração Numérica</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.1_integracao_numerica.html">6.1 Integração Numérica</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.2_metodo_de_newton_cotes.html">6.2 Regras de Newton-Cotes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.3_regra_dos_trapezios.html">6.3 Regra dos trapézios</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.4_regras_de_simpson.html">6.4 Regras de Simpson</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">7. Equações diferenciais</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.1_introducao.html">7.1 Introdução</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.2_metodo_de_euler.html">7.2 Método de Euler</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.3_metodos_de_serie_de_taylor.html">7.3 Métodos de Série de Taylor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.4_metodos_de_runge_kutta.html">7.4 Métodos de Runge-Kutta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4.3_erro_na_interpolacao_polinomial.html">Fórmula de Lagrange</a></li>
+
 </ul>
 
     </div>
@@ -282,7 +270,7 @@
       
       
       
-      <li><a href="https://github.com/tiagoburiol/metodos_numericos_em_python" target="_blank"
+      <li><a href="https://github.com/tiagoburiol/NUMETHODS" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -299,7 +287,7 @@
       
       
       
-      <li><a href="https://github.com/tiagoburiol/metodos_numericos_em_python/issues/new?title=Issue%20on%20page%20%2F4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/tiagoburiol/NUMETHODS/issues/new?title=Issue%20on%20page%20%2F4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -413,7 +401,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>4.1. Intepolação polinomial e fórmula de Lagrange</h1>
+    <h1>4.1. Intepolação polinomial</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -423,11 +411,46 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-interpolatoria-de-lagrange">Fórmula Interpolatória de Lagrange</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-interpolatoria-de-lagrange-para-pontos-equidistantes">Fórmula interpolatória de Lagrange para pontos equidistantes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4.1. Intepolação polinomial</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#begin-cases-y-0-a-0-a-1-x-0-y-1-a-0-a-1-x-1-end-cases-ou-na-forma-matricial-left-begin-array-cc-1-x-0-1-x-1-end-array-right-left-begin-array-c-a-0-a-1-end-array-right"><span class="math notranslate nohighlight">\(\begin{cases} 
+       y_0 = a_0 + a_1 x_0\\ 
+       y_1 = a_0 + a_1 x_1\\
+\end{cases}\)</span>
+ou, na forma matricial
+$\left[\begin{array}{cc}
+1 &amp; x_0 \
+1 &amp; x_1 \
+\end{array} \right]
+\left[\begin{array}{c}
+a_0 \
+a_1 \
+\end{array} \right]</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-4-1">Exemplo 4.1</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#left-begin-array-ccccc-1-x-0-x-0-2-x-0-n-1-x-1-x-1-2-x-1-n-1-x-n-x-n-2-x-n-n-end-array-right-left-begin-array-c-a-0-a-1-a-n-end-array-right">$\left[\begin{array}{ccccc}
+1 &amp; x_0 &amp; x_0^2 &amp; … &amp; x_0^n\
+1 &amp; x_1 &amp; x_1^2 &amp; … &amp; x_1^n\
+…&amp; … &amp; … &amp; … &amp; …\
+1 &amp; x_n &amp; x_n^2 &amp; … &amp; x_n^n\
+\end{array} \right]
+\left[\begin{array}{c}
+a_0 \
+a_1 \
+…\
+a_n \
+\end{array} \right]</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-4-2">Exemplo 4.2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-interpolatoria-de-lagrange">3.2. Fórmula Interpolatória de Lagrange</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-3-3">Exemplo 3.3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-interpolatoria-de-lagrange-para-pontos-equidistantes">Fórmula interpolatória de Lagrange para pontos equidistantes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercicios">Exercícios</a></li>
 </ul>
 </li>
 </ul>
+
             </nav>
         </div>
     </div>
@@ -438,8 +461,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="intepolacao-polinomial-e-formula-de-lagrange">
-<h1>4.1. Intepolação polinomial e fórmula de Lagrange<a class="headerlink" href="#intepolacao-polinomial-e-formula-de-lagrange" title="Link to this heading">#</a></h1>
+  <section id="intepolacao-polinomial">
+<h1>4.1. Intepolação polinomial<a class="headerlink" href="#intepolacao-polinomial" title="Link to this heading">#</a></h1>
 <p>A interpolação polinomial é um método de aproximação de funções por polinômios. A interpolação é utilizada quando se conhece apenas alguns pontos da função ou quando a função é muito complicada e difícil de manejar. Os polinômios têm a vantagem de serem fáceis de derivar e integrar. Além disso, é possível provar que qualquer função contínua pode ser arbitrariamente aproximada por um polinômio (teorema de Weierstrass).</p>
 <p>Outra particularidade é que o valor numérico de um polinômio</p>
 <div class="math notranslate nohighlight">
@@ -452,25 +475,29 @@ document.write(`
 <p>Na figura abaixo é mostrada um polinômio que interpola uma função a partir de 6 pontos. É possível observar que o polinômio passa pelos pontos, ou seja, <span class="math notranslate nohighlight">\(P(x_i) = y_i\)</span>, <span class="math notranslate nohighlight">\(i=0,1,...,5\)</span>, e que aproxima a função razoavelmente bem a função no intervalo de <span class="math notranslate nohighlight">\(x_1\)</span> até <span class="math notranslate nohighlight">\(x_5\)</span>. No intervalo entre <span class="math notranslate nohighlight">\(x_0\)</span> e <span class="math notranslate nohighlight">\(x_1\)</span> a aproximação não é tão boa e fora do intervalo <span class="math notranslate nohighlight">\((x_0,x_5)\)</span> parece não funcionar muito bem.</p>
 <img src="imagens/figura_3.1.png" width="800">
 <p>O caso mais simples de interpolação que podemos analisar é o de encontrar a reta (polinômio de grau 1) que passa por dois pontos, <span class="math notranslate nohighlight">\((x_0, y_0)\)</span> e <span class="math notranslate nohighlight">\((x_1,y_1)\)</span>. Nesse caso, o polinômio tem a forma <span class="math notranslate nohighlight">\(P(x)=a_0+a_1x\)</span> e para determiná-lo basta encontrar os coeficientes <span class="math notranslate nohighlight">\(a_0\)</span> e <span class="math notranslate nohighlight">\(a_1\)</span> da única reta que passa por esses dois pontos. Logo, os coeficientes podem ser obtidos resolvendo o sistema linear:</p>
-<p><span class="math notranslate nohighlight">\(\begin{cases} 
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="begin-cases-y-0-a-0-a-1-x-0-y-1-a-0-a-1-x-1-end-cases-ou-na-forma-matricial-left-begin-array-cc-1-x-0-1-x-1-end-array-right-left-begin-array-c-a-0-a-1-end-array-right">
+<h1><span class="math notranslate nohighlight">\(\begin{cases} 
        y_0 = a_0 + a_1 x_0\\ 
        y_1 = a_0 + a_1 x_1\\
-\end{cases} \quad\)</span> ou, na forma matricial <span class="math notranslate nohighlight">\(\quad \left[\begin{array}{cc}
-          1 &amp; x_0 \\ 
-	      1 &amp; x_1 \\ 
+\end{cases}\)</span>
+ou, na forma matricial
+$\left[\begin{array}{cc}
+1 &amp; x_0 \
+1 &amp; x_1 \
 \end{array} \right]
-\left[\begin{array}{c} 
-          a_0 \\ 
-	      a_1 \\ 
-\end{array} \right]\)</span>
-<span class="math notranslate nohighlight">\(=\)</span>
-<span class="math notranslate nohighlight">\(\left[\begin{array}{c} 
-          y_0 \\ 
-	      y_1 \\ 
-\end{array} \right]\)</span></p>
+\left[\begin{array}{c}
+a_0 \
+a_1 \
+\end{array} \right]<a class="headerlink" href="#begin-cases-y-0-a-0-a-1-x-0-y-1-a-0-a-1-x-1-end-cases-ou-na-forma-matricial-left-begin-array-cc-1-x-0-1-x-1-end-array-right-left-begin-array-c-a-0-a-1-end-array-right" title="Link to this heading">#</a></h1>
+<p>\left[\begin{array}{c}
+y_0 \
+y_1 \
+\end{array} \right]$</p>
 <p>A solução pode ser obtida fazendo <span class="math notranslate nohighlight">\(a_1 = \frac{y_1 - y_0}{x_1 - x_0}\)</span> e <span class="math notranslate nohighlight">\(a_0 = y_0 - a_1x_0\)</span>.</p>
-<p><strong>Exemplo 4.1.1:</strong>
-Vamos obter o polinômio que interpola os pontos <span class="math notranslate nohighlight">\({(1,2),(5,1)}\)</span>.<br>
+<section id="exemplo-4-1">
+<h2>Exemplo 4.1<a class="headerlink" href="#exemplo-4-1" title="Link to this heading">#</a></h2>
+<p>Vamos obter o polinômio que interpola os pontos <span class="math notranslate nohighlight">\({(1,2),(5,1)}\)</span>.<br>
 <em>Solução:</em>
 Para isso, resolvemos o sistema linear
 $<span class="math notranslate nohighlight">\( \begin{cases} 
@@ -486,28 +513,31 @@ e
 \[P(x)= \frac{9}{4}-\frac{1}{4}x\]</div>
 <p>A figura abaixo mostra o resultado</p>
 <img src="imagens/figura_3.2.png" width="600"><p>Assim, generalizando o caso anterior, para obter os coeficientes do polinômio <span class="math notranslate nohighlight">\(P(x)=a_0 + a_1x + a_2x^2+...+a_nx^n\)</span>, de grau <span class="math notranslate nohighlight">\(n\)</span>, que interpola uma função a partir de <span class="math notranslate nohighlight">\(n+1\)</span> pontos <span class="math notranslate nohighlight">\((x_i,y_i)\)</span>, <span class="math notranslate nohighlight">\(i=0,1,...,n\)</span>, podemos resolver o seguinte sistema</p>
-<p><span class="math notranslate nohighlight">\(\left[\begin{array}{ccccc} 
-          1 &amp; x_0 &amp; x_0^2 &amp; ... &amp; x_0^n\\ 
-	      1 &amp; x_1 &amp; x_1^2 &amp; ... &amp; x_1^n\\ 
-          ...&amp; ... &amp; ... &amp; ... &amp; ...\\ 
-          1 &amp; x_n &amp; x_n^2 &amp; ... &amp; x_n^n\\ 
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="left-begin-array-ccccc-1-x-0-x-0-2-x-0-n-1-x-1-x-1-2-x-1-n-1-x-n-x-n-2-x-n-n-end-array-right-left-begin-array-c-a-0-a-1-a-n-end-array-right">
+<h1>$\left[\begin{array}{ccccc}
+1 &amp; x_0 &amp; x_0^2 &amp; … &amp; x_0^n\
+1 &amp; x_1 &amp; x_1^2 &amp; … &amp; x_1^n\
+…&amp; … &amp; … &amp; … &amp; …\
+1 &amp; x_n &amp; x_n^2 &amp; … &amp; x_n^n\
 \end{array} \right]
-\left[\begin{array}{c} 
-          a_0 \\ 
-	      a_1 \\ 
-          ...\\
-          a_n \\ 
-\end{array} \right]\)</span>
-<span class="math notranslate nohighlight">\(=\)</span>
-<span class="math notranslate nohighlight">\(\left[\begin{array}{c} 
-          y_0 \\ 
-	      y_1 \\ 
-          ...\\
-          y_n \\
-\end{array} \right]\)</span></p>
+\left[\begin{array}{c}
+a_0 \
+a_1 \
+…\
+a_n \
+\end{array} \right]<a class="headerlink" href="#left-begin-array-ccccc-1-x-0-x-0-2-x-0-n-1-x-1-x-1-2-x-1-n-1-x-n-x-n-2-x-n-n-end-array-right-left-begin-array-c-a-0-a-1-a-n-end-array-right" title="Link to this heading">#</a></h1>
+<p>\left[\begin{array}{c}
+y_0 \
+y_1 \
+…\
+y_n \
+\end{array} \right]$</p>
 <p>A matriz <span class="math notranslate nohighlight">\(n \times n\)</span> mostrada acima é chamada matriz de Vandermonde e tem determinante não nulo para pontos <span class="math notranslate nohighlight">\(x_i\)</span> distintos, ou seja, polinômio de coeficientes <span class="math notranslate nohighlight">\(a_0,a_1,...,a_n\)</span> existe e é único. Usando o módulo <code class="docutils literal notranslate"><span class="pre">polynomial</span></code> de Numpy a matriz de Vandermonde pode ser obtida usando a função <code class="docutils literal notranslate"><span class="pre">np.polynomial.polynomial.polyvander</span></code>.</p>
-<p><strong>Exemplo 4.1.2:</strong>
-Considere o problema de encontrar um polinômio interpolador para do conjunto de pontos <span class="math notranslate nohighlight">\(\{(0, 1)\)</span>, <span class="math notranslate nohighlight">\((1, 6)\)</span>, <span class="math notranslate nohighlight">\((2, 5)\)</span>, <span class="math notranslate nohighlight">\((3, -8)\}\)</span>. Como o conjunto consiste de 4 pontos, o polinômio interpolador deve ser da forma: <span class="math notranslate nohighlight">\(p(x) = a_0 + a_1x + a_2x^2 + a_3x^3\)</span></p>
+<section id="exemplo-4-2">
+<h2>Exemplo 4.2<a class="headerlink" href="#exemplo-4-2" title="Link to this heading">#</a></h2>
+<p>Considere o problema de encontrar um polinômio interpolador para do conjunto de pontos <span class="math notranslate nohighlight">\(\{(0, 1)\)</span>, <span class="math notranslate nohighlight">\((1, 6)\)</span>, <span class="math notranslate nohighlight">\((2, 5)\)</span>, <span class="math notranslate nohighlight">\((3, -8)\}\)</span>. Como o conjunto consiste de 4 pontos, o polinômio interpolador deve ser da forma: <span class="math notranslate nohighlight">\(p(x) = a_0 + a_1x + a_2x^2 + a_3x^3\)</span></p>
 <p>O que nos leva ao sistema linear:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{cases} 
@@ -566,15 +596,18 @@ P(xi): [ 1.  6.  5. -8.]
 </div>
 <p>Como é possível notar, com poucas linhas de código, utilizando as convenientes funções disponíveis na biblioteca NumPy, é possível obter o polinômio que interpola os pontos dados. Podemos também verificar que os numéricos do polinômio em cada um dos pontos coincidem com os valores da função, ou seja, <span class="math notranslate nohighlight">\(f(x_i)\)</span>, <span class="math notranslate nohighlight">\(i=0,1,2,3\)</span>.</p>
 <p>Embora sempre seja possível obter o polinômio interpolador de grau  que passa por um conjunto de  pontos distintos resolvendo um sistema linear, essa pode não ser a maneira mais eficiente de fazer isso. A seguir serão apresentadas duas fórmulas bem conhecidas para interpolação polinomial que requerem menos esforço computacional, as fórmula de Lagrange e de Newton. A primeira requer um número maior de operações aritméticas básicas mas ainda assim pode ser mais vantajosa quando várias funções precisam ser interpoladas no mesmo conjunto de pontos.</p>
+</section>
 <section id="formula-interpolatoria-de-lagrange">
-<h2>Fórmula Interpolatória de Lagrange<a class="headerlink" href="#formula-interpolatoria-de-lagrange" title="Link to this heading">#</a></h2>
+<h2>3.2. Fórmula Interpolatória de Lagrange<a class="headerlink" href="#formula-interpolatoria-de-lagrange" title="Link to this heading">#</a></h2>
 <p>Seja <span class="math notranslate nohighlight">\(f(x)\)</span> definida em <span class="math notranslate nohighlight">\(x_0, x_1,...,x_n\)</span>, <span class="math notranslate nohighlight">\((n+1)\)</span> pontos distintos de um intervalo <span class="math notranslate nohighlight">\([a,b]\)</span> e <span class="math notranslate nohighlight">\(y_i=f(x_i)\)</span>, <span class="math notranslate nohighlight">\(i=0,1,...,n\)</span>, então o polinômio interpolador de Lagrange é dado por</p>
 <div class="math notranslate nohighlight">
 \[P(x)=\sum_{k=0}^{n} y_k L_k(x) \]</div>
 <p>com</p>
 <div class="math notranslate nohighlight">
 \[ L_k(x) = \prod_{j=0 e j\neq k}^{n} \frac{(x-x_j)}{(x_k-x_j)}\]</div>
-<p><strong>4.1.3:</strong> Considere a função <span class="math notranslate nohighlight">\(f(x)\)</span> definida nos pontos <span class="math notranslate nohighlight">\(\{(0.0, 1.9), (1.5, 2.5), (2.0, 0.9)\}\)</span>. Determine o polinômio interpolador, usando a fórmula de Lagrange, e estime <span class="math notranslate nohighlight">\(f(0.9)\)</span>.</p>
+<section id="exemplo-3-3">
+<h3>Exemplo 3.3<a class="headerlink" href="#exemplo-3-3" title="Link to this heading">#</a></h3>
+<p>Considere a função <span class="math notranslate nohighlight">\(f(x)\)</span> definida nos pontos <span class="math notranslate nohighlight">\(\{(0.0, 1.9), (1.5, 2.5), (2.0, 0.9)\}\)</span>. Determine o polinômio interpolador, usando a fórmula de Lagrange, e estime <span class="math notranslate nohighlight">\(f(0.9)\)</span>.</p>
 <p><em>Solução:</em> Queremos o polinômio na forma <span class="math notranslate nohighlight">\(P(x) = y_0 L_0(x) + y_1 L_1(x) + y_2 L_2(x)\)</span>. Então, obtemos os <span class="math notranslate nohighlight">\(L_k(x)\)</span> fazendo</p>
 <p><span class="math notranslate nohighlight">\(L_0 = \frac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)} = \frac{(x-1,5)(x-2,0)}{(0,0-1,5)(0,0-2,0)} = 
 \frac{x^2 - 3,5x + 3,0}{3,0}\)</span></p>
@@ -666,7 +699,7 @@ P(xi): [ 1.  6.  5. -8.]
 </div>
 </div>
 </div>
-<p><strong>Exemplo 4.1.4:</strong> Considere a função <span class="math notranslate nohighlight">\(f(x)= \frac{0,2x^2sen(x)}{ln\left[(1+x)^2 \right]}\)</span> definida em seis pontos igualmente espaçados tais que <span class="math notranslate nohighlight">\(x_0=0.5\)</span> e <span class="math notranslate nohighlight">\(x_5=5.5\)</span>. Vamos usar a função do exemplo 3.3 para plotar o gráfico do polinômio interpolador de Lagrage juntamente com o gráfico da função e os plontos utilizados.</p>
+<p><strong>Exemplo 3.4:</strong> Considere a função <span class="math notranslate nohighlight">\(f(x)= \frac{0,2x^2sen(x)}{ln\left[(1+x)^2 \right]}\)</span> definida em seis pontos igualmente espaçados tais que <span class="math notranslate nohighlight">\(x_0=0.5\)</span> e <span class="math notranslate nohighlight">\(x_5=5.5\)</span>. Vamos usar a função do exemplo 3.3 para plotar o gráfico do polinômio interpolador de Lagrage juntamente com o gráfico da função e os plontos utilizados.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:(</span><span class="mf">0.2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
@@ -688,8 +721,10 @@ P(xi): [ 1.  6.  5. -8.]
 </div>
 </div>
 </div>
+</section>
+</section>
 <section id="formula-interpolatoria-de-lagrange-para-pontos-equidistantes">
-<h3>Fórmula interpolatória de Lagrange para pontos equidistantes<a class="headerlink" href="#formula-interpolatoria-de-lagrange-para-pontos-equidistantes" title="Link to this heading">#</a></h3>
+<h2>Fórmula interpolatória de Lagrange para pontos equidistantes<a class="headerlink" href="#formula-interpolatoria-de-lagrange-para-pontos-equidistantes" title="Link to this heading">#</a></h2>
 <p>Se os pontos <span class="math notranslate nohighlight">\(x_0, ..., x_n\)</span> forem igualmente espaçados, ou seja, se <span class="math notranslate nohighlight">\(x_{i+1}-x_i=h\)</span> para <span class="math notranslate nohighlight">\(i=0, ..., n-1\)</span>, então é possível fazer uma mudança de variável e obter uma fórmula simplificada para o polinômio interpolador de Lagrange.
 Fazemos</p>
 <div class="math notranslate nohighlight">
@@ -703,7 +738,7 @@ $<span class="math notranslate nohighlight">\( x = x_o +uh\)</span>$</p>
 <div class="math notranslate nohighlight">
 \[ l_k(u) = \prod_{j=0 e j\neq k}^{n} \frac{(u-j)}{(k-j)}\]</div>
 <p>Para avaliar o valor do polinômio de um determinado valor de <span class="math notranslate nohighlight">\(x\)</span> precisamos obter o valor correspondente na variável <span class="math notranslate nohighlight">\(u\)</span>, fazendo, <span class="math notranslate nohighlight">\( u = \frac{x-x_0}{h} \)</span> e calcular <span class="math notranslate nohighlight">\(P(u)\)</span>.</p>
-<p><strong>Exemplo 4.1.5:</strong></p>
+<p><strong>Exemplo 3.4:</strong></p>
 <p>Considere a função <span class="math notranslate nohighlight">\(f(x) = \cos(x)\)</span>. Obtenha uma aproximação para <span class="math notranslate nohighlight">\(f(0.3)\)</span> usando um polinômio de grau 2 com <span class="math notranslate nohighlight">\(x_0 = 0.2\)</span> e <span class="math notranslate nohighlight">\(h=0.2\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -733,7 +768,9 @@ $<span class="math notranslate nohighlight">\( x = x_o +uh\)</span>$</p>
 </div>
 </div>
 </div>
-<p><strong>Exercícios:</strong></p>
+</section>
+<section id="exercicios">
+<h2>Exercícios<a class="headerlink" href="#exercicios" title="Link to this heading">#</a></h2>
 <p><strong>1.</strong> Encontre polinômios interpoladores para as funções (a)<span class="math notranslate nohighlight">\(ln(x+1)\)</span>, (b)<span class="math notranslate nohighlight">\(\sqrt{1+x}\)</span> e (c)<span class="math notranslate nohighlight">\(e^{2x}cos(3x)\)</span> no intervalo de <span class="math notranslate nohighlight">\(x_0=1\)</span> até <span class="math notranslate nohighlight">\(x_n=3\)</span> com <span class="math notranslate nohighlight">\(3\)</span>, <span class="math notranslate nohighlight">\(4\)</span> e <span class="math notranslate nohighlight">\(5\)</span> pontos escolhidos arbitrariamente no intervalo.</p>
 <p><strong>2.</strong> Dada a tabela a seguir de valores de uma função <span class="math notranslate nohighlight">\(f\)</span>,</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -850,7 +887,6 @@ da tabela abaixo, a média das temperaturas dos três dias às 9 horas.</p>
 </div>
 </section>
 </section>
-</section>
 
     <script type="text/x-thebe-config">
     {
@@ -883,12 +919,12 @@ da tabela abaixo, a média das temperaturas dos três dias às 9 horas.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../3_SISTEMAS_LINEARES/3.4_metodos_iterativos.html"
+       href="../3_SISTEMAS_LINEARES/3.6_condicionamento_de_sistemas_lineares.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">3.4 Métodos iterativos</p>
+        <p class="prev-next-title">2.6 Condicionamento de Sistemas Lineares</p>
       </div>
     </a>
     <a class="right-next"
@@ -916,11 +952,46 @@ da tabela abaixo, a média das temperaturas dos três dias às 9 horas.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-interpolatoria-de-lagrange">Fórmula Interpolatória de Lagrange</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-interpolatoria-de-lagrange-para-pontos-equidistantes">Fórmula interpolatória de Lagrange para pontos equidistantes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4.1. Intepolação polinomial</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#begin-cases-y-0-a-0-a-1-x-0-y-1-a-0-a-1-x-1-end-cases-ou-na-forma-matricial-left-begin-array-cc-1-x-0-1-x-1-end-array-right-left-begin-array-c-a-0-a-1-end-array-right"><span class="math notranslate nohighlight">\(\begin{cases} 
+       y_0 = a_0 + a_1 x_0\\ 
+       y_1 = a_0 + a_1 x_1\\
+\end{cases}\)</span>
+ou, na forma matricial
+$\left[\begin{array}{cc}
+1 &amp; x_0 \
+1 &amp; x_1 \
+\end{array} \right]
+\left[\begin{array}{c}
+a_0 \
+a_1 \
+\end{array} \right]</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-4-1">Exemplo 4.1</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#left-begin-array-ccccc-1-x-0-x-0-2-x-0-n-1-x-1-x-1-2-x-1-n-1-x-n-x-n-2-x-n-n-end-array-right-left-begin-array-c-a-0-a-1-a-n-end-array-right">$\left[\begin{array}{ccccc}
+1 &amp; x_0 &amp; x_0^2 &amp; … &amp; x_0^n\
+1 &amp; x_1 &amp; x_1^2 &amp; … &amp; x_1^n\
+…&amp; … &amp; … &amp; … &amp; …\
+1 &amp; x_n &amp; x_n^2 &amp; … &amp; x_n^n\
+\end{array} \right]
+\left[\begin{array}{c}
+a_0 \
+a_1 \
+…\
+a_n \
+\end{array} \right]</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-4-2">Exemplo 4.2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-interpolatoria-de-lagrange">3.2. Fórmula Interpolatória de Lagrange</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemplo-3-3">Exemplo 3.3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-interpolatoria-de-lagrange-para-pontos-equidistantes">Fórmula interpolatória de Lagrange para pontos equidistantes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercicios">Exercícios</a></li>
 </ul>
 </li>
 </ul>
+
   </nav></div>
 
 </div></div>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6.1 Integração Numérica &#8212; Caderno didático de Métodos Numéricos em Python</title>
+    <title>7.1 Introdução e conceitos fundamentais &#8212; Caderno didático de Métodos Numéricos em Python</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -62,8 +62,6 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '6_INTEGRACAO_NUMERICA/6.1_integracao_numerica';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6.2 Regras de Newton-Cotes" href="6.2_metodo_de_newton_cotes.html" />
-    <link rel="prev" title="5.3 Ajuste não linear e linearização" href="../5_MINIMOS_QUADRADOS/5.3_ajuste_nao_linear_e_linearizacao.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -125,6 +123,8 @@
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -194,40 +194,28 @@
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.2_metodo_da_bissecao.html">2.2. Método da bisseção</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.3_metodo_do_ponto_fixo.html">2.3 Método do ponto fixo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.4_metodo_de_newton_raphson.html">2.4 Método de Newton-Raphson</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">2.5 Método das Secantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">3.5 Método das Secantes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.6_raizes_de_polinomios.html">2.6. Raízes de polinômios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.7_estudos_de_caso.html">2.7 Estudo de casos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos diretos: decomposição LU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.3_gauss-jordan_e_matriz_inversa.html">3.3 Eliminação de Gauss-Jordan e matriz inversa</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.4_metodos_iterativos.html">3.4 Métodos iterativos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos de decomposição</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.5_metodos_iterativos.html">3.5 Métodos Iterativos</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.6_condicionamento_de_sistemas_lineares.html">2.6 Condicionamento de Sistemas Lineares</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">4.Interpolação polinomial</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html">4.1. Intepolação polinomial e fórmula de Lagrange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html">4.1. Intepolação polinomial</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.2_interpolacao_de_newton.html">4.2 Fórmula de Newton</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.3_erro_na_interpolacao_polinomial.html">4.3. Erros na interpolação</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">5. Ajuste por minimos quadrados</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.1_minimos_quadrados_discreto.html">5.1 Minimos quadrados: caso discreto</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.2_ajuste_linear_nos_parametros.html">5.2 Ajuste linear nos parâmetros</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.3_ajuste_nao_linear_e_linearizacao.html">5.3 Ajuste não linear e linearização</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">6.Integração Numérica</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">6.1 Integração Numérica</a></li>
-<li class="toctree-l1"><a class="reference internal" href="6.2_metodo_de_newton_cotes.html">6.2 Regras de Newton-Cotes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="6.3_regra_dos_trapezios.html">6.3 Regra dos trapézios</a></li>
-<li class="toctree-l1"><a class="reference internal" href="6.4_regras_de_simpson.html">6.4 Regras de Simpson</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">7. Equações diferenciais</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.1_introducao.html">7.1 Introdução</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.2_metodo_de_euler.html">7.2 Método de Euler</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.3_metodos_de_serie_de_taylor.html">7.3 Métodos de Série de Taylor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.4_metodos_de_runge_kutta.html">7.4 Métodos de Runge-Kutta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.3_erro_na_interpolacao_polinomial.html">Fórmula de Lagrange</a></li>
+
 </ul>
 
     </div>
@@ -282,7 +270,7 @@
       
       
       
-      <li><a href="https://github.com/tiagoburiol/metodos_numericos_em_python" target="_blank"
+      <li><a href="https://github.com/tiagoburiol/NUMETHODS" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -299,7 +287,7 @@
       
       
       
-      <li><a href="https://github.com/tiagoburiol/metodos_numericos_em_python/issues/new?title=Issue%20on%20page%20%2F6_INTEGRACAO_NUMERICA/6.1_integracao_numerica.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/tiagoburiol/NUMETHODS/issues/new?title=Issue%20on%20page%20%2F6_INTEGRACAO_NUMERICA/6.1_integracao_numerica.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -400,7 +388,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -411,11 +401,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>6.1 Integração Numérica</h1>
+    <h1>7.1 Introdução e conceitos fundamentais</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fomulas-de-quadratura-de-newton-cotes">Fómulas de quadratura de Newton-Cotes</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -425,116 +423,38 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="integracao-numerica">
-<h1>6.1 Integração Numérica<a class="headerlink" href="#integracao-numerica" title="Link to this heading">#</a></h1>
-<p>A integração numérica é útil em situações nas quais não se conhece a expressão analítica da função a ser integrada ou quando a função primitiva é difícil de se obter. Uma forma de se calcular uma aproximação numérica para uma integral é por meio da integração do polinômio interpolador. Esse processo é conhecido como quadratura de Newton-Cotes e é desenvolvido por meio das sistemáticas conhecidas como <em>Regra dos Trapézios</em>, <em>Regra 1/3 de Simpson</em> e <em>Regra 3/8 de Simpson</em>. Antes de apresentarmos as fórmulas de Newton-Cotes, vamos relembrar um pouco do Cálculo.</p>
-<p>Considere uma função <span class="math notranslate nohighlight">\(f(x)\)</span> contínua no intervalo <span class="math notranslate nohighlight">\([a,b]\)</span>. Então, sabemos que</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="introducao-e-conceitos-fundamentais">
+<h1>7.1 Introdução e conceitos fundamentais<a class="headerlink" href="#introducao-e-conceitos-fundamentais" title="Link to this heading">#</a></h1>
+<p>A integração numérica é útil em situações onde não se conhece a expressão analítica da função a ser integrada ou quando a função primitiva é difícil de se obter ou não existe. Uma forma de se calcular uma aproximação numérica para uma integral é por meio da integração do polinômio interpolador. Esse processo é conhecido como quadratura de Newton-Cotes e é desenvolvido por meio das fórmulas conhecidas como <em>Regra dos Trapézios</em>, <em>Regra 1/3 de Simpson</em> e <em>Regra 3/8 de Simpson</em>.</p>
+<p>Considere uma função <span class="math notranslate nohighlight">\(f(x)\)</span> contínua no intervalo [<span class="math notranslate nohighlight">\(a,b\)</span>]. Então, sabemos que</p>
 <div class="math notranslate nohighlight">
 \[I=\int_a^b f(x)dx = F(b) - F(a)\]</div>
-<p>em que a função <span class="math notranslate nohighlight">\(F(x)\)</span> é a primitiva (ou antiderivada) de <span class="math notranslate nohighlight">\(f\)</span>, ou seja, é tal que <span class="math notranslate nohighlight">\(F'(x) = f(x)\)</span>.</p>
+<p>em que a função <span class="math notranslate nohighlight">\(F(x)\)</span> é chamada função primitiva, tal que <span class="math notranslate nohighlight">\(F'(x) = f(x)\)</span>.</p>
 <p>Graficamente, considerando a função <span class="math notranslate nohighlight">\(f(x) \geq 0\)</span>, para todo <span class="math notranslate nohighlight">\(x \in [a,b]\)</span> podemos interpretar a intergral <span class="math notranslate nohighlight">\(I=\int_a^b f(x)dx\)</span> como a área entre a curva de <span class="math notranslate nohighlight">\(f\)</span> e o eixo das abcissas:</p>
-<img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/6_INTEGRACAO_NUMERICA/imagens/integral.png" width="600">
-<p>Figura 6.1 - A integral definida como área sob o gráfico</p>
-<p><strong>Soma de Riemann</strong></p>
-<p>A forma mais simples de obter um valor aproximado para uma integral definida é por meio da soma de Riemann. Para isto, divide-se o intervalo de integração <span class="math notranslate nohighlight">\((a,b)\)</span> em <span class="math notranslate nohighlight">\(n\)</span> subintervalos e somam-se as áreas dos retângulos definidos em cada subintervalo. A largura de cada retângulo será dado por <span class="math notranslate nohighlight">\(h=\frac{x_n-x_0}{n}\)</span> e a altura será dada por <span class="math notranslate nohighlight">\(f(x)\)</span> para algum <span class="math notranslate nohighlight">\(x\)</span> dentro do subintervalo <span class="math notranslate nohighlight">\([x_i,x_{i+1}]\)</span>, com <span class="math notranslate nohighlight">\(i=0,1,...,n\)</span>. Uma escolha natural para o valor de <span class="math notranslate nohighlight">\(x\)</span> é um dos extremos do intervalo, o extremo esquerdo <span class="math notranslate nohighlight">\(x_i\)</span> (“pela esquerda”) ou o extremo direito <span class="math notranslate nohighlight">\(x_{i+1}\)</span> (“pela direita”):</p>
-<img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/6_INTEGRACAO_NUMERICA/imagens/RiemannRight.png" width="600">
-<img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/6_INTEGRACAO_NUMERICA/imagens/RiemannLeft.png" width="600">
-<p>Figura 6.2 - Somas de Riemann “pela direita” e “pela esquerda”</p>
-<p>Claramente podemos aumentar a acurácia da aproximação obtida aumentando o número de subintervalos. A <em>regra do ponto médio</em> considera a altura do retângulo definida em cada subintervalo como sendo o valor da função no ponto médio entre <span class="math notranslate nohighlight">\(x_i\)</span> e <span class="math notranslate nohighlight">\(x_{i+1}\)</span>:</p>
+<p><img alt="integral_area.jpg" src="https://github.com/tiagoburiol/NUMETHODS/raw/master/7_INTEGRACAO_NUMERICA/imagens/integral_area.jpg" /></p>
+<p>Os métodos numéricos para cálculo de integrais definidas consistem em aproximar a função <span class="math notranslate nohighlight">\(f(x)\)</span> pelo polinômio interpolador <span class="math notranslate nohighlight">\(P(x)\)</span> e integrar o polinômio. Assim, temos:</p>
 <div class="math notranslate nohighlight">
-\[\int_a^b f(x)dx \approx \sum_{i = 0}^{n-1} hf\left(\frac{x_i+x_{i+1}}{2} \right)\]</div>
-<p><strong>Exemplo 6.1:</strong> Nesse exemplo vamos calcular a integral <span class="math notranslate nohighlight">\(\int_{0.1}^{0.8} x^2ln(x)dx\)</span> usando aproximações da soma de Riemann pela esquerda, pela direita e pela regra do ponto médio, e comparar os resultados. Então vamos comparar com a solução exata
-(<span class="math notranslate nohighlight">\(\approx -0.0940934155044049\)</span>).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="o">*</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="mi">9</span>
-<span class="n">I</span> <span class="o">=</span> <span class="n">F</span><span class="p">(</span><span class="mf">0.8</span><span class="p">)</span><span class="o">-</span><span class="n">F</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.0940934155044049
-</pre></div>
-</div>
-</div>
-</div>
-<p>Aproximado pela soma de Riemann com 7 subintervalos, ou seja, <span class="math notranslate nohighlight">\(h = 0.1\)</span></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">h</span> <span class="o">=</span> <span class="n">xi</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">xi</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;h=&quot;</span><span class="p">,</span><span class="n">h</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>h= 0.1
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ie</span> <span class="o">=</span> <span class="n">h</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xi</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ie=&quot;</span><span class="p">,</span><span class="n">Ie</span><span class="p">,</span> <span class="s2">&quot;Erro=&quot;</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">I</span><span class="o">-</span><span class="n">Ie</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ie= -0.08743221791422254 Erro= 0.006661197590182369
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Id</span> <span class="o">=</span> <span class="n">h</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xi</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Id=&quot;</span><span class="p">,</span><span class="n">Id</span><span class="p">,</span> <span class="s2">&quot;Erro=&quot;</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">I</span><span class="o">-</span><span class="n">Id</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Id= -0.09941082010533792 Erro= 0.0053174046009330095
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Im</span> <span class="o">=</span> <span class="n">h</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">f</span><span class="p">((</span><span class="n">xi</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">xi</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Im=&quot;</span><span class="p">,</span><span class="n">Im</span><span class="p">,</span> <span class="s2">&quot;Erro=&quot;</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">I</span><span class="o">-</span><span class="n">Im</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Im= -0.09443022564968762 Erro= 0.00033681014528270936
-</pre></div>
-</div>
-</div>
-</div>
-<p>Nesse exemplo é possivel notar que a regra do ponto médio forneceu a melhor aproximação.</p>
-<hr class="docutils" />
-<p>De modo geral, os métodos numéricos para cálculo de integrais definidas consistem em aproximar a função <span class="math notranslate nohighlight">\(f(x)\)</span> pelo polinômio interpolador <span class="math notranslate nohighlight">\(P(x)\)</span> e integrar o polinômio. Os casos ilustrados acima são polinômios de grau zero, mas poderiamos utilizar polinômios de grau maior.</p>
-<p>Assim, de forma geral temos:</p>
+\[ \int_{x_0}^{x_n} f(x) dx \approx \int_{x_0}^{x_n} P(x) dx \]</div>
+<p>Por exemplo, graficamente, poderíamos ter a seguinte aproximação para a integral, usando um polinômio de grau 2:</p>
+<p><img alt="simpson1.jpg" src="https://github.com/tiagoburiol/NUMETHODS/raw/master/7_INTEGRACAO_NUMERICA/imagens/simspon1.jpg" /></p>
+<section id="fomulas-de-quadratura-de-newton-cotes">
+<h2>Fómulas de quadratura de Newton-Cotes<a class="headerlink" href="#fomulas-de-quadratura-de-newton-cotes" title="Link to this heading">#</a></h2>
+<p>Considere <span class="math notranslate nohighlight">\(f(x)\)</span> definida em <span class="math notranslate nohighlight">\(x_0,x_1,...,x_n\)</span>, <span class="math notranslate nohighlight">\((n+1)\)</span> pontos distintos e equidistantes do intervalo <span class="math notranslate nohighlight">\([a,b]\)</span>, em que <span class="math notranslate nohighlight">\(h = x_{i+1}-x_i\)</span>, <span class="math notranslate nohighlight">\(i=0,1,...,n-1\)</span>. Seja <span class="math notranslate nohighlight">\(P(x)\)</span> o polinômio interpolador de <span class="math notranslate nohighlight">\(f(x)\)</span>, nos pontos <span class="math notranslate nohighlight">\(x_0,...,x_1\)</span> do intervalo <span class="math notranslate nohighlight">\([a,b]\)</span> tal que <span class="math notranslate nohighlight">\(a=x_0\)</span> e <span class="math notranslate nohighlight">\(b=x_1. Considerando que \)</span>f(x)$ é suficientemente diferenciável, sabemos, da interpolação polinomial, que</p>
 <div class="math notranslate nohighlight">
-\[ \int_{a}^{b} f(x) dx \approx \int_{x_0}^{x_n} P(x) dx \]</div>
-<p>A seguir serão apresentados três métodos para integração numérica baseados na integração do polinômio interpolador conhecidos como Regras de Newton-Cotes. São eles, a regra dos trapézios, a regra 1/3 de Simpson e a regra 3/8 de Simpson.</p>
+\[ f(x) = P_n(x)+E_n(x)\]</div>
+<p>em que</p>
+<div class="math notranslate nohighlight">
+\[E_n(x) = (x-x_0)(x-x_1)...(x-x_n)\frac{f^{(n+1)}(\xi)}{(n+1)!}\]</div>
+<p>com <span class="math notranslate nohighlight">\(x_0 \leq \xi \leq x_n\)</span>. Assim,</p>
+<div class="math notranslate nohighlight">
+\[ \int_{x_0}^{x_n} f(x) dx \approx \int_{x_0}^{x_n} P_n(x) dx\]</div>
+<p>com erro dado por</p>
+<div class="math notranslate nohighlight">
+\[ \int_{x_0}^{x_n} E_n(x) dx \]</div>
+<p>Como os pontos são equidistantes, fazemos a troca de variável <span class="math notranslate nohighlight">\(u = \frac{x-x_0}{h}\)</span> e o erro na integração numérica será dados por</p>
+<div class="math notranslate nohighlight">
+\[ E_n = \int_{x_0}^{x_n} E_n(x) dx = h \int_{0}^{n} E_n(u) = h \int_{0}^{n} \frac{u(u-1)(u-2)...(u-n)}{(n+1)!} h^{n+1}f^{(n+1)}(\xi_u) du\]</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -567,30 +487,27 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="../5_MINIMOS_QUADRADOS/5.3_ajuste_nao_linear_e_linearizacao.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">5.3 Ajuste não linear e linearização</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="6.2_metodo_de_newton_cotes.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">6.2 Regras de Newton-Cotes</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fomulas-de-quadratura-de-newton-cotes">Fómulas de quadratura de Newton-Cotes</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
