@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Fórmula de Lagrange &#8212; Caderno didático de Métodos Numéricos em Python</title>
+    <title>4.3. Erros na interpolação &#8212; Caderno didático de Métodos Numéricos em Python</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -62,6 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '4_INTERPOLACAO_POLINOMIAL/4.3_erro_na_interpolacao_polinomial';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5.1 Minimos quadrados: caso discreto" href="../5_MINIMOS_QUADRADOS/5.1_minimos_quadrados_discreto.html" />
     <link rel="prev" title="4.2 Fórmula de Newton" href="4.2_interpolacao_de_newton.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -193,28 +194,40 @@
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.2_metodo_da_bissecao.html">2.2. Método da bisseção</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.3_metodo_do_ponto_fixo.html">2.3 Método do ponto fixo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.4_metodo_de_newton_raphson.html">2.4 Método de Newton-Raphson</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">3.5 Método das Secantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">2.5 Método das Secantes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.6_raizes_de_polinomios.html">2.6. Raízes de polinômios</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.7_estudos_de_caso.html">2.7 Estudo de casos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos de decomposição</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.5_metodos_iterativos.html">3.5 Métodos Iterativos</a></li>
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.6_condicionamento_de_sistemas_lineares.html">2.6 Condicionamento de Sistemas Lineares</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos diretos: decomposição LU</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.3_gauss-jordan_e_matriz_inversa.html">3.3 Eliminação de Gauss-Jordan e matriz inversa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.4_metodos_iterativos.html">3.4 Métodos iterativos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">4.Interpolação polinomial</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="4.1_interpolacao_de_lagrange.html">4.1. Intepolação polinomial</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="4.1_interpolacao_de_lagrange.html">4.1. Intepolação polinomial e fórmula de Lagrange</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4.2_interpolacao_de_newton.html">4.2 Fórmula de Newton</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fórmula de Lagrange</a></li>
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4.3. Erros na interpolação</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">5. Ajuste por minimos quadrados</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.1_minimos_quadrados_discreto.html">5.1 Minimos quadrados: caso discreto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.2_ajuste_linear_nos_parametros.html">5.2 Ajuste linear nos parâmetros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_MINIMOS_QUADRADOS/5.3_ajuste_nao_linear_e_linearizacao.html">5.3 Ajuste não linear e linearização</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">6.Integração Numérica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.1_integracao_numerica.html">6.1 Integração Numérica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.2_metodo_de_newton_cotes.html">6.2 Regras de Newton-Cotes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.3_regra_dos_trapezios.html">6.3 Regra dos trapézios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_INTEGRACAO_NUMERICA/6.4_regras_de_simpson.html">6.4 Regras de Simpson</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">7. Equações diferenciais</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.1_introducao.html">7.1 Introdução</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.2_metodo_de_euler.html">7.2 Método de Euler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.3_metodos_de_serie_de_taylor.html">7.3 Métodos de Série de Taylor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_EQUACOES_DIFERENCIAIS_ORDINARIAS/7.4_metodos_de_runge_kutta.html">7.4 Métodos de Runge-Kutta</a></li>
 </ul>
 
     </div>
@@ -269,7 +282,7 @@
       
       
       
-      <li><a href="https://github.com/tiagoburiol/NUMETHODS" target="_blank"
+      <li><a href="https://github.com/tiagoburiol/metodos_numericos_em_python" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -286,7 +299,7 @@
       
       
       
-      <li><a href="https://github.com/tiagoburiol/NUMETHODS/issues/new?title=Issue%20on%20page%20%2F4_INTERPOLACAO_POLINOMIAL/4.3_erro_na_interpolacao_polinomial.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/tiagoburiol/metodos_numericos_em_python/issues/new?title=Issue%20on%20page%20%2F4_INTERPOLACAO_POLINOMIAL/4.3_erro_na_interpolacao_polinomial.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -400,7 +413,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Fórmula de Lagrange</h1>
+    <h1>4.3. Erros na interpolação</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -410,10 +423,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Fórmula de Lagrange</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-de-newton-diferencas-divididas">Fórmula de Newton - diferenças divididas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uma-estimativa-para-o-erro-usando-a-formula-de-newton-de-diferencas-divididas">Uma estimativa para o erro usando a fórmula de Newton de diferenças divididas</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -424,8 +435,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="formula-de-lagrange">
-<h1>Fórmula de Lagrange<a class="headerlink" href="#formula-de-lagrange" title="Link to this heading">#</a></h1>
+  <section id="erros-na-interpolacao">
+<h1>4.3. Erros na interpolação<a class="headerlink" href="#erros-na-interpolacao" title="Link to this heading">#</a></h1>
+<p><strong>Um limitante superior para o erro usando a fórmula de Lagrange</strong></p>
 <p>Se <span class="math notranslate nohighlight">\(x_0, x_1, \ldots, x_n\)</span> são <span class="math notranslate nohighlight">\(n+1\)</span> números distintos, e <span class="math notranslate nohighlight">\(f\)</span> é uma função cujos valores são dados por esses números, então existe um único polinômio <span class="math notranslate nohighlight">\(P(x)\)</span> de grau no máximo <span class="math notranslate nohighlight">\(n\)</span></p>
 <div class="math notranslate nohighlight">
 \[
@@ -457,9 +469,8 @@ i \neq k}}^n \frac{\left(x-x_i\right)}{\left(x_k-x_i\right)}
 <p><strong>Exemplos:</strong></p>
 <p><a class="reference external" href="https://integrada.minhabiblioteca.com.br/reader/books/9788522123414/pageid/137">https://integrada.minhabiblioteca.com.br/reader/books/9788522123414/pageid/137</a></p>
 <p><a class="reference external" href="https://integrada.minhabiblioteca.com.br/reader/books/9788522123414/pageid/139">https://integrada.minhabiblioteca.com.br/reader/books/9788522123414/pageid/139</a></p>
-</section>
-<section id="formula-de-newton-diferencas-divididas">
-<h1>Fórmula de Newton - diferenças divididas<a class="headerlink" href="#formula-de-newton-diferencas-divididas" title="Link to this heading">#</a></h1>
+<section id="uma-estimativa-para-o-erro-usando-a-formula-de-newton-de-diferencas-divididas">
+<h2>Uma estimativa para o erro usando a fórmula de Newton de diferenças divididas<a class="headerlink" href="#uma-estimativa-para-o-erro-usando-a-formula-de-newton-de-diferencas-divididas" title="Link to this heading">#</a></h2>
 <p>O polinômio interpolador de Newton é dado por</p>
 <div class="math notranslate nohighlight">
 \[P(x)=f[x_0]+(x-x_0)f[x_0,x_1]+(x-x_0)(x-x_1)f[x_0,x_1,x_2]+...\]</div>
@@ -496,6 +507,7 @@ R_n \cong f\left[x_{n+1}, x_n, x_{n-1}, \ldots, x_0\right]\left(x-x_0\right)\lef
 <p>b) <span class="math notranslate nohighlight">\(f(x)=\sqrt[3]{x-1}\)</span></p>
 <p>c) <span class="math notranslate nohighlight">\(f(x)=\log _{10}(3 x-1)\)</span></p>
 <p>d) <span class="math notranslate nohighlight">\(f(x)=e^{2 x}-x\)</span></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -537,6 +549,15 @@ R_n \cong f\left[x_{n+1}, x_n, x_{n-1}, \ldots, x_0\right]\left(x-x_0\right)\lef
         <p class="prev-next-title">4.2 Fórmula de Newton</p>
       </div>
     </a>
+    <a class="right-next"
+       href="../5_MINIMOS_QUADRADOS/5.1_minimos_quadrados_discreto.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">5.1 Minimos quadrados: caso discreto</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -553,10 +574,8 @@ R_n \cong f\left[x_{n+1}, x_n, x_{n-1}, \ldots, x_0\right]\left(x-x_0\right)\lef
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Fórmula de Lagrange</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-de-newton-diferencas-divididas">Fórmula de Newton - diferenças divididas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uma-estimativa-para-o-erro-usando-a-formula-de-newton-de-diferencas-divididas">Uma estimativa para o erro usando a fórmula de Newton de diferenças divididas</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
