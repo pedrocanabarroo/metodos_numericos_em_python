@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -60,10 +60,9 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '1_INTRODUCAO_ERROS/1.3_erros_nas_aproximacoes_numericas';</script>
-    <link rel="canonical" href="/metodos_numericos_em_python/1_INTRODUCAO_ERROS/1.3_erros_nas_aproximacoes_numericas.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.1 Localização de raízes" href="../2_ZEROS_DE_FUNCOES/2.1_localizacao_de_raizes.html" />
+    <link rel="next" title="1.4 Exemplos de aplicações" href="1.4_exemplos_de_aplicacoes.html" />
     <link rel="prev" title="1.2. Aritmética de ponto flutuante" href="1.2_aritmetica_de_ponto_flutuante.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -187,6 +186,7 @@
 <li class="toctree-l1"><a class="reference internal" href="1.1_o_basico_sobre_erros.html">1.1 O básicos sobre erros</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1.2_aritmetica_de_ponto_flutuante.html">1.2. Aritmética de ponto flutuante</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">1.3 Erros nas aproximações numéricas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.4_exemplos_de_aplicacoes.html">1.4 Exemplos de aplicações</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2. Zeros de funções</span></p>
 <ul class="nav bd-sidenav">
@@ -196,16 +196,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.4_metodo_de_newton_raphson.html">2.4 Método de Newton-Raphson</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.5_metodo_das_secantes.html">2.5 Método das Secantes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.6_raizes_de_polinomios.html">2.6. Raízes de polinômios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_ZEROS_DE_FUNCOES/2.7_exemplos_de_aplicacoes.html">2.7 Exemplos de aplicações</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.1_forma_matricial_e_escalonamento.html">3.1. Forma matricial e escalonamento</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos diretos: decomposição LU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.3_gauss-jordan_e_matriz_inversa.html">3.3 Eliminação de Gauss-Jordan e matriz inversa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.4_metodos_iterativos.html">3.4 Métodos iterativos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">4.Interpolação polinomial</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html">4.1. Intepolação polinomial e fórmula de Lagrange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html">4.1. Interpolação polinomial e fórmula de Lagrange</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.2_interpolacao_de_newton.html">4.2 Fórmula de Newton</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.3_erro_na_interpolacao_polinomial.html">4.3. Erros na interpolação</a></li>
 </ul>
@@ -617,17 +619,17 @@ x²= 1.8769000000000002
 \[e^x=\sum_{n=0}^{\infty} \frac{x^n}{n!}.\]</div>
 <p>Sabemos que <span class="math notranslate nohighlight">\(e\)</span> é um número irracional e portanto sua representação fracionária têm infinitas casas decimais. Podemos obter uma aproximação para o número <span class="math notranslate nohighlight">\(e\)</span> truncando a série</p>
 <div class="math notranslate nohighlight">
-\[e=\sum_{n=0}^{\infty} \frac{1}{n!} = 1+\frac{1}{2}+\frac{1}{3!}+\frac{1}{4!}+...\]</div>
+\[e=\sum_{n=0}^{\infty} \frac{1}{n!} = 1+1+\frac{1}{2}+\frac{1}{3!}+\frac{1}{4!}+...\]</div>
 <p>Por exemplo, com 5 termos da série obtemos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="mi">24</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="mi">120</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="mi">24</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="mi">120</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Valor aproximado:&#39;</span><span class="p">,</span><span class="n">e</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valor aproximado: 1.7166666666666668
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valor aproximado: 2.7166666666666663
 </pre></div>
 </div>
 </div>
@@ -853,20 +855,20 @@ f(x)=\sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n .
 <h2>Exercícios<a class="headerlink" href="#exercicios" title="Link to this heading">#</a></h2>
 <p><strong>1.</strong> A função seno pode ser representada pela série de Maclaurin, fazendo
 $<span class="math notranslate nohighlight">\(
-\sin x=\sum_{n=0}^{\infty} \frac{(-1)^n}{(2 n+1)!} x^{2 n+1}
+\text{sen} \, x=\sum_{n=0}^{\infty} \frac{(-1)^n}{(2 n+1)!} x^{2 n+1}
 \)</span><span class="math notranslate nohighlight">\(
-Encontre aproximações para \)</span>\cos(\pi/4)$ com 3, 5 e 20 termos.</p>
+Encontre aproximações para \)</span>\text{sen}(\pi/4)$ com 3, 5 e 20 termos.</p>
 <p><strong>2.</strong> Usando o exemplo 1.3.4 como referência, encontre o valor de <span class="math notranslate nohighlight">\(\sqrt{3}\)</span> com um erro relativo mentor que <span class="math notranslate nohighlight">\(10^{-5}\)</span>. Quantas iterações são necessárias fazendo <span class="math notranslate nohighlight">\(x_0=1\)</span>? O número de iterações diminui se fizermos <span class="math notranslate nohighlight">\(x_0=1.5\)</span>?</p>
 <p><strong>3.</strong> A função cosseno pode ser representada pela série de Maclaurin, fazendo
 $<span class="math notranslate nohighlight">\(
 \cos x=\sum_{n=0}^{\infty} \frac{(-1)^n}{(2 n)!} x^{2 n}.
 \)</span><span class="math notranslate nohighlight">\(
-Descubra quantos termos da série são necessários para obter uma aproximação para \)</span>\cos(\pi/6)<span class="math notranslate nohighlight">\( com erro relativo menor que \)</span>10^4$.</p>
+Descubra quantos termos da série são necessários para obter uma aproximação para \)</span>\cos(\pi/6)<span class="math notranslate nohighlight">\( com erro relativo menor que \)</span>10^{-4}$.</p>
 <p><strong>4.</strong> Sabendo que a função <span class="math notranslate nohighlight">\(ln(1+x)\)</span> pode ser representada pela série de Maclaurin, fazendo
 $<span class="math notranslate nohighlight">\(
 \ln (1+x)=\sum_{n=0}^{\infty} \frac{(-1)^n}{n+1} x^{n+1} \quad \text { para }|x|&lt;1
 \)</span>$</p>
-<p>Descubra quantos termos da série são necessários para obter uma aproximação para <span class="math notranslate nohighlight">\(ln(0.2)\)</span> com erro relativo menor que <span class="math notranslate nohighlight">\(10^4\)</span>.</p>
+<p>Descubra quantos termos da série são necessários para obter uma aproximação para <span class="math notranslate nohighlight">\(ln(0.2)\)</span> com erro relativo menor que <span class="math notranslate nohighlight">\(10^{-4}\)</span>.</p>
 <p><strong>5.</strong> Usando a fórmula mostrada no Exemplo 1.3.6, encontre uma aproximação para a derivada de <span class="math notranslate nohighlight">\(f(x)=2^xsen(x)\)</span> em <span class="math notranslate nohighlight">\(x=1,23\)</span> e calcule o erro relativo.</p>
 </section>
 </section>
@@ -911,11 +913,11 @@ $<span class="math notranslate nohighlight">\(
       </div>
     </a>
     <a class="right-next"
-       href="../2_ZEROS_DE_FUNCOES/2.1_localizacao_de_raizes.html"
+       href="1.4_exemplos_de_aplicacoes.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">2.1 Localização de raízes</p>
+        <p class="prev-next-title">1.4 Exemplos de aplicações</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
