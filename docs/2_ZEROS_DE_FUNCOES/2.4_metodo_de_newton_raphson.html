@@ -60,7 +60,6 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '2_ZEROS_DE_FUNCOES/2.4_metodo_de_newton_raphson';</script>
-    <link rel="canonical" href="/metodos_numericos_em_python/2_ZEROS_DE_FUNCOES/2.4_metodo_de_newton_raphson.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2.5 Método das Secantes" href="2.5_metodo_das_secantes.html" />
@@ -187,6 +186,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.1_o_basico_sobre_erros.html">1.1 O básicos sobre erros</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.2_aritmetica_de_ponto_flutuante.html">1.2. Aritmética de ponto flutuante</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.3_erros_nas_aproximacoes_numericas.html">1.3 Erros nas aproximações numéricas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.4_exemplos_de_aplicacoes.html">1.4 Exemplos de aplicações</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2. Zeros de funções</span></p>
 <ul class="current nav bd-sidenav">
@@ -196,16 +196,18 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">2.4 Método de Newton-Raphson</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2.5_metodo_das_secantes.html">2.5 Método das Secantes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2.6_raizes_de_polinomios.html">2.6. Raízes de polinômios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.7_exemplos_de_aplicacoes.html">2.7 Exemplos de aplicações</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.1_forma_matricial_e_escalonamento.html">3.1. Forma matricial e escalonamento</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos diretos: decomposição LU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.3_gauss-jordan_e_matriz_inversa.html">3.3 Eliminação de Gauss-Jordan e matriz inversa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.4_metodos_iterativos.html">3.4 Métodos iterativos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">4.Interpolação polinomial</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html">4.1. Intepolação polinomial e fórmula de Lagrange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html">4.1. Interpolação polinomial e fórmula de Lagrange</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.2_interpolacao_de_newton.html">4.2 Fórmula de Newton</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.3_erro_na_interpolacao_polinomial.html">4.3. Erros na interpolação</a></li>
 </ul>
@@ -463,7 +465,7 @@ $<span class="math notranslate nohighlight">\( \phi(x) = x - \frac{f(x)}{f'(x)}\
 <p>que fornece o processo iterativo do <strong>método de Newton-Raphson</strong> :
 $<span class="math notranslate nohighlight">\( x_{i+1} = x_i - \frac{f(x_i)}{f'(x_i)}\)</span>$</p>
 <p>a partir de uma aproximação inicial <span class="math notranslate nohighlight">\(x_0\)</span>,  para <span class="math notranslate nohighlight">\(i=1,2,3,...\)</span>.</p>
-<img src="imagens/newton.png" width="480">
+<img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/2_ZEROS_DE_FUNCOES/imagens/newton.png" width="500">
 <p style="text-align:center"> Figura 2.4.1 - Interpretação geométrica do método de Newton </p><p>Vejamos agora alguns exemplos. Iniciamos importando as bibliotecas <code class="docutils literal notranslate"><span class="pre">numpy</span></code>e <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

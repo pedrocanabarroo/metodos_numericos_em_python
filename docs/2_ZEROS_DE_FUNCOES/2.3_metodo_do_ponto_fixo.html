@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -60,7 +60,6 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '2_ZEROS_DE_FUNCOES/2.3_metodo_do_ponto_fixo';</script>
-    <link rel="canonical" href="/metodos_numericos_em_python/2_ZEROS_DE_FUNCOES/2.3_metodo_do_ponto_fixo.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2.4 Método de Newton-Raphson" href="2.4_metodo_de_newton_raphson.html" />
@@ -187,6 +186,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.1_o_basico_sobre_erros.html">1.1 O básicos sobre erros</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.2_aritmetica_de_ponto_flutuante.html">1.2. Aritmética de ponto flutuante</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.3_erros_nas_aproximacoes_numericas.html">1.3 Erros nas aproximações numéricas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.4_exemplos_de_aplicacoes.html">1.4 Exemplos de aplicações</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2. Zeros de funções</span></p>
 <ul class="current nav bd-sidenav">
@@ -196,16 +196,18 @@
 <li class="toctree-l1"><a class="reference internal" href="2.4_metodo_de_newton_raphson.html">2.4 Método de Newton-Raphson</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2.5_metodo_das_secantes.html">2.5 Método das Secantes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2.6_raizes_de_polinomios.html">2.6. Raízes de polinômios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.7_exemplos_de_aplicacoes.html">2.7 Exemplos de aplicações</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.1_forma_matricial_e_escalonamento.html">3.1. Forma matricial e escalonamento</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos diretos: decomposição LU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.3_gauss-jordan_e_matriz_inversa.html">3.3 Eliminação de Gauss-Jordan e matriz inversa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.4_metodos_iterativos.html">3.4 Métodos iterativos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">4.Interpolação polinomial</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html">4.1. Intepolação polinomial e fórmula de Lagrange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html">4.1. Interpolação polinomial e fórmula de Lagrange</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.2_interpolacao_de_newton.html">4.2 Fórmula de Newton</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.3_erro_na_interpolacao_polinomial.html">4.3. Erros na interpolação</a></li>
 </ul>
@@ -400,7 +402,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -416,6 +420,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercicios">Exercícios</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -458,19 +470,26 @@ Seja a equação <span class="math notranslate nohighlight">\(f(x) = x^3-x-7=0\)
 <div class="math notranslate nohighlight">
 \[x_{n} = \phi(x_{n-1})\simeq \overline{x}\]</div>
 <p>Geometricamente, interpretamos o processo iterativo como é mostrado nas figuras abaixo, para dois casos distintos. O ponto de intersecção entre o gráfico de <span class="math notranslate nohighlight">\(\phi(x)\)</span> e a reta <span class="math notranslate nohighlight">\(y=x\)</span> é o ponto cuja abcissa é a raix procurada <span class="math notranslate nohighlight">\(\overline{x}\)</span>.</p>
-<img src="imagens/ponto_fixo_convergente.png" width="800">
+<img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/2_ZEROS_DE_FUNCOES/imagens/ponto_fixo_convergente.png" width="600">
 <p style="text-align:center"> Figura 2.3.1 - Método do ponto fixo convergindo para a raiz </p>
 <p><strong>Convergência:</strong>
-Seja <span class="math notranslate nohighlight">\(\phi(x)\)</span> uma função contínua e derivável em <span class="math notranslate nohighlight">\(I=[a,b]\)</span> centrado em <span class="math notranslate nohighlight">\(\overline{x}\)</span>, então, se <span class="math notranslate nohighlight">\(|\phi'(x)|&lt;1\)</span> em <span class="math notranslate nohighlight">\(I\)</span>, a sequência <span class="math notranslate nohighlight">\({x_k}\)</span>, <span class="math notranslate nohighlight">\(k=0,1,2,3,..\)</span> querada por <span class="math notranslate nohighlight">\(x_{k+1}=\phi(x_k)\)</span> converge para a raiz <span class="math notranslate nohighlight">\(\overline{x}\)</span> procurada.</p>
+Seja <span class="math notranslate nohighlight">\(\phi(x)\)</span> uma função contínua e derivável em <span class="math notranslate nohighlight">\(I=[a,b]\)</span> centrado em <span class="math notranslate nohighlight">\(\overline{x}\)</span>, então, se <span class="math notranslate nohighlight">\(|\phi'(x)|&lt;1\)</span> em <span class="math notranslate nohighlight">\(I\)</span>, a sequência <span class="math notranslate nohighlight">\({x_k}\)</span>, <span class="math notranslate nohighlight">\(k=0,1,2,3,..\)</span> gerada por <span class="math notranslate nohighlight">\(x_{k+1}=\phi(x_k)\)</span> converge para a raiz <span class="math notranslate nohighlight">\(\overline{x}\)</span> procurada.</p>
 <p>No caso do processo iterativo gerar sequências divergentes, uma interpretação geométrica é mostrada na figura a seguir.</p>
-<img src="imagens/ponto_fixo_divergente.png" width="500">
+<img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/2_ZEROS_DE_FUNCOES/imagens/ponto_fixo_divergente.png" width="600">
 <p style="text-align:center"> Figura 2.3.2 - Método do ponto fixo divergindo da raiz. </p><p><strong>Exemplo 2.3.3:</strong>
 Encontre uma raiz para <span class="math notranslate nohighlight">\(f(x)=x-cosx\)</span> com <span class="math notranslate nohighlight">\(\epsilon = 0.01\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">f1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span>
 <span class="n">f2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">f1</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="s2">&quot;b-&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">f2</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="s2">&quot;r-&quot;</span><span class="p">)</span> 
@@ -480,7 +499,7 @@ Encontre uma raiz para <span class="math notranslate nohighlight">\(f(x)=x-cosx\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/16eb6d93cfbcae9687f93f1b60801474b53e9987a3331976a8a33228d2c40db9.png" src="../_images/16eb6d93cfbcae9687f93f1b60801474b53e9987a3331976a8a33228d2c40db9.png" />
+<img alt="../_images/b411cbc04a8b33180d6e48028185aa976218f2a4d9131458453046e2c2ec1b6e.png" src="../_images/b411cbc04a8b33180d6e48028185aa976218f2a4d9131458453046e2c2ec1b6e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -555,7 +574,7 @@ f( 3.141592653589793 )= 6.283185307179586
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8af649520a1559f9562585447849f14e9652ada8b5ad37090455ac18f884685e.png" src="../_images/8af649520a1559f9562585447849f14e9652ada8b5ad37090455ac18f884685e.png" />
+<img alt="../_images/6dc214db1412c1d8d1f881952bce1b9dfb62cfbcb8b3d5f451937b914e775ddb.png" src="../_images/6dc214db1412c1d8d1f881952bce1b9dfb62cfbcb8b3d5f451937b914e775ddb.png" />
 </div>
 </div>
 <p>Usando o método do ponto fixo, a primeira função de iteração que imediatamente imaginamos é <span class="math notranslate nohighlight">\(\phi(x)=\tan(x)/2\)</span>. Mas nesse caso o método converge apenas para a raiz nula já que <span class="math notranslate nohighlight">\(|\phi'(x)|=|\tan(x)/2|\)</span> é maior que 1 para valores próximos de <span class="math notranslate nohighlight">\(x=1.2\)</span> como podemos ver abaixo.</p>
@@ -622,6 +641,26 @@ x = 1.2 phi&#39; = -5.615963967207052
 </div>
 </div>
 </div>
+<section id="exercicios">
+<h2>Exercícios<a class="headerlink" href="#exercicios" title="Link to this heading">#</a></h2>
+<p><strong>1.</strong> Encontre uma aproximação inicial e utilize o método do ponto fixo para as raízes das equações a seguir, se possível, com precisão de <span class="math notranslate nohighlight">\(10^{-5}\)</span>.</p>
+<p>a) <span class="math notranslate nohighlight">\(f(x)=3x-e^x=0\)</span></p>
+<p>b) <span class="math notranslate nohighlight">\(f(x)=\operatorname{sen}(x)+x^2+1=0\)</span></p>
+<p>c) <span class="math notranslate nohighlight">\(f(x)=\operatorname{sen}(x)-x+2=0\)</span></p>
+<p>d) <span class="math notranslate nohighlight">\(f(x)=2 x-\operatorname{tg}(x)=0\)</span></p>
+<p>e) <span class="math notranslate nohighlight">\(f(x)=3 x-\cos (x)+1=0\)</span></p>
+<p>f) <span class="math notranslate nohighlight">\(f(x)=\ln (x)-\operatorname{sen}(x)=0\)</span></p>
+<p><strong>2.</strong> Utilize o método do ponto fixo para encontrar soluções com precisão de <span class="math notranslate nohighlight">\(10^{-5}\)</span>, se possível, para os problemas a seguir (Fonte: <a class="reference external" href="https://integrada.minhabiblioteca.com.br/reader/books/9788522123414/pageid/98">Burden et al., 2016</a>):</p>
+<p>a) <span class="math notranslate nohighlight">\(e^x+2^{-x}+2 \cos x-6=0\)</span></p>
+<p>b) <span class="math notranslate nohighlight">\(\ln (x-1)+\cos (x-1)=0\)</span></p>
+<p>c) <span class="math notranslate nohighlight">\(2 x \cos 2 x-(x-2)^2=0\)</span></p>
+<p>d) <span class="math notranslate nohighlight">\((x-2)^2-\ln x=0\)</span></p>
+<p>e) <span class="math notranslate nohighlight">\(e^x-3 x^2=0\)</span></p>
+<p>f) <span class="math notranslate nohighlight">\(\operatorname{sen} x-e^{-x}=0\)</span></p>
+<p>g) <span class="math notranslate nohighlight">\(x^3+3 x^2-1=0\)</span></p>
+<p>h) <span class="math notranslate nohighlight">\(x^3-2 x^2-5=0\)</span></p>
+<p>i) <span class="math notranslate nohighlight">\(x-0,8-0,2 \operatorname{sen} x=0\)</span></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -678,6 +717,21 @@ x = 1.2 phi&#39; = -5.615963967207052
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercicios">Exercícios</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

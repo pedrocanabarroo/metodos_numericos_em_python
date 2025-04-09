@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -60,11 +60,10 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '2_ZEROS_DE_FUNCOES/2.1_localizacao_de_raizes';</script>
-    <link rel="canonical" href="/metodos_numericos_em_python/2_ZEROS_DE_FUNCOES/2.1_localizacao_de_raizes.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2.2. Método da bisseção" href="2.2_metodo_da_bissecao.html" />
-    <link rel="prev" title="1.3 Erros nas aproximações numéricas" href="../1_INTRODUCAO_ERROS/1.3_erros_nas_aproximacoes_numericas.html" />
+    <link rel="prev" title="1.4 Exemplos de aplicações" href="../1_INTRODUCAO_ERROS/1.4_exemplos_de_aplicacoes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -187,6 +186,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.1_o_basico_sobre_erros.html">1.1 O básicos sobre erros</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.2_aritmetica_de_ponto_flutuante.html">1.2. Aritmética de ponto flutuante</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.3_erros_nas_aproximacoes_numericas.html">1.3 Erros nas aproximações numéricas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.4_exemplos_de_aplicacoes.html">1.4 Exemplos de aplicações</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2. Zeros de funções</span></p>
 <ul class="current nav bd-sidenav">
@@ -196,16 +196,18 @@
 <li class="toctree-l1"><a class="reference internal" href="2.4_metodo_de_newton_raphson.html">2.4 Método de Newton-Raphson</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2.5_metodo_das_secantes.html">2.5 Método das Secantes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2.6_raizes_de_polinomios.html">2.6. Raízes de polinômios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.7_exemplos_de_aplicacoes.html">2.7 Exemplos de aplicações</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.1_forma_matricial_e_escalonamento.html">3.1. Forma matricial e escalonamento</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos diretos: decomposição LU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.3_gauss-jordan_e_matriz_inversa.html">3.3 Eliminação de Gauss-Jordan e matriz inversa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.4_metodos_iterativos.html">3.4 Métodos iterativos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">4.Interpolação polinomial</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html">4.1. Intepolação polinomial e fórmula de Lagrange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html">4.1. Interpolação polinomial e fórmula de Lagrange</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.2_interpolacao_de_newton.html">4.2 Fórmula de Newton</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.3_erro_na_interpolacao_polinomial.html">4.3. Erros na interpolação</a></li>
 </ul>
@@ -697,7 +699,7 @@ $<span class="math notranslate nohighlight">\(f_3(x)=\left(\left(a_3 x+a_2\right
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span><span class="mf">1.9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">df</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">dp</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
 </div>
@@ -705,19 +707,35 @@ $<span class="math notranslate nohighlight">\(f_3(x)=\left(\left(a_3 x+a_2\right
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
-    <span class="c1">#df = df*x+p</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function &lt;lambda&gt; at 0x7f2fcfaf72e0&gt; 0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15.76875
 </pre></div>
 </div>
 </div>
 </div>
 <p>Observe que a derivada pode ser obtida incluindo a linha <code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">df*x+p</span></code>no laço acima.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">dp</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">dp</span> <span class="o">=</span> <span class="n">dp</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">p</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">dp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15.76875 22.25
+</pre></div>
+</div>
+</div>
+</div>
+<p>Verificando os resultados</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="mf">0.8</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">5</span><span class="o">-</span><span class="mf">1.3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span><span class="o">+</span><span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="o">+</span><span class="mi">17</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mf">1.9</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mi">10</span>
@@ -732,6 +750,19 @@ $<span class="math notranslate nohighlight">\(f_3(x)=\left(\left(a_3 x+a_2\right
 </div>
 </div>
 </div>
+<p><strong>Observação:</strong> Seja <span class="math notranslate nohighlight">\(P(x)\)</span> um polinômio de grau <span class="math notranslate nohighlight">\(n \geq 1\)</span>. Dizemos que <span class="math notranslate nohighlight">\(\bar{x}\)</span> é uma raiz de multiplicidade “ <span class="math notranslate nohighlight">\(m\)</span> “ da equação <span class="math notranslate nohighlight">\(P(x)=0\)</span> se:</p>
+<div class="math notranslate nohighlight">
+\[
+P(\bar{x})=P^{(1)}(\bar{x})=\ldots=P^{(m-1)}(\bar{x})=0 \quad \mathrm{e} \quad P^{(m)}(\bar{x}) \neq 0
+\]</div>
+<p>em que <span class="math notranslate nohighlight">\(P^m(\bar{x})\)</span> é a <span class="math notranslate nohighlight">\(m\)</span>-ésima derivada de <span class="math notranslate nohighlight">\(P(x)\)</span> calculada no ponto <span class="math notranslate nohighlight">\(\bar{x}\)</span>.</p>
+<p>Por exemplo, considere o polinômio <span class="math notranslate nohighlight">\(P(x)=x^3\)</span>. A raiz <span class="math notranslate nohighlight">\(\bar{x}=0\)</span> é uma raiz de multiplicidade três da equação <span class="math notranslate nohighlight">\(P(x)=0\)</span>, pois:</p>
+<div class="math notranslate nohighlight">
+\[
+P(x)=P^{(1)}(\bar{x})=0, \quad P^{(2)}(\bar{x})=0 \quad \text { e } \quad P^{(3)}(\bar{x})=6 \neq 0
+\]</div>
+<p>Entendemos, neste caso, que a equação <span class="math notranslate nohighlight">\(P(x)=x^3=0\)</span> possui três raízes idênticas, ou uma raiz de multiplicidade 3 .</p>
+<p>A seguir apresentamos alguns teoremas que podem ser utilizados para investigar a localização das raízes de polinômios.</p>
 <p><strong>Teorema: Localização de raízes no círculo</strong></p>
 <p>Sejam <span class="math notranslate nohighlight">\(P(x)=a_0 x^n + a_1 x^{n-1}+...+a_{n-1}x+a_n\)</span> e <span class="math notranslate nohighlight">\(A=max\{\left|a_1 \right|,..., \left|a_n \right|\}\)</span>. Então, o módulo de todas as raízes <span class="math notranslate nohighlight">\(x_k\)</span> , <span class="math notranslate nohighlight">\(k = 1,... , n\)</span> satisfaz a inequação:</p>
 <div class="math notranslate nohighlight">
@@ -742,17 +773,15 @@ $<span class="math notranslate nohighlight">\(f_3(x)=\left(\left(a_3 x+a_2\right
 <div class="math notranslate nohighlight">
 \[ \left|x_k \right| &gt; \frac{1}{1+\frac{B}{\left|a_n \right|}}=r\]</div>
 <p>(Para a demonstração, ver Arenales e Darezzo, 2015, p 123)</p>
-<p><strong>Exemplo 2.1.9:</strong>
-As raízes de <span class="math notranslate nohighlight">\(P(x)=x^3+2x^2-x-2=0\)</span> estão localizadas em <span class="math notranslate nohighlight">\(-3&lt;x_k&lt; -1/2\)</span> ou <span class="math notranslate nohighlight">\(1/2&lt; x_k &lt;3\)</span>, pois:</p>
+<img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/2_ZEROS_DE_FUNCOES/imagens/anel.png" width="250"><p><strong>Exemplo 2.1.9:</strong> (Fonte: <a class="reference external" href="https://integrada.minhabiblioteca.com.br/reader/books/9788522112821/pageid/136">Arenales e Darezzo, 2016</a>) As raízes de <span class="math notranslate nohighlight">\(P(x)=x^3+2x^2-x-2=0\)</span> estão localizadas em <span class="math notranslate nohighlight">\(-3&lt;x_k&lt; -1/2\)</span> ou <span class="math notranslate nohighlight">\(1/2&lt; x_k &lt;3\)</span>, pois:</p>
 <p><span class="math notranslate nohighlight">\( |x_k|&lt;1-\frac{2}{|1|} = 3 = R\)</span> e    <span class="math notranslate nohighlight">\(|x_k|&gt; \frac{1}{1+\frac{2}{|-2|}} = 1/2 = r\)</span></p>
 <p>De fato, as raízes de <span class="math notranslate nohighlight">\(P(x) = 0\)</span> são dadas por <span class="math notranslate nohighlight">\(x = 1\)</span>, <span class="math notranslate nohighlight">\(x = −1\)</span> e <span class="math notranslate nohighlight">\(x = −2\)</span>.</p>
 <p>Assim, no plano complexo as raízes de <span class="math notranslate nohighlight">\(P(x) = 0\)</span> estão localizadas no anel <span class="math notranslate nohighlight">\(r &lt; |x| &lt; R\)</span> como ilustra a figura abaixo.</p>
-<img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/2_ZEROS_DE_FUNCOES/imagens/anel.png" width="300"><p><strong>Teorema: regra de sinais de Descartes</strong></p>
+<p><strong>Teorema: regra de sinais de Descartes</strong></p>
 <p>Dada uma equação polinomial com coeficientes reais, o número de raízes reais positivas <span class="math notranslate nohighlight">\(p\)</span> dessa equação não excede o número <span class="math notranslate nohighlight">\(v\)</span> de variações de sinais dos coeficientes. Ainda mais, <span class="math notranslate nohighlight">\((v − p)\)</span> é inteiro par, não negativo.</p>
 <p>Para determinar o número de raízes negativas, basta calcular o número de variações de sinais no polinômio <span class="math notranslate nohighlight">\(P(−x)\)</span>.</p>
 <p><strong>Teorema: Budan-Fourier</strong></p>
-<p>Se os números <span class="math notranslate nohighlight">\(a\)</span> e <span class="math notranslate nohighlight">\(b(a&lt;b)\)</span> não são raízes da eqı <span class="math notranslate nohighlight">\(N(a, b)\)</span> de raízes reais da equação <span class="math notranslate nohighlight">\(P(x)=0\)</span> locali
-<span class="math notranslate nohighlight">\(N(a, b)=\Delta \bar{N}-2 k \quad(k\)</span> natural <span class="math notranslate nohighlight">\()\)</span>, send em que <span class="math notranslate nohighlight">\(\bar{N}(x)\)</span> é igual ao número de variações de si derivadas:</p>
+<p>Se os números <span class="math notranslate nohighlight">\(a\)</span> e <span class="math notranslate nohighlight">\(b(a&lt;b)\)</span> não são raízes da equação <span class="math notranslate nohighlight">\(P(x)=0\)</span>, então o número <span class="math notranslate nohighlight">\(N(a, b)\)</span> de raízes reais da equação <span class="math notranslate nohighlight">\(P(x)=0\)</span> localizadas entre <span class="math notranslate nohighlight">\(a\)</span> e <span class="math notranslate nohighlight">\(b\)</span> é dado por <span class="math notranslate nohighlight">\(N(a, b)=\Delta \bar{N}-2 k \quad(k\)</span> natural <span class="math notranslate nohighlight">\()\)</span>, sendo <span class="math notranslate nohighlight">\(\Delta \bar{N}=\bar{N}(a)-\bar{N}(b)\)</span> em que <span class="math notranslate nohighlight">\(\bar{N}(x)\)</span> é igual ao número de variações de sinais na sequência de sucessivas derivadas:</p>
 <div class="math notranslate nohighlight">
 \[
 P(x), P^{(1)}(x), \ldots, P^{(n-1)}, 1
@@ -784,7 +813,7 @@ Pela regra de sinais de Descartes, observamos que a equação possui uma raiz po
 <p>c) <span class="math notranslate nohighlight">\(f(x) = –25 + 82x – 90x^2 + 44x^3 – 8x^4 + 0.7x^5\)</span></p>
 <p>d) <span class="math notranslate nohighlight">\(f(x) = – 12 – 21x + 18x^2 – 2.75x^3\)</span></p>
 <p><strong>2.</strong> Determine um intervalo pequeno (de tamanho 0.1, por exemplo) que contenha as raízes reais das funções dadas.</p>
-<p>a) <span class="math notranslate nohighlight">\(f(x)=x-e^x=0\)</span></p>
+<p>a) <span class="math notranslate nohighlight">\(f(x)=3x-e^x=0\)</span></p>
 <p>b) <span class="math notranslate nohighlight">\(f(x)=\operatorname{sen}(x)+x^2+1=0\)</span></p>
 <p>c) <span class="math notranslate nohighlight">\(f(x)=\operatorname{sen}(x)-x+2=0\)</span></p>
 <p>d) <span class="math notranslate nohighlight">\(f(x)=2 x-\operatorname{tg}(x)=0\)</span></p>
@@ -847,12 +876,12 @@ x(t)=-\frac{g}{2 \omega^2}\left(\frac{e^{\omega t}-e^{-\omega t}}{2}-\operatorna
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../1_INTRODUCAO_ERROS/1.3_erros_nas_aproximacoes_numericas.html"
+       href="../1_INTRODUCAO_ERROS/1.4_exemplos_de_aplicacoes.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">1.3 Erros nas aproximações numéricas</p>
+        <p class="prev-next-title">1.4 Exemplos de aplicações</p>
       </div>
     </a>
     <a class="right-next"

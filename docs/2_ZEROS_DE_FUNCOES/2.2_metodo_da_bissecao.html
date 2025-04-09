@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -60,7 +60,6 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '2_ZEROS_DE_FUNCOES/2.2_metodo_da_bissecao';</script>
-    <link rel="canonical" href="/metodos_numericos_em_python/2_ZEROS_DE_FUNCOES/2.2_metodo_da_bissecao.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2.3 Método do ponto fixo" href="2.3_metodo_do_ponto_fixo.html" />
@@ -187,6 +186,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.1_o_basico_sobre_erros.html">1.1 O básicos sobre erros</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.2_aritmetica_de_ponto_flutuante.html">1.2. Aritmética de ponto flutuante</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.3_erros_nas_aproximacoes_numericas.html">1.3 Erros nas aproximações numéricas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.4_exemplos_de_aplicacoes.html">1.4 Exemplos de aplicações</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2. Zeros de funções</span></p>
 <ul class="current nav bd-sidenav">
@@ -196,16 +196,18 @@
 <li class="toctree-l1"><a class="reference internal" href="2.4_metodo_de_newton_raphson.html">2.4 Método de Newton-Raphson</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2.5_metodo_das_secantes.html">2.5 Método das Secantes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2.6_raizes_de_polinomios.html">2.6. Raízes de polinômios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.7_exemplos_de_aplicacoes.html">2.7 Exemplos de aplicações</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.1_forma_matricial_e_escalonamento.html">3.1. Forma matricial e escalonamento</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.2_decomposicao_LU.html">3.2 Métodos diretos: decomposição LU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.3_gauss-jordan_e_matriz_inversa.html">3.3 Eliminação de Gauss-Jordan e matriz inversa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3_SISTEMAS_LINEARES/3.4_metodos_iterativos.html">3.4 Métodos iterativos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">4.Interpolação polinomial</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html">4.1. Intepolação polinomial e fórmula de Lagrange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html">4.1. Interpolação polinomial e fórmula de Lagrange</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.2_interpolacao_de_newton.html">4.2 Fórmula de Newton</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.3_erro_na_interpolacao_polinomial.html">4.3. Erros na interpolação</a></li>
 </ul>
@@ -444,11 +446,11 @@ document.write(`
 \[f(x)=0\]</div>
 <p>Em alguns casos a solução exata <span class="math notranslate nohighlight">\(\overline{x}\)</span> pode ser encontrada por processos analíticos, quando isso não for possível, uma solução aproximada pode ser obtida por métodos numéricos.</p>
 <p>Encontrar um solução para equação <span class="math notranslate nohighlight">\(f(x)=0\)</span>  por métodos numéricos consiste em gerar uma sequência de soluções aproximadas, a partir de uma aproximação inicial <span class="math notranslate nohighlight">\(x_0\)</span>. Caso os valores obtidos pelo processo iterativo estejam se aproximando da solução exata <span class="math notranslate nohighlight">\(\overline{x}\)</span>, dizemos que a sequência está convergindo para a solução.</p>
-<p>O {\it Método da Bisseção} é o método numérico para resolução de equações do tipo <span class="math notranslate nohighlight">\(f(x)=0\)</span>, no qual, a partir de um intervalo inicial <span class="math notranslate nohighlight">\([a,b]\)</span> contendo uma única raiz, é gerada uma sequência de subintervalos, dividindo-se, a cada iteração, o intervalo que contém a raiz em dois subintervalos de mesma amplitude. A cada passo, é verificado qual dos dois subintervalos contém a raizutilizando o teorema de Bolzano (ou Teorema do Valor Intermediário), enunciado abaixo.</p>
+<p>O <em>Método da Bisseção</em> é o método numérico para resolução de equações do tipo <span class="math notranslate nohighlight">\(f(x)=0\)</span>, no qual, a partir de um intervalo inicial <span class="math notranslate nohighlight">\([a,b]\)</span> contendo uma única raiz, é gerada uma sequência de subintervalos, dividindo-se, a cada iteração, o intervalo que contém a raiz em dois subintervalos de mesma amplitude. A cada passo, é verificado qual dos dois subintervalos contém a raiz utilizando o teorema de Bolzano (ou Teorema do Valor Intermediário), enunciado abaixo.</p>
 <section id="teorema-de-bolzano">
 <h2>Teorema de Bolzano:<a class="headerlink" href="#teorema-de-bolzano" title="Link to this heading">#</a></h2>
 <p>Se <span class="math notranslate nohighlight">\(f(x)\)</span> é contínua em <span class="math notranslate nohighlight">\([a,b]\)</span> e <span class="math notranslate nohighlight">\(f(a)\cdot f(b)&lt;0\)</span>, então existe pelo menos uma raíz <span class="math notranslate nohighlight">\( \overline{x} \in [a,b]\)</span> tal que <span class="math notranslate nohighlight">\(f(x)=0\)</span>.</p>
-<p><img alt="localizacao.png" src="https://github.com/tiagoburiol/NUMETHODS/raw/master/3_ZEROS_DE_FUNCOES/images/bolzano.png" /></p>
+<img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/2_ZEROS_DE_FUNCOES/imagens/bolzano.png" width="480">
 <p>A sequência de subintervalos será calculada até que a amplitude do intervalo obtido menor que uma tolerância pré estabelecida. Assim, podemos descrever o processo no seguinte algoritmo:</p>
 <ol class="arabic simple">
 <li><p>Determinar um intervalo inicial <span class="math notranslate nohighlight">\([a,b]\)</span> contendo uma única raíz de <span class="math notranslate nohighlight">\(f\)</span>;</p></li>
@@ -473,37 +475,62 @@ document.write(`
 <p><strong>Exemplo 2.2.1:</strong>
 Usando o método da bisseção, resolva a equação <span class="math notranslate nohighlight">\(x^2+ln(x)=0\)</span>, com <span class="math notranslate nohighlight">\(\epsilon = 0.01\)</span>.</p>
 <p><em>Solução:</em> Reescrevendo a equação como <span class="math notranslate nohighlight">\(x^2=-ln(x)\)</span> e esboçando os gráficos de <span class="math notranslate nohighlight">\(f_1(x)=x^2\)</span> e <span class="math notranslate nohighlight">\(f_2(x)=-ln(x)\)</span> observamos que existe uma raiz no intervalo <span class="math notranslate nohighlight">\([0.1,1]\)</span>.</p>
-<img src="https://github.com/tiagoburiol/NUMETHODS/raw/master/3_ZEROS_DE_FUNCOES/images/3.3_exemplo_1loc.png" width="400">
-<p>Então, na primeira iteração fazemos <span class="math notranslate nohighlight">\(x_m = \frac{a+b}{2}=\frac{1.0-0.1}{2}=0.55\)</span>. Como <span class="math notranslate nohighlight">\(f(a)=f(0.1)=-2.293\)</span>, <span class="math notranslate nohighlight">\(f(b)=f(1.0)=1\)</span> e <span class="math notranslate nohighlight">\(f(x_m)=f(0.55)=-0.295\)</span> temos que a raíz está no intervalo <span class="math notranslate nohighlight">\([x_m,b]\)</span>. Além disso, <span class="math notranslate nohighlight">\(\frac{|x_1-x_0|}{|x_0|}=0.2953\)</span> é maior que <span class="math notranslate nohighlight">\(\epsilon = 0.01\)</span>. Então seguimos o processo iterativo obtendo a sequência abaixo.</p>
-<img src="https://github.com/tiagoburiol/NUMETHODS/raw/master/3_ZEROS_DE_FUNCOES/images/3.3_exemplo_1tab.png" width="500">
+<img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/2_ZEROS_DE_FUNCOES/imagens/3.3_exemplo_1loc.png" width="400"><p>Então, na primeira iteração fazemos <span class="math notranslate nohighlight">\(x_m = \frac{a+b}{2}=\frac{1.0-0.1}{2}=0.55\)</span>. Como <span class="math notranslate nohighlight">\(f(a)=f(0.1)=-2.293\)</span>, <span class="math notranslate nohighlight">\(f(b)=f(1.0)=1\)</span> e <span class="math notranslate nohighlight">\(f(x_m)=f(0.55)=-0.295\)</span> temos que a raíz está no intervalo <span class="math notranslate nohighlight">\([x_m,b]\)</span>. Além disso, <span class="math notranslate nohighlight">\(\frac{|x_1-x_0|}{|x_0|}=0.2953\)</span> é maior que <span class="math notranslate nohighlight">\(\epsilon = 0.01\)</span>. Então seguimos o processo iterativo obtendo a sequên
+cia abaixo.</p>
+<img src="https://raw.githubusercontent.com/tiagoburiol/metodos_numericos_em_python/refs/heads/main/2_ZEROS_DE_FUNCOES/imagens/3.3_exemplo_1tab.png" width="400">
+<p>Em Python podemos fazer o gráfico como é mostrado a seguir</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="n">err</span> <span class="o">=</span> <span class="mf">10.0</span><span class="p">;</span> <span class="n">x_ant</span> <span class="o">=</span> <span class="mf">0.0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 
-<span class="k">while</span> <span class="n">err</span> <span class="o">&gt;</span> <span class="mf">0.01</span><span class="p">:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">f1</span><span class="p">(</span><span class="n">xi</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">f2</span><span class="p">(</span><span class="n">xi</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/69b211e7b2f5a189ac5e9ce6def33d76bb9d88b300596c565561260bf3f0559f.png" src="../_images/69b211e7b2f5a189ac5e9ce6def33d76bb9d88b300596c565561260bf3f0559f.png" />
+</div>
+</div>
+<p>As iterações para encontrar uma aproximação podem ser obtidas como  é mostrado abaixo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="n">err</span> <span class="o">=</span> <span class="mf">10.0</span><span class="p">;</span> <span class="n">x_ant</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mf">2.0</span>
     <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">b</span> <span class="o">=</span> <span class="n">x</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">a</span> <span class="o">=</span> <span class="n">x</span>
-    <span class="n">err</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_ant</span><span class="p">)</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">x_ant</span> <span class="o">=</span> <span class="n">x</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;x = </span><span class="si">%.4f</span><span class="s2">&quot;</span><span class="o">%</span><span class="k">x</span>,&quot;| Erro = %.4f&quot;% err)
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;x =&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x = 0.5500 | Erro = 1.0000
-x = 0.7750 | Erro = 0.2903
-x = 0.6625 | Erro = 0.1698
-x = 0.6063 | Erro = 0.0928
-x = 0.6344 | Erro = 0.0443
-x = 0.6484 | Erro = 0.0217
-x = 0.6555 | Erro = 0.0107
-x = 0.6520 | Erro = 0.0054
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x = 0.55
+x = 0.775
+x = 0.6625
+x = 0.6063
+x = 0.6344
+x = 0.6484
+x = 0.6555
+x = 0.652
 </pre></div>
 </div>
 </div>
@@ -512,18 +539,18 @@ x = 0.6520 | Erro = 0.0054
 Calcular, pelo método da bisseção, corretamente até a terceira casa decimal, a raiz da equação  <span class="math notranslate nohighlight">\( \left( \frac{x}{2} \right)^2 -sen(x) = 0 \)</span>, localizada no intervalo (<span class="math notranslate nohighlight">\(a_0=1,5\)</span> e <span class="math notranslate nohighlight">\(b_0=2\)</span>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mf">1.5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">1.5</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mf">2.0</span>
-<span class="n">err</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="n">err</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="n">x_ant</span> <span class="o">=</span> <span class="mf">0.0</span>
 
 <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">y</span>
 
 <span class="k">while</span> <span class="n">err</span><span class="o">&gt;</span><span class="mf">0.0001</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mf">2.0</span>
+
     <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">b</span> <span class="o">=</span> <span class="n">x</span>
     <span class="k">elif</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -531,8 +558,10 @@ Calcular, pelo método da bisseção, corretamente até a terceira casa decimal,
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;A raiz exata é x=&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
         <span class="k">break</span> 
+        
     <span class="n">err</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x_ant</span><span class="p">)</span>
     <span class="n">x_ant</span> <span class="o">=</span> <span class="n">x</span>
+    
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;x = </span><span class="si">%.4f</span><span class="s2">&quot;</span><span class="o">%</span><span class="k">x</span>,&quot;| Err = %.4f&quot;% err)
 </pre></div>
 </div>
@@ -572,7 +601,7 @@ Use o método da bisseção para obter um zero da função <span class="math not
 <span class="k">while</span> <span class="n">err</span><span class="o">&gt;</span><span class="mf">0.01</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mf">2.0</span>
     <span class="n">err</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_ant</span><span class="p">)</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">err</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="mi">5</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">),</span><span class="mi">5</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="mi">5</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">err</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
     
     <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
         <span class="n">b</span> <span class="o">=</span> <span class="n">x</span>
@@ -586,12 +615,12 @@ Use o método da bisseção para obter um zero da função <span class="math not
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 2.0 3.0 2.5 -0.3979400086720376 0.43136376415898736 -0.005149978319906046 0.2
-1 2.5 3.0 2.75 -0.005149978319906046 0.43136376415898736 0.20816490803322218 0.09090909090909091
-2 2.5 2.75 2.625 -0.005149978319906046 0.20816490803322218 0.10021443282268616 0.047619047619047616
-3 2.5 2.625 2.5625 -0.005149978319906046 0.10021443282268616 0.04720117728851503 0.024390243902439025
-4 2.5 2.5625 2.53125 -0.005149978319906046 0.04720117728851503 0.020941821414320216 0.012345679012345678
-5 2.5 2.53125 2.515625 -0.005149978319906046 0.020941821414320216 0.007874847339405688 0.006211180124223602
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 2.0 3.0 2.5 -0.39794 0.43136 -0.00515 0.2
+1 2.5 3.0 2.75 -0.00515 0.43136 0.20816 0.09091
+2 2.5 2.75 2.625 -0.00515 0.20816 0.10021 0.04762
+3 2.5 2.625 2.5625 -0.00515 0.10021 0.0472 0.02439
+4 2.5 2.5625 2.53125 -0.00515 0.0472 0.02094 0.01235
+5 2.5 2.53125 2.515625 -0.00515 0.02094 0.00787 0.00621
 </pre></div>
 </div>
 </div>
@@ -601,39 +630,49 @@ Localize e as raízes e use o método da bisseção para obter os zero da funç�
 <p><strong>Solução:</strong> Nesse exemplo, vamos começar fazendo o gráfico da função.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="c1"># Cria uma lista de pontos igualmente espaçados:</span>
-<span class="c1"># numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=0)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
 <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="o">-</span><span class="mi">9</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mi">3</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">xi</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UsageError: Line magic function `%` not found.
-</pre></div>
-</div>
+<img alt="../_images/da09d4ca2a033e686c1ebcb8b020d722671b316d7d822c6bf13ab233012896cb.png" src="../_images/da09d4ca2a033e686c1ebcb8b020d722671b316d7d822c6bf13ab233012896cb.png" />
 </div>
 </div>
 <p>Pelo gráfico, podemos ver que parece existirem três raízes distintas <span class="math notranslate nohighlight">\(x_1 \in (-4,-3)\)</span>, <span class="math notranslate nohighlight">\(x_2 \in (0, 1)\)</span> e <span class="math notranslate nohighlight">\(x_3 \in (2,3)\)</span>. Vamos confirmar criando uma tabela de valores com o código a seguir.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xi</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xi</span><span class="p">:</span>
     <span class="nb">print</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-4.0 -25.0
+-3.5 -8.375
+-3.0 3.0
+-2.5 9.875
+-2.0 13.0
+-1.5 13.125
+-1.0 11.0
+-0.5 7.375
+0.0 3.0
+0.5 -1.375
+1.0 -5.0
+1.5 -7.125
+2.0 -7.0
+2.5 -3.875
+3.0 3.0
+</pre></div>
 </div>
-<p>Pela tabela, comfirmamos a existência das raízes nos segintes intervalos: <span class="math notranslate nohighlight">\(x_1 \in (-3.5,-3)\)</span>, <span class="math notranslate nohighlight">\(x_2 \in (0, 0.5)\)</span> e <span class="math notranslate nohighlight">\(x_3 \in (2.5,3)\)</span>. usaremos agora o método da bisseção para encontrar cada uma das raízes com erro inferior a <span class="math notranslate nohighlight">\(10^{-3}\)</span>. Faremos isso criando uma função para o método da bisseção, cujos argumantos de entrada são o intervalo inicial(a,b) e a precisão <span class="math notranslate nohighlight">\(\epsilon\)</span>.</p>
+</div>
+</div>
+<p>Pela tabela, confirmamos a existência das raízes nos segintes intervalos: <span class="math notranslate nohighlight">\(x_1 \in (-3.5,-3)\)</span>, <span class="math notranslate nohighlight">\(x_2 \in (0, 0.5)\)</span> e <span class="math notranslate nohighlight">\(x_3 \in (2.5,3)\)</span>. usaremos agora o método da bisseção para encontrar cada uma das raízes com erro inferior a <span class="math notranslate nohighlight">\(10^{-3}\)</span>. Faremos isso criando uma função para o método da bisseção, cujos argumantos de entrada são o intervalo inicial(a,b) e a precisão <span class="math notranslate nohighlight">\(\epsilon\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bissec</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">eps</span><span class="p">):</span>
@@ -651,9 +690,16 @@ Localize e as raízes e use o método da bisseção para obter os zero da funç�
 
 <span class="n">eps</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
 
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;x1=&quot;</span><span class="p">,</span> <span class="n">bissec</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="n">eps</span><span class="p">))</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;x2=&quot;</span><span class="p">,</span> <span class="n">bissec</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">eps</span><span class="p">))</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;x3=&quot;</span><span class="p">,</span> <span class="n">bissec</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">eps</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;x1 =&quot;</span><span class="p">,</span> <span class="n">bissec</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="n">eps</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;x2 =&quot;</span><span class="p">,</span> <span class="n">bissec</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">eps</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;x3 =&quot;</span><span class="p">,</span> <span class="n">bissec</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">eps</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x1 = -3.15625
+x2 = 0.337890625
+x3 = 2.828125
 </pre></div>
 </div>
 </div>
@@ -666,6 +712,12 @@ Localize e as raízes e use o método da bisseção para obter os zero da funç�
 <p>b) <span class="math notranslate nohighlight">\(f(x) = 5x^2 – 5x^2 + 6x -2\)</span></p>
 <p>c) <span class="math notranslate nohighlight">\(f(x) = –25 + 82x – 90x^2 + 44x^3 – 8x^4 + 0.7x^5\)</span></p>
 <p>d) <span class="math notranslate nohighlight">\(f(x) = – 12 – 21x + 18x^2 – 2.75x^3\)</span></p>
+<p>e) <span class="math notranslate nohighlight">\(f(x)=3x-e^x=0\)</span></p>
+<p>f) <span class="math notranslate nohighlight">\(f(x)=\operatorname{sen}(x)+x^2+1=0\)</span></p>
+<p>g) <span class="math notranslate nohighlight">\(f(x)=\operatorname{sen}(x)-x+2=0\)</span></p>
+<p>h) <span class="math notranslate nohighlight">\(f(x)=2 x-\operatorname{tg}(x)=0\)</span></p>
+<p>i) <span class="math notranslate nohighlight">\(f(x)=3 x-\cos (x)+1=0\)</span></p>
+<p>j) <span class="math notranslate nohighlight">\(f(x)=\ln (x)-\operatorname{sen}(x)=0\)</span></p>
 <p><strong>2.</strong> Como mostrado na figura abaixo, a velocidade da água, <span class="math notranslate nohighlight">\(v(m/s)\)</span>, descarregada de um tanque cilíndrico através de um cano longo pode ser calculada por</p>
 <div class="math notranslate nohighlight">
 \[ v = \sqrt{2gH} \tanh \left( \frac{\sqrt{2gH}}{2L}t \right)\]</div>
