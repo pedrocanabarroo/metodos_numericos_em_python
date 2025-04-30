@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -63,7 +63,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="3.3 Eliminação de Gauss-Jordan e matriz inversa" href="3.3_gauss-jordan_e_matriz_inversa.html" />
-    <link rel="prev" title="3.1. Forma matricial e escalonamento" href="3.1_forma_matricial_e_escalonamento.html" />
+    <link rel="prev" title="3.1. Forma matricial" href="3.1_forma_matricial_e_escalonamento.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -186,7 +186,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.1_o_basico_sobre_erros.html">1.1 O básicos sobre erros</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.2_aritmetica_de_ponto_flutuante.html">1.2. Aritmética de ponto flutuante</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.3_erros_nas_aproximacoes_numericas.html">1.3 Erros nas aproximações numéricas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.4_exemplos_de_aplicacoes.html">1.4 Exemplos de aplicações</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_INTRODUCAO_ERROS/1.4_exemplos_de_aplicacoes.html">1.4 Exemplos aplicados</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2. Zeros de funções</span></p>
 <ul class="nav bd-sidenav">
@@ -200,14 +200,14 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Sistemas Lineares</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="3.1_forma_matricial_e_escalonamento.html">3.1. Forma matricial e escalonamento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3.1_forma_matricial_e_escalonamento.html">3.1. Forma matricial</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">3.2 Métodos diretos: decomposição LU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3.3_gauss-jordan_e_matriz_inversa.html">3.3 Eliminação de Gauss-Jordan e matriz inversa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3.4_metodos_iterativos.html">3.4 Métodos iterativos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">4.Interpolação polinomial</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html">4.1. Interpolação polinomial e fórmula de Lagrange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.1_interpolacao_de_lagrange.html">4.1. Intepolação polinomial e fórmula de Lagrange</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.2_interpolacao_de_newton.html">4.2 Fórmula de Newton</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4_INTERPOLACAO_POLINOMIAL/4.3_erro_na_interpolacao_polinomial.html">4.3. Erros na interpolação</a></li>
 </ul>
@@ -426,10 +426,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcoes-para-escalonar-uma-matriz-e-para-resolver-sistemas-triangulares">Funções para escalonar uma matriz e para resolver sistemas triangulares</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decomposicaolu">DecomposiçãoLU</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decomposicao-lu">Decomposição LU</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fatoracao-lu-por-reducao-de-doolittle">Fatoração LU por redução de Doolittle</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-o-modulo-scipy-linalg-para-fatorar-uma-matriz">Usando o módulo <code class="docutils literal notranslate"><span class="pre">scipy.linalg</span></code> para fatorar uma matriz</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercicio">Exercício</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercicios">Exercícios</a></li>
 </ul>
             </nav>
         </div>
@@ -811,11 +811,11 @@ x_1+x_2+x_4 &amp; =2, \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_6941/899190976.py:8: RuntimeWarning: divide by zero encountered in scalar divide
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_4617/899190976.py:8: RuntimeWarning: divide by zero encountered in scalar divide
   m = M[i+1,j]/M[j,j]
-/tmp/ipykernel_6941/899190976.py:9: RuntimeWarning: invalid value encountered in multiply
+/tmp/ipykernel_4617/899190976.py:9: RuntimeWarning: invalid value encountered in multiply
   M[i+1] = M[i+1]-m*M[j]
-/tmp/ipykernel_6941/899190976.py:8: RuntimeWarning: invalid value encountered in scalar divide
+/tmp/ipykernel_4617/899190976.py:8: RuntimeWarning: invalid value encountered in scalar divide
   m = M[i+1,j]/M[j,j]
 </pre></div>
 </div>
@@ -929,10 +929,12 @@ x_1+x_2+x_4 &amp; =2, \\
 </div>
 </section>
 <hr class="docutils" />
-<section id="decomposicaolu">
-<h2>DecomposiçãoLU<a class="headerlink" href="#decomposicaolu" title="Link to this heading">#</a></h2>
-<p>Os passos utilizados para resolver um sistema da forma <span class="math notranslate nohighlight">\(Ax = b\)</span> por eliminação de Gauss podem ser utilizados para fatorar uma matriz <span class="math notranslate nohighlight">\(A\)</span> em um produto de duas matrizes triangulares <span class="math notranslate nohighlight">\(L\)</span> (triangular inferior) e <span class="math notranslate nohighlight">\(U\)</span> (triangular superior).</p>
-<p><strong>Exemplo 3:</strong> Vejamos como resolver o sistema</p>
+<section id="decomposicao-lu">
+<h2>Decomposição LU<a class="headerlink" href="#decomposicao-lu" title="Link to this heading">#</a></h2>
+<p>A fatoração <span class="math notranslate nohighlight">\(LU\)</span> é útil para resolver sistemas lineares, calcular determinantes e encontrar inversas de matrizes de forma mais eficiente. Uma vez que a matriz <span class="math notranslate nohighlight">\(A\)</span> é fatorada, resolver sistemas do tipo <span class="math notranslate nohighlight">\(Ax=b\)</span> fica mais rápido, pois basta resolver dois sistemas triangulares mais simples, primeiramente <span class="math notranslate nohighlight">\(Ly=b\)</span> e, então, <span class="math notranslate nohighlight">\(Ux=y\)</span>.</p>
+<p>Além disso, é mais fácil obter o determinante de <span class="math notranslate nohighlight">\(A\)</span> calculando o produto dos elementos da diagonal da matriz triangular. Por fim, evita fazer a eliminação gaussiana para obter a solução do sistema <span class="math notranslate nohighlight">\(Ax=b\)</span> toda vez que muda o vetor <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<p>As mesmas operações com linhas utilizadas para resolver um sistema da forma <span class="math notranslate nohighlight">\(Ax = b\)</span> por eliminação de Gauss podem ser utilizados para fatorar uma matriz <span class="math notranslate nohighlight">\(A\)</span> em um produto de duas matrizes triangulares <span class="math notranslate nohighlight">\(L\)</span> (triangular inferior) e <span class="math notranslate nohighlight">\(U\)</span> (triangular superior).  Vejamos um exemplo:</p>
+<p><strong>Exemplo 3:</strong> Seja o sistema</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \left[\begin{array}{lll}
@@ -949,7 +951,7 @@ x_3
 5
 \end{array}\right]
 \end{split}\]</div>
-<p>usando o processo de fatoração <span class="math notranslate nohighlight">\(LU\)</span>.</p>
+<p>Vamos encontrar a solução usando o processo de fatoração <span class="math notranslate nohighlight">\(LU\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># criamos as matrizes</span>
@@ -983,7 +985,7 @@ x_3
 </div>
 </div>
 <p>Observe que o resultado é o mesmo que se multiplicar a matriz</p>
-<p>$<span class="math notranslate nohighlight">\(M=
+<p>$<span class="math notranslate nohighlight">\(M_1=
 \left[\begin{array}{lll}
 1 &amp; 0 &amp; 0 \\
 -m21 &amp; 1 &amp; 0 \\
@@ -998,9 +1000,9 @@ x_3
 <p>pela matriz <span class="math notranslate nohighlight">\(A\)</span> como é mostrado abaixo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
 <span class="n">A</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">M</span><span class="nd">@A</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">M1</span><span class="nd">@A</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1031,56 +1033,187 @@ x_3
 </div>
 </div>
 </div>
-<p>Podemos chegar a esse mesmo resultado fazendo</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
+<p>O resultado é o mesmo que obtemos ao multiplicar a matriz
+$<span class="math notranslate nohighlight">\(M_2 = \left[\begin{array}{lll}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; -m_{32} &amp; 1
+\end{array}\right]=
 \left[\begin{array}{lll}
 1 &amp; 0 &amp; 0 \\
 0 &amp; 1 &amp; 0 \\
-0 &amp; -m32 &amp; 1
+0 &amp; -0.5 &amp; 1
+\end{array}\right]
+\)</span>$</p>
+<p>por <span class="math notranslate nohighlight">\(M_1 A\)</span>.</p>
+<p>Ou seja, o escalonamento da matriz <span class="math notranslate nohighlight">\(A\)</span> pode ser realizado pelo produto <span class="math notranslate nohighlight">\(M_2M_1 A\)</span>, como podemos verificar a seguir:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">M1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">M2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U</span> <span class="o">=</span> <span class="n">M2</span><span class="nd">@M1@A</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2. 0. 1.]
+ [0. 2. 1.]
+ [0. 0. 2.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Então, em resumo, tem-se:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+M_2M_1A=
+\left[\begin{array}{lll}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; -m_{32} &amp; 1
 \end{array}\right]
 \left[\begin{array}{lll}
 1 &amp; 0 &amp; 0 \\
--m21 &amp; 1 &amp; 0 \\
--m31 &amp; 0 &amp; 1
+-m_{21} &amp; 1 &amp; 0 \\
+-m_{31} &amp; 0 &amp; 1
 \end{array}\right]
 \left[\begin{array}{lll}
 2 &amp; 0 &amp; 1 \\
 0 &amp; 2 &amp; 1 \\
 1 &amp; 1 &amp; 3
 \end{array}\right]
-=
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}=
 \left[\begin{array}{lll}
 1 &amp; 0 &amp; 0 \\
--m21 &amp; 1 &amp; 0 \\
--m31 &amp; -m32 &amp; 1
+-m_{21} &amp; 1 &amp; 0 \\
+-m_{31} &amp; -m_{32} &amp; 1
 \end{array}\right]
 \left[\begin{array}{lll}
 2 &amp; 0 &amp; 1 \\
 0 &amp; 2 &amp; 1 \\
 1 &amp; 1 &amp; 3
 \end{array}\right]
-=
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}=
+\left[\begin{array}{lll}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+-0,5 &amp; -0,5 &amp; 1
+\end{array}\right]
+\left[\begin{array}{lll}
+2 &amp; 0 &amp; 1 \\
+0 &amp; 2 &amp; 1 \\
+1 &amp; 1 &amp; 3
+\end{array}\right]\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}=\left[\begin{array}{lll}
+2 &amp; 0 &amp; 1 \\
+0 &amp; 2 &amp; 1 \\
+0 &amp; 0 &amp; 2
+\end{array}\right]
+=U
+\end{split}\]</div>
+<p>Observe que podemos obter a matriz <span class="math notranslate nohighlight">\(A\)</span> a partir da matriz triangular superior <span class="math notranslate nohighlight">\(U\)</span> fazendo <span class="math notranslate nohighlight">\(M_1^{-1}M_2^{-1}U=A\)</span>, pois</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}M_1^{-1}M_2^{-1}U=
+\left[\begin{array}{lll}
+1 &amp; 0 &amp; 0 \\
+-m_{21} &amp; 1 &amp; 0 \\
+-m_{31} &amp; 0 &amp; 1
+\end{array}\right]^{-1}
+\left[\begin{array}{lll}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; -m_{32} &amp; 1
+\end{array}\right]^{-1}
 \left[\begin{array}{lll}
 2 &amp; 0 &amp; 1 \\
 0 &amp; 2 &amp; 1 \\
 0 &amp; 0 &amp; 2
 \end{array}\right]
 \end{split}\]</div>
-<p>Além disso, note que</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}=\left[\begin{array}{lll}
+1 &amp; 0 &amp; 0 \\
+m_{21} &amp; 1 &amp; 0 \\
+m_{31} &amp; 0 &amp; 1
+\end{array}\right]
+\left[\begin{array}{lll}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; m_{32} &amp; 1
+\end{array}\right]
+\left[\begin{array}{lll}
+2 &amp; 0 &amp; 1 \\
+0 &amp; 2 &amp; 1 \\
+0 &amp; 0 &amp; 2
+\end{array}\right]
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}=
+\left[\begin{array}{lll}
+1 &amp; 0 &amp; 0 \\
+m_{21} &amp; 1 &amp; 0 \\
+m_{31} &amp; m_{32} &amp; 1
+\end{array}\right]
+\left[\begin{array}{lll}
+2 &amp; 0 &amp; 1 \\
+0 &amp; 2 &amp; 1 \\
+0 &amp; 0 &amp; 2
+\end{array}\right]
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split} = \left[\begin{array}{lll}
+2 &amp; 0 &amp; 1 \\
+0 &amp; 2 &amp; 1 \\
+1 &amp; 1 &amp; 3
+\end{array}\right] = A\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">inv</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inv</span><span class="p">(</span><span class="n">M1</span><span class="p">)</span><span class="nd">@inv</span><span class="p">(</span><span class="n">M2</span><span class="p">)</span><span class="nd">@U</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2., 0., 1.],
+       [0., 2., 1.],
+       [1., 1., 3.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Assim, fazendo</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \left[\begin{array}{lll}
 1 &amp; 0 &amp; 0 \\
--m21 &amp; 1 &amp; 0 \\
--m31 &amp; -m32 &amp; 1
-\end{array}\right]^{-1}=
+m_{21} &amp; 1 &amp; 0 \\
+m_{31} &amp; m_{32} &amp; 1
+\end{array}\right]=
 \left[\begin{array}{lll}
 1 &amp; 0 &amp; 0 \\
--m21 &amp; 1 &amp; 0 \\
--m31 &amp; -m32 &amp; 1
-\end{array}\right]\end{split}\]</div>
-<p>e portanto podemos escrever a fatoração como</p>
+0 &amp; 1 &amp; 0 \\
+0,5 &amp; 0,5 &amp; 1
+\end{array}\right]=L\end{split}\]</div>
+<p>podemos escrever a fatoração <span class="math notranslate nohighlight">\(LU\)</span> como</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 A=LU \quad \rightarrow \quad 
@@ -1092,7 +1225,7 @@ A=LU \quad \rightarrow \quad
 \left[\begin{array}{lll}
 1 &amp; 0 &amp; 0 \\
 0 &amp; 1 &amp; 0 \\
--0.5 &amp; -0.5 &amp; 1
+0,5 &amp; 0,5 &amp; 1
 \end{array}\right]
 \left[\begin{array}{lll}
 2 &amp; 0 &amp; 1 \\
@@ -1100,7 +1233,7 @@ A=LU \quad \rightarrow \quad
 0 &amp; 0 &amp; 2
 \end{array}\right]
 \end{split}\]</div>
-<p>Como pode ser veificado como é mostrado abaixo</p>
+<p>Como é verificado abaixo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
@@ -1117,16 +1250,17 @@ A=LU \quad \rightarrow \quad
 </div>
 </div>
 </div>
-<p>Para obter a solução do sistema linear <span class="math notranslate nohighlight">\(Ax=b\)</span> por decomposição <span class="math notranslate nohighlight">\(LU\)</span> fazemos</p>
+<p>Por fim, para obter a solução do sistema linear <span class="math notranslate nohighlight">\(Ax=b\)</span> por decomposição <span class="math notranslate nohighlight">\(LU\)</span> fazemos</p>
 <div class="math notranslate nohighlight">
 \[Ax=b \rightarrow LUx=b\]</div>
-<p>escrevendo <span class="math notranslate nohighlight">\(Ux=y\)</span> tem-se dois sitemas triangulares</p>
+<p>escrevendo <span class="math notranslate nohighlight">\(Ux=y\)</span> obtemos a solução resolvendo dois sitemas triangulares</p>
 <p>
 <div align="center">
-$Ly=b\,\,\,$ e, então, $\,\,\,Ux=y$
+$Ly= b\quad$ e, então $\quad Ux=y$
 </div>
-<p>Resolvendo o sistema <span class="math notranslate nohighlight">\(Ly=b\)</span> obtem-se <span class="math notranslate nohighlight">\(y\)</span>, então, resolvendo o sistema <span class="math notranslate nohighlight">\(Ux=y\)</span>, obtem-se a solução procurada <span class="math notranslate nohighlight">\(x = (x_1,...,x_n)^T\)</span>.</p>
-<p>Assim, a resolução do sistema <span class="math notranslate nohighlight">\(Ax=b\)</span> é feita resolvendo-se o sistema triangular inferior e, em seguida, o sistema triagular superior.</p>
+</p>
+Resolvendo o sistema $Ly=b$ obtem-se $y$, então, resolvendo o sistema $Ux=y$, obtem-se a solução procurada $x = (x_1,...,x_n)^T$.
+<p>Assim, a resolução do sistema <span class="math notranslate nohighlight">\(Ax=b\)</span> é feita resolvendo-se o sistema triangular inferior e, em seguida, o sistema triagular superior como é mostrado a seguir:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">solve_tril</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
@@ -1153,7 +1287,7 @@ $Ly=b\,\,\,$ e, então, $\,\,\,Ux=y$
 </div>
 </div>
 </div>
-<p>Agora, podemos sintetizar os resultados escrevendo uma funação para fatorar uma matriz por eliminação de Gauss , fazendo:</p>
+<p>Agora, podemos sintetizar os resultados escrevendo uma função para fatorar uma matriz por eliminação de Gauss , fazendo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fatoraLU</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
@@ -1164,7 +1298,7 @@ $Ly=b\,\,\,$ e, então, $\,\,\,Ux=y$
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>            
             <span class="n">m</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">/</span><span class="n">U</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
             <span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">m</span><span class="o">*</span><span class="n">U</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-            <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span> 
+            <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">U</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1187,6 +1321,32 @@ $Ly=b\,\,\,$ e, então, $\,\,\,Ux=y$
 [[2. 0. 1.]
  [0. 2. 1.]
  [0. 0. 2.]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">solve_tril</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y=&quot;</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>y= [3. 3. 2.]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">solve_triu</span><span class="p">(</span><span class="n">U</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x=&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x= [1. 1. 1.]
 </pre></div>
 </div>
 </div>
@@ -1222,6 +1382,18 @@ $Ly=b\,\,\,$ e, então, $\,\,\,Ux=y$
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1.91812865  1.96491228 -0.98830409 -3.19298246 -1.13450292]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="nd">@x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 7.,  2., -5.,  6.,  3.])
 </pre></div>
 </div>
 </div>
@@ -1338,13 +1510,12 @@ x_1+x_2+3 x_4 &amp; =8, \\
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
-              <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
-              <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">26</span><span class="p">]])</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p><strong>Fatoração LU</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lu</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
@@ -1352,31 +1523,31 @@ x_1+x_2+3 x_4 &amp; =8, \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[1., 0., 0.],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[0., 0., 1.],
         [0., 1., 0.],
-        [0., 0., 1.]]),
- array([[1. , 0. , 0. ],
-        [0. , 1. , 0. ],
-        [0.5, 0.5, 1. ]]),
- array([[2., 0., 1.],
-        [0., 2., 1.],
-        [0., 0., 2.]]))
+        [1., 0., 0.]]),
+ array([[ 1.        ,  0.        ,  0.        ],
+        [ 0.5       ,  1.        ,  0.        ],
+        [ 0.25      , -0.16666667,  1.        ]]),
+ array([[ 4., 10., 26.],
+        [ 0.,  3., -3.],
+        [ 0.,  0., -3.]]))
 </pre></div>
 </div>
 </div>
 </div>
+<p><strong>Fatoração Cholesky</strong></p>
+<p>A fatoração de Cholesky é uma forma especial de decompor uma matriz simétrica e definida positiva. Ela escreve a matriz <span class="math notranslate nohighlight">\(A\)</span> como:</p>
+<div class="math notranslate nohighlight">
+\[
+A=L L^T
+\]</div>
+<p>onde <span class="math notranslate nohighlight">\(L\)</span> é uma matriz triangular inferior (com números reais positivos na diagonal), <span class="math notranslate nohighlight">\(L^T\)</span> é a transposta de <span class="math notranslate nohighlight">\(L\)</span>. Nesse caso a solução de um sistema linear <span class="math notranslate nohighlight">\(Ax=b\)</span> por fatoração de Cholesky pode ser ainda mais rápida do que por fatoração <span class="math notranslate nohighlight">\(LU\)</span>.</p>
+<p>A decomposição Cholesky é especialmente útil em problemas de otimização, sistemas de equações diferenciais, simulações físicas e finanças.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">26</span><span class="p">]])</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="n">R</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">L</span>
 </pre></div>
 </div>
 </div>
@@ -1390,7 +1561,8 @@ x_1+x_2+3 x_4 &amp; =8, \\
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span><span class="nd">@R</span><span class="o">.</span><span class="n">T</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#verificando</span>
+<span class="n">L</span><span class="nd">@L</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 </div>
 </div>
@@ -1402,6 +1574,8 @@ x_1+x_2+3 x_4 &amp; =8, \\
 </div>
 </div>
 </div>
+<p><strong>Fatoração QR</strong></p>
+<p>A fatoração <span class="math notranslate nohighlight">\(QR\)</span> é uma decomposição que escreve uma matriz <span class="math notranslate nohighlight">\(A\)</span> como o produto de duas matrizes, uma matriz ortogonal <span class="math notranslate nohighlight">\(Q\)</span> e uma matriz triangular superior <span class="math notranslate nohighlight">\(R\)</span>. É útil na resolução de sistemas lineares superdeterminados, no cálculo de autovalores e na ortonormalização de vetores. Além disso, a fatoração <span class="math notranslate nohighlight">\(QR\)</span> é mais estável numericamente que a <span class="math notranslate nohighlight">\(LU\)</span>, especialmente para sistemas mal condicionados.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span><span class="p">,</span><span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
@@ -1436,8 +1610,8 @@ x_1+x_2+3 x_4 &amp; =8, \\
 </div>
 </div>
 </section>
-<section id="exercicio">
-<h2>Exercício<a class="headerlink" href="#exercicio" title="Link to this heading">#</a></h2>
+<section id="exercicios">
+<h2>Exercícios<a class="headerlink" href="#exercicios" title="Link to this heading">#</a></h2>
 <p><strong>1.</strong> Obtenha, caso exista, a solução para os seguintes sistemas lineares utilizando os métodos estudados (eliminação de Gauss e decomposição LU).</p>
 <p>a) <span class="math notranslate nohighlight">\(\begin{cases} 
 	         2x_1 + 3x_2 + x_3 +5x_4= 11\\ 
@@ -1517,7 +1691,7 @@ x_1+x_2+3 x_4 &amp; =8, \\
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">3.1. Forma matricial e escalonamento</p>
+        <p class="prev-next-title">3.1. Forma matricial</p>
       </div>
     </a>
     <a class="right-next"
@@ -1546,10 +1720,10 @@ x_1+x_2+3 x_4 &amp; =8, \\
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcoes-para-escalonar-uma-matriz-e-para-resolver-sistemas-triangulares">Funções para escalonar uma matriz e para resolver sistemas triangulares</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decomposicaolu">DecomposiçãoLU</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decomposicao-lu">Decomposição LU</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fatoracao-lu-por-reducao-de-doolittle">Fatoração LU por redução de Doolittle</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-o-modulo-scipy-linalg-para-fatorar-uma-matriz">Usando o módulo <code class="docutils literal notranslate"><span class="pre">scipy.linalg</span></code> para fatorar uma matriz</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercicio">Exercício</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercicios">Exercícios</a></li>
 </ul>
   </nav></div>
 
